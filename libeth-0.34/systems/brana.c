@@ -21,6 +21,8 @@
 #include "brana.map"
 #include "systems.h"
 
+#include <string.h>
+
 
 FCHAR
 BranaIToUnicode ( void )

@@ -21,6 +21,8 @@
 #include "ethiop.map"
 #include "systems.h"
 
+#include <string.h>
+
 
 FCHAR
 EthiopToUnicode ( void )

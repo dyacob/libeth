@@ -21,6 +21,8 @@
 #include "qubee.map"
 #include "systems.h"
 
+#include <string.h>
+
 
 FCHAR
 QubeeToUnicode ( void )

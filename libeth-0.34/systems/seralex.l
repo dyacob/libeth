@@ -59,6 +59,8 @@
 #  include "greek.h"
 #endif /* SUPPORT_GREEK */
 
+#include <string.h>
+
 #define NEWSTATE FidelFlags->top->s
 
 #define RESCAN 0xFFFF

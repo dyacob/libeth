@@ -21,6 +21,8 @@
 #include "ed.map"
 #include "systems.h"
 
+#include <string.h>
+
 
 FCHAR
 EdToUnicode ( void )

@@ -30,4 +30,4 @@ extern int UniToTraditional[];
 extern int UniToMod[];
 extern int GeezMaps[];
 
-#endif FIDELEXP_H 1
+#endif /* FIDELEXP_H 1 */

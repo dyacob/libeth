@@ -21,6 +21,8 @@
 #include "iso.map"
 #include "systems.h"
 
+#include <string.h>
+
 
 unsigned char*
 UnicodeToISOTC46SC2 ( fch, mylflags )

@@ -21,6 +21,8 @@
 #include "ies.map"
 #include "systems.h"
 
+#include <string.h>
+
 
 unsigned char*
 UnicodeToIESGeez ( fch )

@@ -23,6 +23,8 @@
 #include "lethutil.h"
 #include "fidel.map"
 
+#include <string.h>
+
 #ifndef LNS
 # define LNS 1
   LS LnS[NUMLANGS+1] = LSDEFS;

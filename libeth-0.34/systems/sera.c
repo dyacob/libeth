@@ -23,6 +23,8 @@
 #include "etstdlib.h"
 #include "etctype.h"
 
+#include <string.h>
+
 
 FCHAR
 SERAToUnicode ( void )

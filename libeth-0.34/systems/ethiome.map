@@ -193,4 +193,4 @@ int EthioMESecondaryHashTable[224] = {
 
 };
 
-#endif ETHHIOME_MAP
+#endif /* ETHHIOME_MAP */
