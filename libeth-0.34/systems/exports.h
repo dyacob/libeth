@@ -86,6 +86,21 @@
 #endif /* ALPAS */
 
 
+#if    !(BRAILLE_MAP || BRANA_H)
+  extern unsigned char* UnicodeToBraille (FCHAR fch);
+  extern char* Braille_get_netInfo (char INFO);
+  extern unsigned char* UnicodeToBrailleAmharic (FCHAR fch);
+  extern unsigned char* UnicodeToBrailleGeez (FCHAR fch);
+  extern unsigned char* UnicodeToBrailleTigrigna (FCHAR fch);
+/*
+  extern int Braille_get_setid (int fch);
+  extern int Braille_get_setName (int setid, int fontFace, unsigned char** setName);
+  extern int Braille_get_setRTFPrefix (int setid, int fontFace, char** RTFPrefix);
+  extern unsigned char Braille_isGoodANSI (FCHAR fch);
+*/
+#endif /* BRAILLE */
+
+
 #if    !(BRANA_MAP || BRANA_H)
   extern LETCHAR BranaFidel[]; 
   extern FCHAR BranaIToUnicode (void);

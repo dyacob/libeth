@@ -18,14 +18,14 @@
 */
 
 #include "fidel.h"
-#include "ies.map"
+#include "braille.map"
 #include "systems.h"
 
 #include <string.h>
 
 
 unsigned char*
-UnicodeToIESGeez ( fch )
+UnicodeToBrailleGeez ( fch )
   FCHAR fch;
 {
 
@@ -59,7 +59,7 @@ char form;
 
 
 
-/* We are clear of bad characters, return the requested IES mapping */
+/* We are clear of bad characters, return the requested Braille mapping */
 
   holdCh = (unsigned char *) malloc ( (6 + 1) * sizeof(unsigned char) );
 
@@ -73,27 +73,20 @@ char form;
         {
           if (form == GIZ)
             form = RABI;
-          if (form == DIQALA)
-            form = GIZ;
 
-            sprintf ( holdCh, "%s", IESVowelHash[(int)form] );
+          if (form == DIQALA)
+            sprintf ( holdCh, "\"(" );
+          else
+            sprintf ( holdCh, "%s", BrailleVowelHash[(int)form] );
+
         }
-      else if ( base == (QAE + DIQALA_GIZ)
-                || base == (QXAE + DIQALA_GIZ)
-                || base == (HZAE + DIQALA_GIZ)
-                || base == (KAE + DIQALA_GIZ)
-                || base == (KHAE + DIQALA_GIZ)
-                || base == (GAE + DIQALA_GIZ)
-              )
-        sprintf ( holdCh, "%s%s", IESFidelHash[(fch/8)], IESLabialHash[(int)form] );
-      
       else if ( form != SADS )
-        sprintf ( holdCh, "%s%s", IESFidelHash[(fch/8)], IESVowelHash[(int)form] );
+        sprintf ( holdCh, "%s%s", BrailleFidelHash[(fch/8)], BrailleVowelHash[(int)form] );
       else
-        strcpy ( holdCh, IESFidelHash[(fch/8)] );
+        strcpy ( holdCh, BrailleFidelHash[(fch/8)] );
     }
   else if ( SPACE <= uch && uch <  ONE )                    /*  Punctuation  */
-    sprintf ( holdCh, "%s", IESPunctHash[(int)(uch%16)] );
+    sprintf ( holdCh, "%s", BraillePunctHash[(int)(uch%16)] );
   else if ( ONE <= uch && uch <= TENTHOUSAND )              /*  Numerals     */
     {
       if ( uch < TEN )
@@ -133,7 +126,7 @@ char form;
 
 
 unsigned char*
-UnicodeToIESAmharic ( fch )
+UnicodeToBrailleAmharic ( fch )
   FCHAR fch;
 {
 
@@ -159,18 +152,18 @@ int base = fch - form;
   if ( ( (HZAE + DIQALA_GIZ) < fch && fch < (HZAE + DIQALA_SADS) )
        || ( (KHAE + DIQALA_GIZ) < fch && fch < (KHAE + DIQALA_SADS) ) )
     {
-        returnCh = (unsigned char *) malloc ( ( strlen ( IESFidelHash[(fch-UNIFIDEL)] ) + strlen ( IESLabialHash[(int)form] ) + 1 ) * sizeof (unsigned char) );
-        sprintf ( returnCh, "%s%s", IESFidelHash[(HAE-UNIFIDEL)], IESLabialHash[(int)form] );
+        returnCh = (unsigned char *) malloc ( ( strlen ( BrailleFidelHash[(fch-form-UNIFIDEL)/8] ) + strlen ( BrailleLabialHash[(int)form] ) + 1 ) * sizeof (unsigned char) );
+        sprintf ( returnCh, "%s%s", BrailleFidelHash[(HAE-UNIFIDEL)/8], BrailleLabialHash[(int)form] );
         return ( returnCh );
     }
   else
-    return ( UnicodeToIESGeez ( fch ) );
+    return ( UnicodeToBrailleGeez ( fch ) );
 
 }
 
 
 unsigned char*
-UnicodeToIESTigrigna ( fch )
+UnicodeToBrailleTigrigna ( fch )
   FCHAR fch;
 {
 
@@ -184,26 +177,26 @@ int base = fch - form;
     fch = TSAE;
 
 
-  return ( UnicodeToIESGeez ( fch ) );
+  return ( UnicodeToBrailleGeez ( fch ) );
 
 }
 
 
 char*
-IES_get_netInfo (INFO)
+Braille_get_netInfo (INFO)
   char INFO;
 {
 
   switch (INFO)
     {
       case LETH_EMAIL:
-        return (IES_EMAIL);
+        return (BRAILLE_EMAIL);
         break;
       case LETH_WWW:
-        return (IES_WWW);
+        return (BRAILLE_WWW);
         break;
       case LETH_FTP:
-        return (IES_FTP);
+        return (BRAILLE_FTP);
         break;
       default:
         break;

@@ -49,7 +49,7 @@ LETCHAR PowerGeezFidel[UNITOTAL] =
        {
 /*  he  */  {"\x47", NOCH, SET0},  {"\x47", SPWRG_u, SET0},  {"\x48", SPWRG_il, SET0},  {"\x48", NOCH, SET0},  {"\x48", SPWRG_El, SET0},  {"\x49", NOCH, SET0},  {"\x4a", NOCH, SET0},    {NOCH, NOCH, NOCH},  
 /*  le  */  {"\x4b", NOCH, SET0},  {"\x4b", SPWRG_u, SET0},  {"\x4b", SPWRG_ir, SET0},  {"\x4c", NOCH, SET0},  {"\x4b", SPWRG_Er, SET0},  {"\x4d", NOCH, SET0},  {"\x4b", SPWRG_We, SET0},  {"\x4c", SPWRG_War, SET0},  
-/*  He  */  {"\x4e", NOCH, SET0},  {"\x4e", SPWRG_u, SET0},  {"\x4e", SPWRG_ir, SET0},  {"\x50", NOCH, SET0},  {"\x4e", SPWRG_Er, SET0},  {"\x51", NOCH, SET0},  {"\x52", NOCH, SET0},  {"\x50", SPWRG_War, SET0},  
+/*  He  */  {"\x4e", NOCH, SET0},  {"\x4f", NOCH, SET0},  {"\x4e", SPWRG_ir, SET0},  {"\x50", NOCH, SET0},  {"\x4e", SPWRG_Er, SET0},  {"\x51", NOCH, SET0},  {"\x52", NOCH, SET0},  {"\x50", SPWRG_War, SET0},  
 /*  me  */  {"\x53", NOCH, SET0},  {"\x53", SPWRG_u, SET0},  {"\x54", SPWRG_ir, SET0},  {"\x54", NOCH, SET0},  {"\x54", SPWRG_Er, SET0},  {"\x55", NOCH, SET0},  {"\x56", NOCH, SET0},  {"\x54", SPWRG_Wal, SET0},  
 /* `se  */  {"\x57", NOCH, SET0},  {"\x57", NOCH, SET0},  {"\x58", SPWRG_ir, SET0},  {"\x58", NOCH, SET0},  {"\x58", SPWRG_Er, SET0},  {"\x59", NOCH, SET0},  {"\x5a", NOCH, SET0},  {"\x58", SPWRG_Wal, SET0},  
 /*  re  */  {"\x5b", NOCH, SET0},  {"\x5c", NOCH, SET0},  {"\x5d", NOCH, SET0},  {"\x5e", NOCH, SET0},  {"\x5f", NOCH, SET0},  {"\x60", NOCH, SET0},  {"\x61", NOCH, SET0},  {"\x62", NOCH, SET0},  
@@ -127,7 +127,7 @@ int PowerGeezHashTable[224] = {
     0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x1361, 0x1367, 0x0001, 0x0001, 0x0001, 0x0001,
 
 /*       @,      A,      B,      C,      D,      E,      F,      G,      H,      I,      J,      K,      L,      M,      N,      O, */
-    0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x1200, 0x1203, 0x1205, 0x1206, 0x1208, 0x120b, 0x120d, 0x1210, 0x0000,
+    0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x1200, 0x1203, 0x1205, 0x1206, 0x1208, 0x120b, 0x120d, 0x1210, 0x1211,
 
 /*       P,      Q,      R,      S,      T,      U,      V,      W,      X,      Y,      Z,      [,      \,      ],      ^,      _, */
     0x1213, 0x1215, 0x1216, 0x1218, 0x121b, 0x121d, 0x121e, 0x1220, 0x1223, 0x1225, 0x1226, 0x1228, 0x1229, 0x122a, 0x122b, 0x122c,

@@ -507,6 +507,25 @@ FCHAR uch = fch;
 #endif /* SUPPORT_ALPAS || SUPPORT_ALL */
 
 
+#if SUPPORT_BRAILLE || SUPPORT_ALL
+      case braille :
+           switch ( mylflags->out->l )
+             {
+               case amh:
+                    returnCh = UnicodeToBrailleAmharic ( fch );
+                    break;
+               case gez:
+                    returnCh = UnicodeToBrailleGeez ( fch );
+                    break;
+               case tir:
+               default :
+                    returnCh = UnicodeToBrailleTigrigna ( fch );
+                    break;
+             }
+           break;
+#endif /* SUPPORT_BRAILLE || SUPPORT_ALL */
+
+
 #if SUPPORT_BRANA || SUPPORT_ALL
       case branai :
       case branaii:
@@ -1056,6 +1075,15 @@ int setid = NIL;
 #endif /* SUPPORT_ALPAS || SUPPORT_ALL */
 
 
+#if SUPPORT_BRAILLE || SUPPORT_ALL
+/*
+      case braille:
+           setid = Braille_get_setid ( fch );
+           break;
+*/
+#endif /* SUPPORT_BRAILLE || SUPPORT_ALL */
+
+
 #if SUPPORT_BRANA || SUPPORT_ALL
       case branai :
       case branaii:
@@ -1347,6 +1375,15 @@ isGoodANSI (fch, mylflags)
            return ( Alpas_isGoodANSI ( fch ) );
            break;
 #endif /* SUPPORT_ALPAS || SUPPORT_ALL */
+
+
+#if SUPPORT_BRAILLE || SUPPORT_ALL
+/*
+      case braille :
+           return ( Braille_isGoodANSI ( fch ) );
+           break;
+*/
+#endif /* SUPPORT_BRAILLE || SUPPORT_ALL */
 
 
 #if SUPPORT_BRANA || SUPPORT_ALL
@@ -1656,6 +1693,13 @@ char* netInfo=NULL;
            netInfo = Alpas_get_netInfo ( INFO );
            break;
 #endif /* SUPPORT_ALPAS || SUPPORT_ALL */
+
+
+#if SUPPORT_BRAILLE || SUPPORT_ALL
+      case braille:
+           netInfo = Braille_get_netInfo ( INFO );
+           break;
+#endif /* SUPPORT_BRAILLE || SUPPORT_ALL */
 
 
 #if SUPPORT_BRANA || SUPPORT_ALL
@@ -2026,6 +2070,15 @@ int nextSetid = 0;
 #endif /* SUPPORT_ALPAS || SUPPORT_ALL */
 
 
+#if SUPPORT_BRAILLE || SUPPORT_ALL
+/*
+      case braille:
+           nextSetid = Braille_get_setName (setid, fontFace, setName);
+           break;
+*/
+#endif /* SUPPORT_BRAILLE || SUPPORT_ALL */
+
+
 #if SUPPORT_BRANA || SUPPORT_ALL
       case branai :
       case branaii:
@@ -2327,6 +2380,14 @@ int nextSetid = 0;
            break;
 #endif /* SUPPORT_ALPAS || SUPPORT_ALL */
 
+#if SUPPORT_BRAILLE || SUPPORT_ALL
+/*
+      case braille:
+           nextSetid = Braille_get_setRTFPrefix (setid, fontFace, RTFPrefix);
+           break;
+*/
+#endif /* SUPPORT_BRAILLE || SUPPORT_ALL */
+
 
 #if SUPPORT_BRANA || SUPPORT_ALL
       case branai :
@@ -2606,6 +2667,7 @@ isTransliteration ( system )
 
   switch ( system )
     {
+      case braille:
       case dehai:
       case ed:
       case ethiop:

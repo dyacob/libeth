@@ -81,8 +81,8 @@ int numout, power=1;
     {
       fdig = fstring[n-i];  
       if ( fdig == HUNDRED || fdig == TENTHOUSAND )
-	    {
-		  i++;
+        {
+          i++;
           if ( !fstring[n-i] )  /* in case `100 or `10000 are on the far left */
             {
               if ( fdig == TENTHOUSAND )
@@ -90,7 +90,7 @@ int numout, power=1;
               numout += power;
             }
           continue;
-	    }
+        }
 
       if ( fdig >= TEN )
         fdig -= 9;
@@ -141,8 +141,8 @@ arabtof (number)
 FCHAR *ethioNumString, *returnString;
 register int i, j, m, n;
 char asciiOne, asciiTen;
-FCHAR gezOne, gezTen;
-int place ;
+FCHAR gezOne, gezTen, sep;
+int place, pos;
 /**
  *struct lconv* localeconv(void);
  *
@@ -152,74 +152,101 @@ int place ;
  *
  */
 
-
   if ( number == NULL )
     return ( _LET_FAIL );
 
-  n = strlen ( number ) - 1;
-
-	    
+  /*  simple integers only,
+   *  reject if punctuation present:
+   */
   for (i = 0; number[i] ; i++ )  
     if ( !(isdigit(number[i]) 
-           || number[i] == '.'
-	       || number[i] == ',') )
+         || number[i] == '.'
+         || number[i] == ',') )
       return ( _LET_FAIL );
 
-  ethioNumString = (FCHAR *) malloc ( (4*i+1) * sizeof (FCHAR) );  /* hopefully big enough... */
+  n = strlen ( number ) - 1;
+
+  if ( n == 0 ) {
+    /* Only one digit, don't bother with the loop,
+     * map onto Ethiopic "ones" and return:
+     * */
+    returnString = (FCHAR *) malloc ( 2 * sizeof (FCHAR) );
+    returnString[0] = number[0] + ONE - '1';
+    returnString[1] = '\0';
+    return ( returnString );
+  }
+  else if ( (n % 2) == 0 ) {
+     /* precondition the string to always have the leading
+      * tens place populated, this avoids at least one check
+      * in the loop:
+      */
+     char* tmp = (char *)malloc ( (n+2)*sizeof(char) );
+     sprintf ( tmp, "0%s", number );
+     number = tmp;
+     n++;
+  }
+
+
+  /* make a big unicode digit holder: */
+  ethioNumString = (FCHAR *) malloc ( (4*n+1) * sizeof (FCHAR) );
 
   m = 0;
 
-  for ( place = 0; place <= n; place++ )
+  for ( place = n; place >= 0; place-- )
     {
 
-      asciiTen = '0';
-      gezOne = gezTen = 0x0;
+      /* initialize values: */
+      gezOne   = gezTen = 0x0;
+
+      /* set ascii values: */
+      asciiTen = number[n-place]; 
+      place--;
       asciiOne = number[n-place]; 
 
-      place++;
+      /* set ethiopic values: */
+      if ( asciiOne != '0' )
+        gezOne = asciiOne + (ONE - '1');  /* map onto Ethiopic "ones" */
 
-      if ( place <= n )
-          asciiTen = number[n-place]; 
+      if ( asciiTen != '0' )
+        gezTen = asciiTen + (TEN - '1');  /* map onto Ethiopic "tens" */
 
-      if ( ( asciiOne == '0' && asciiTen == '0' ) && ( place < n ) )
-        continue;
+      /* pos indicates if our grouping subscript is even or odd       */
+      pos = ( place %4 ) / 2;
 
-      /* We form a group if: 
-       *   1) the tens place is non zero.
-       *   2) the ones place is greater than one.
-       *   3) we are working on the first position group.
+      /* find a separator, if any, to follow Ethiopic ten and one     */
+      sep
+      = ( place )
+        ? ( pos )
+          ? ( gezOne || gezTen )
+            ? HUNDRED
+            : 0x0
+          : TENTHOUSAND
+        : 0x0
+      ;
+
+
+      /* if gezOne is One we want to clear it under special conditions
        */
-      if ( asciiTen != '0' || asciiOne > '1'  || place == 1 )
-        {
-          if ( asciiOne != '0' )
-            gezOne = asciiOne + (ONE - '1');  /* map onto Ethiopic "ones" */
+      if ( ( gezOne == ONE ) && gezTen == 0x0 )      /* one without a leading ten  */
+        if ( ( sep == HUNDRED ) || (place+1) == n )  /* following (100) or leading */
+          gezOne = 0x0;                              /* the sequence               */
 
-          if ( asciiTen != '0' )
-            gezTen = asciiTen + (TEN - '1');  /* map onto Ethiopic "tens" */
-	    
-        }
-
-      if ( place > 1 )
-        {
-            for ( j=0; j < (place/4); j++ )
-              ethioNumString[m++] = TENTHOUSAND;
-
-            if ( (place/2)%2 )
-              ethioNumString[m++] = HUNDRED;
-        }
+      /* put it all together: */
+      if ( gezTen )
+        ethioNumString[m++] = gezTen;
 
       if ( gezOne )
         ethioNumString[m++] = gezOne;
 
-      if ( gezTen )
-        ethioNumString[m++] = gezTen;
+      if ( sep )
+        ethioNumString[m++] = sep;
 
     }
 
   returnString = ( FCHAR * ) malloc ( (m+1) * sizeof (FCHAR) );
 
-  for (i=m; i>0; i--)
-    returnString[i-1] = ethioNumString[m-i];
+  for (i=0; i<m; i++)
+    returnString[i] = ethioNumString[i];
 
   returnString[m] = '\0';
 

@@ -1,5 +1,5 @@
 /* This is part of the LibEth library, an ANSI C library for Ethiopic
-   text and information processing (http://libeth.netpedia.net).
+   text and information processing (http://libeth.sourceforge.net).
    Copyright (C) 1995-1998 Daniel Yacob.
 
    This library is free software; you can redistribute it and/or
@@ -93,9 +93,9 @@ enum ContentType  { text };
 
 enum ContentSubType  { plain, html, rtf, ltx, tex };
 
-#define ETHCHARSETS 77
+#define ETHCHARSETS 78
 
-enum CharacterSet  { nocs, acis, acuwork, addisword1, addisword2, alpas, branai, branaii, cbhalea, cbhaleb, dehai, dejene1, dejene2, ecoling, ed, enhpfr, ethcitap, ethcitas, ethcitau, ethiome, ethiomex, ethiop, ethiopic1, ethiopic2, ethiosoft, ethiosys, ethiosysx, ethiowalia, fidelxtr1, fidelxtr2, gezbausi, gezedit, gezedit98, gezfont, gezfree1, gezfree2, gezigna, gezi, gezii, geznewa, geznewb, geztype, geztypenet, ies, image, iso, jis, junet, laser, mainz, monotype1, monotype2, monotype3, monoalt, mononum, muletex, nci, ncic, ncic_et, omnitech, powergez, powergeznum, qubee, samwp, sam98, sera, sil1, sil2, sil3, tfanus, tfanusnew, unicode, visualgez, visualgez2k, wazema1, wazema2, all };
+enum CharacterSet  { nocs, acis, acuwork, addisword1, addisword2, alpas, braille, branai, branaii, cbhalea, cbhaleb, dehai, dejene1, dejene2, ecoling, ed, enhpfr, ethcitap, ethcitas, ethcitau, ethiome, ethiomex, ethiop, ethiopic1, ethiopic2, ethiosoft, ethiosys, ethiosysx, ethiowalia, fidelxtr1, fidelxtr2, gezbausi, gezedit, gezedit98, gezfont, gezfree1, gezfree2, gezigna, gezi, gezii, geznewa, geznewb, geztype, geztypenet, ies, image, iso, jis, junet, laser, mainz, monotype1, monotype2, monotype3, monoalt, mononum, muletex, nci, ncic, ncic_et, omnitech, powergez, powergeznum, qubee, samwp, sam98, sera, sil1, sil2, sil3, tfanus, tfanusnew, unicode, visualgez, visualgez2k, wazema1, wazema2, all };
 
 enum TransferVariant { notv, clike, decimal, dos, escd, esch, java, uname, uplus, utf7, utf8, utf16, xml, zerox };
 
@@ -108,7 +108,7 @@ enum Options { noOps, aynIsZero, debug, ethOnly=4, gColon=8, gQmark=16, gSpace=3
 
 #define _ContenSubTypeNames  { "plain", "html", "rtf", "ltx", "tex" };
 
-#define _CharacterSetNames  { "none", "acis", "acuwork", "addisword1", "addisword2", "alpas", "branai", "branaii", "cbhalea", "cbhaleb", "dehai", "dejene1", "dejene2", "ecoling", "ed", "enhpfr", "ethcitap", "ethcitas", "ethcitau", "ethiome", "ethiomex", "ethiop", "ethiopic1", "ethiopic2", "ethiosoft", "ethiosys", "ethiosysx", "ethiowalia", "fidelxtr1", "fidelxtr2", "gezbausi", "gezedit", "gezedit98", "gezfont", "gezfree", "gezfree2", "gezigna", "gezi", "gezii", "geznewa", "geznewb", "geztype", "ies", "image", "iso/tc46/sc2", "jis", "junet", "laser", "mainz", "monotype1", "monotype2", "monotype3", "monoalt", "mononum", "muletex", "nci", "ncic", "ncic_et", "omnitech", "powergez", "powergeznum", "qubee", "samwp", "sam98", "sera", "sil1", "sil2", "sil3", "tfanus", "tfanusnew", "unicode", "visualgez", "visualgez2k", "all" };
+#define _CharacterSetNames  { "none", "acis", "acuwork", "addisword1", "addisword2", "alpas", "braille", "branai", "branaii", "cbhalea", "cbhaleb", "dehai", "dejene1", "dejene2", "ecoling", "ed", "enhpfr", "ethcitap", "ethcitas", "ethcitau", "ethiome", "ethiomex", "ethiop", "ethiopic1", "ethiopic2", "ethiosoft", "ethiosys", "ethiosysx", "ethiowalia", "fidelxtr1", "fidelxtr2", "gezbausi", "gezedit", "gezedit98", "gezfont", "gezfree", "gezfree2", "gezigna", "gezi", "gezii", "geznewa", "geznewb", "geztype", "ies", "image", "iso/tc46/sc2", "jis", "junet", "laser", "mainz", "monotype1", "monotype2", "monotype3", "monoalt", "mononum", "muletex", "nci", "ncic", "ncic_et", "omnitech", "powergez", "powergeznum", "qubee", "samwp", "sam98", "sera", "sil1", "sil2", "sil3", "tfanus", "tfanusnew", "unicode", "visualgez", "visualgez2k", "all" };
 
 #define _TransferVariantNames  { "none", "C-Like", "Debug", "DOS", "Java", "U-Name", "U-Plus", "UTF7", "UTF8", "UTF16", "0x" };
 

@@ -76,7 +76,7 @@ LETCHAR GeezTypeFidel[UNITOTAL] =
 /*  Ze  */  {"\x9d", NOCH, SET0},  {"\x9d", SGT_ulll, SET0},  {"\x9d", SGT_il, SET0},  {"\x9e", NOCH, SET0},   {"\x9d", SGT_Elll, SET0},  {"\x9f", NOCH, SET0},  {"\xa1", NOCH, SET0},  {"\x9e", SGT_Wal, SET0},
 /*  ye  */  {"\xa2", NOCH, SET0},     {"\xa3", NOCH, SET0},    {"\xa4", NOCH, SET0},  {"\xa5", NOCH, SET0},     {"\xa6", NOCH, SET0},  {"\xa7", NOCH, SET0},  {"\xa8", NOCH, SET0},    {NOCH, NOCH, NOCH},
 /*  de  */  {"\xa9", NOCH, SET0},   {"\xaa", SGT_ul, SET0},  {"\xaa", SGT_ir, SET0},  {"\xaa", NOCH, SET0},     {"\xab", NOCH, SET0},  {"\xa9", SGT_yo, SET0},  {"\xac", NOCH, SET0},  {"\xa9", SGT_War, SET0},
-/*  De  */  {"\xa9\xc2", NOCH, SET0},   {"\xaa\xc2", SGT_ul, SET0},  {"\xaa\xc2", SGT_ir, SET0},  {"\xaa\xc2", NOCH, SET0},     {"\xab\xc2", SGT_yo, SET0},  {"\xa9\xc2", NOCH, SET0},  {"\xac\xc2", NOCH, SET0},  {"\xa9\xc2", SGT_War, SET0},
+/*  De  */  {"\xa9\xc2", NOCH, SET0},   {"\xaa\xc2", SGT_ul, SET0},  {"\xaa\xc2", SGT_ir, SET0},  {"\xaa\xc2", NOCH, SET0},     {"\xab\xc2", NOCH, SET0},  {"\xa9\xc2", SGT_yo, SET0},  {"\xac\xc2", NOCH, SET0},  {"\xa9\xc2", SGT_War, SET0},
 /*  je  */  {"\xad", NOCH, SET0},   {"\xae", SGT_ul, SET0},  {"\xae", SGT_im, SET0},  {"\xae", NOCH, SET0},     {"\xaf", NOCH, SET0},  {"\xb0", NOCH, SET0},  {"\xb1", NOCH, SET0},  {"\xad", SGT_War, SET0},
 /*  ge  */  {"\xb2", NOCH, SET0},  {"\xb2", SGT_uru, SET0},  {"\xb2", SGT_im, SET0},  {"\xb3", NOCH, SET0},   {"\xb2", SGT_Ell, SET0},  {"\xb4", NOCH, SET0},  {"\xb5", NOCH, SET0},    {NOCH, NOCH, SETD},
 /* gWe  */  {"\xb2", SGT_Weu, SET0},    {NOCH, NOCH, NOCH},  {"\xb2", SGT_Wi, SET0},  {"\xb6", NOCH, SET0},   {"\xb2", SGT_WEr, SET0},  {"\xb2", SGT_Wu, SET0},    {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},

@@ -76,6 +76,13 @@ char form;
 
   if ( HAE <= base && base < MYA )                /*  Basic Range Syllables  */
     {
+      if ( base == AE && form == DIQALA )
+        strcpy ( holdCh, EthiopVowelHash[DIQALA] );
+      else
+        sprintf ( holdCh, "%s%s", EthiopFidelHash[(fch/8)], EthiopVowelHash[(int)form] );
+    }
+/*
+    {
       if ( base == AE && (form == SADS || form == DIQALA) )
         strcpy ( holdCh, EthiopVowelHash[(fch/8)] );
       else if ( form != SADS )
@@ -83,6 +90,7 @@ char form;
       else
         strcpy ( holdCh, EthiopFidelHash[(fch/8)] );
     }
+*/
   else if ( WORDSPACE <= uch && uch <  ONE )                /*  Punctuation  */
     sprintf ( holdCh, "%s", EthiopPunctHash[(int)(uch%16)-1] );
   else if ( ONE <= uch && uch <= TENTHOUSAND )              /*  Numerals     */

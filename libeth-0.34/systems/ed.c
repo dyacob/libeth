@@ -27,7 +27,6 @@
 FCHAR
 EdToUnicode ( void )
 {
-#ifdef COMPILE
 FCHAR fch = NIL;
 unsigned char base, form; 
 char formNumber;
@@ -127,7 +126,12 @@ char formNumber;
                        {
                          case ED_e:  fch += DIQALA_GIZ;    break;
                          case ED_i:  fch += DIQALA_SALS;   break;
+                         /*
                          case ED_a:  if ( EdFidel[fch-UNIFIDEL+7].set == SETD )
+                         */
+                         case ED_a:  if ( fch == QAE || fch == QXAE
+                                          || fch == HZAE || fch == KAE
+                                          || fch == KHAE || fch == GAE )
                                        fch += DIQALA_RABI;
                                      else 
                                        fch += DIQALA;
@@ -141,16 +145,17 @@ char formNumber;
           
                    default:  
                      ungetToken (form);
-                     fch += formNumber;   /* no diacritic mark, restore value */   
+                     fch += formNumber;   /* no diacritic mark, restore value */
+		     /*
                      if ( EdFidel[fch-UNIFIDEL].vowel != NOCH ) 
-                          /*  I don't have a diacritic mark 
+                          **  I don't have a diacritic mark 
                            *  in the stream, but I do in the table.
                            *  this shouldn't happen with the hash buckets,
                            *  but if it does echo a warning 
-                           */
+                           **
                        {
                          fprintf (stderr, "ID Failure for ED for char 0x%02x with form 0x%02x (%c)\n", fch, form, form);
-                       }
+                       } */
                      break;
                  }
              }
@@ -162,9 +167,6 @@ char formNumber;
 
 
   return (fch);
-#else
-  return (1);
-#endif /* COMPILE */
 }
 
 
@@ -215,8 +217,9 @@ char form;
 
   if ( HAE <= base && base < MYA )                /*  Basic Range Syllables  */
     {
-      if ( base == AE && (form == SADS || form == DIQALA) )
-        strcpy ( holdCh, EdVowelHash[(fch/8)] );
+      // if ( base == AE && (form == SADS || form == DIQALA) )
+      if ( base == AE )
+        strcpy ( holdCh, EdVowelHash[(int)form] );
       else if ( form != SADS )
         sprintf ( holdCh, "%s%s", EdFidelHash[(fch/8)], EdVowelHash[(int)form] );
       else

@@ -26,24 +26,32 @@
 **   Studies, Vol. II No. 1, Addis Ababa, January 1964.
 */
 
-#ifndef IES_H
-#define IES_H 1
+#ifndef BRAILLE_H
+#define BRAILLE_H 1
 
-#ifndef SUPPORT_IES
-#  define SUPPORT_IES 1
-#endif /* SUPORT_IES */
+#ifndef SUPPORT_BRAILLE
+#  define SUPPORT_BRAILLE 1
+#endif /* SUPORT_BRAILLE */
 
-#define IES_EMAIL "ies.aau@telecom.net.et"
-#define IES_WWW   "www.ies-ethiopia.org/"
-#define IES_FTP   ""
+#define BRAILLE_EMAIL "atcb@sympatico.ca"
+#define BRAILLE_WWW   "www3.sympatico.ca/tamru/"
+#define BRAILLE_FTP   ""
 
 #ifndef LIBETH_H
 #  include "libeth.h"
 #endif /* LIBETH_H */
 
-unsigned char* UnicodeToIESAmharic (FCHAR fch);
-unsigned char* UnicodeToIESGeez (FCHAR fch);
-unsigned char* UnicodeToIESTigrigna (FCHAR fch);
-char* IES_get_netInfo (char INFO);
+unsigned char* UnicodeToBrailleAmharic (FCHAR fch);
+unsigned char* UnicodeToBrailleGeez (FCHAR fch);
+unsigned char* UnicodeToBrailleTigrigna (FCHAR fch);
 
-#endif  /* IES_H */
+char* Braille_get_netInfo (char INFO);
+/*
+unsigned char* UnicodeToBraille (FCHAR fch);
+int Braille_get_setid (FCHAR fch);
+int Braille_get_setName (int setid, int fontFace, unsigned char** setName);
+int Braille_get_setRTFPrefix (int setid, int fontFace, char** RTFPrefix);
+unsigned char BrailleI_isGoodANSI (FCHAR fch);
+*/
+
+#endif  /* BRAILLE_H */
