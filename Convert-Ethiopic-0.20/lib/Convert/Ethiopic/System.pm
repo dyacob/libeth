@@ -307,7 +307,7 @@ sub BEGIN
 #	Ethio Micro Emacs 
 #          http://www.neosoft.com/~ethiosys/
 # 	Mainz  http://www.uni-mainz.de/~kropp/
-#	SERA   http://www.cs.indiana.edu/hyplan/dmulholl/fidel/sera-faq.html
+#	SERA   http://www.abyssiniagateway.net/fidel/sera-faq.html
 #	Ethiop http://www.informatik.uni-hamburg.de/TGI/mitarbeiter/wimis/kummer/ethiop_eng.html
 #
 	'Dehai' 				=>	[ 'none',						$dehai,			0,	0,	1,	'deHay'				],

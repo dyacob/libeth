@@ -1,5 +1,5 @@
 /* 
-Copyright: (c) 1999 Daniel Yacob, dmulholl@cs.indiana.edu. All rights
+Copyright: (c) 1999 Daniel Yacob, yacob@geez.org. All rights
 	reserved. This library is free software; you can redistribute
 	it and/or modify it under the same terms as Perl itself.
 */
