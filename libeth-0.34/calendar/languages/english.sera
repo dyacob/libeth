@@ -1,0 +1,94 @@
+
+
+
+unsigned char* EnglishDays[7] = 
+  {
+    "Sunday", 
+    "Monday", 
+    "Tuesday", 
+    "Wednesday",
+    "Thursday", 
+    "Friday", 
+    "Saturday", 
+  };
+unsigned char* EnglishMonths[12] =
+  {
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  };
+
+
+#ifdef WITHSERA
+unsigned char* EnglishTranscribedMonths[12] =
+  {
+    "janyuweri",  /* GD = janwari */
+    "fEbruweri",  /* GD = fEbrwari */
+    "marc",
+    "Eprel",      /* GD = Epril */
+    "mEy",
+    "jun",
+    "julay",      /* <-GD,UH | AA = juyulay */
+    "ogest",
+    "sEptEmber",
+    "oktewber",
+    "novEmber",   /* <- GD | UH = newvmber | AA = nevEmber */
+    "disEmber",   /* UH = disember */
+  };
+unsigned char* EnglishTranscribedAbbreviatedMonths[12] =
+  {
+    "janyu",
+    "fEbru",
+    "marc",
+    "Epre",
+    "mEy",
+    "jun",
+    "julay",
+    "oges",
+    "sEptE",
+    "okte",
+    "novEm",
+    "disEm",
+  };
+#endif /* WITHSERA */
+
+
+unsigned char* EnglishTranscribedMonths[12] =
+  {
+    \ "janyuweri"\ ,  /* GD = janwari */
+    \ "fEbruweri"\ ,  /* GD = fEbrwari */
+    \ "marc"\ ,
+    \ "Eprel"\ ,      /* GD = Epril */
+    \ "mEy"\ ,
+    \ "jun"\ ,
+    \ "julay"\ ,      /* <-GD,UH | AA = juyulay */
+    \ "ogest"\ ,
+    \ "sEptEmber"\ ,
+    \ "oktewber"\ ,
+    \ "novEmber"\ ,   /* <- GD | UH = newvmber | AA = nevEmber */
+    \ "disEmber"\ ,   /* UH = disember */
+  };
+unsigned char* EnglishTranscribedAbbreviatedMonths[12] =
+  {
+    \ "janyu"\ ,
+    \ "fEbru"\ ,
+    \ "marc"\ ,
+    \ "Epre"\ ,
+    \ "mEy"\ ,
+    \ "jun"\ ,
+    \ "julay"\ ,
+    \ "oges"\ ,
+    \ "sEptE"\ ,
+    \ "okte"\ ,
+    \ "novEm"\ ,
+    \ "disEm"\ ,
+  };

@@ -1,0 +1,106 @@
+#ifdef SUPPORT_AFAR
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* AfarUTF8Days2[7] = 
+  {
+    "አክሳድ",
+    "እትሌኒ",
+    "ታላታ",
+    "አርባክ",
+    "ካሚስ",
+    "ጉምካት",
+    "ሳብቲ"
+  };
+
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* AfarUTF8Days[7] =
+  {
+    "aksad",
+    "ItlEni",
+    "talata",
+    "arbak",
+    "kamis",
+    "gumkat",
+    "sabti"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* AfarTranscribedDays[7] =
+  {
+    "Axad",
+    "Itleeni",
+    "Talaata",
+    "Arbach",
+    "Kamis",
+    "Gumcat",
+    "Sabti"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** AfarDays[1][3] =
+{
+  {
+	AfarUTF8Days,
+#ifdef WITHSERA
+	AfarSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	AfarTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  },
+};
+
+
+unsigned char** AfarMonths[3] =
+  {
+	DefaultMonths
+  };
+
+
+#define AfarDayNames DefaultDayNames
+
+
+unsigned char* AfarNames[3] =
+  {
+	"አፋር",
+#ifdef WITHSERA
+	"afar",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Afar",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_AFAR */

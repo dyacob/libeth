@@ -1,0 +1,146 @@
+\ #ifdef SUPPORT_AMHARIC
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* AmharicUTF8Days2[7] = \
+  {
+    "I`hud"\,
+    "seNo"\,
+    "magsNo"\,
+    "rob"\,
+    "`amus"\,
+    "`arb"\,
+    "qedamit"
+  }\;
+\ unsigned char* AmharicUTF8Days2[7] = \
+  {
+    "I`hu"\,
+    "seNo"\,
+    "mag"\,
+    "rob"\,
+    "`amu"\,
+    "`ar"\,
+    "qed"
+  }\;
+\
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* AmharicSERADays2[7] =
+  {
+    "I`hud",
+    "seNo",
+    "magsNo",
+    "rob",
+    "`amus",
+    "`arb",
+    "qedamit"
+  };
+unsigned char* AmharicSERAAbbreviatedDays2[7] =
+  {
+    "I`hu",
+    "seNo",
+    "mag",
+    "rob",
+    "`amu",
+    "`ar",
+    "qed"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* AmharicTranscribedDays2[7] =
+  {
+    "Ehud",
+    "Sanyo",
+    "Magsinyo",
+    "Rob",
+    "Amus",
+    "Arb",
+    "Kedamit" 
+  };
+unsigned char* AmharicTranscribedAbbreviatdDays2[7] =
+  {
+    "Ehu",
+    "San",
+    "Mag",
+    "Rob",
+    "Amu",
+    "Arb",
+    "Ked" 
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** AmharicMonths[6] =
+  {
+  	DefaultMonths,
+  	DefaultMonths
+  };
+
+
+unsigned char** AmharicDays[6] =
+{
+	DefaultUTF8Days,
+#ifdef WITHSERA
+	DefaultSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	DefaultTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	AmharicUTF8Days2,
+#ifdef WITHSERA
+	AmharicSERADays2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	AmharicTranscribedDays2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+#define AmharicDayNames DefaultDayNames
+
+
+unsigned char* AmharicNames[3] = 
+  {
+  	\ "qen"\ ,
+#ifdef WITHSERA
+  	"qen",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+  	"Ken",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_AMHARIC */

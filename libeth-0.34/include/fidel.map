@@ -1,0 +1,225 @@
+/* This is part of the LibEth library, an ANSI C library for Ethiopic
+   text and information processing (http://libeth.netpedia.net).
+   Copyright (C) 1995-1998 Daniel Yacob.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with this library; if not, write to the Free
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+/*  
+**  This is fidel.h for libeth v0.10
+**
+**
+*/
+
+#ifndef FIDEL_MAP
+#define FIDEL_MAP  1
+
+
+
+/* Unicode Fidel Mapping onto the Traditional */
+
+int UniToTraditional[UNITOTAL] =
+  {
+      0,  1,  2,  3,  4,  5,  6,NIL,                 /* he - ho  */
+      8,  9, 10, 11, 12, 13, 14, 15,                 /* le - lWa */
+     16, 17, 18, 19, 20, 21, 22, 23,                 /* He - HWa */
+     24, 25, 26, 27, 28, 29, 30, 34,                 /* me - mWa */
+/*   31,NIL, 33,NIL, 35, 32,NIL,NIL,                 // mWe- mW  */
+     40, 41, 42, 43, 44, 45, 46, 47,                 /*`se -`sWa */
+     48, 49, 50, 51, 52, 53, 54, 55,                 /* re - rWa */
+     56, 57, 58, 59, 60, 61, 62, 63,                 /* se - sWa */
+     64, 65, 66, 67, 68, 69, 70, 71,                 /* xe - xWa */
+     72, 73, 74, 75, 76, 77, 78,NIL,                 /* qe - qWa */
+     79,NIL, 81, 82, 83, 80,NIL,NIL,                 /* qWe- qW  */
+/*   88, 89, 90, 91, 92, 93, 94,NIL,                 //`qe - `qo */
+     96, 97, 98, 99,100,101,102,NIL,                 /* Qe - QWa */
+    103,NIL,105,106,107,104,NIL,NIL,                 /* QWe- QW  */
+    112,113,114,115,116,117,118,122,                 /* be - bWa */
+/*  119,NIL,121,122,123,120,NIL,NIL,                 // bWe- bW  */
+    128,129,130,131,132,133,134,135,                 /* ve - vWa */
+    136,137,138,139,140,141,142,143,                 /* te - tWa */
+    144,145,146,147,148,149,150,151,                 /* ce - cWa */
+    152,153,154,155,156,157,158,NIL,                 /*`he - hWa */
+    159,NIL,161,162,163,160,NIL,NIL,                 /* hWe- hW  */
+    168,169,170,171,172,173,174,175,                 /* ne - nWa */
+    176,177,178,179,180,181,182,183,                 /* Ne - NWa */
+    184,185,186,187,188,189,190,194,                 /*  e -  ea */
+    192,193,194,195,196,197,198,NIL,                 /* ke - kWa */
+    199,NIL,201,202,203,200,NIL,NIL,                 /* kWe- kW  */
+/*  208,209,210,211,212,213,214,NIL,                 //`ke - `ko */
+    216,217,218,219,220,221,222,NIL,                 /* Ke - KWa */
+    223,NIL,225,226,227,224,NIL,NIL,                 /* KWe- KW  */
+/*  232,233,234,235,236,237,238,NIL,                 // Xe - Xo  */
+    240,241,242,243,244,245,246,NIL,                 /* we - wo  */
+/*  247,NIL,249,NIL,251,248,NIL,NIL,                 // wWe- wW  */
+    256,257,258,259,260,261,262,NIL,                 /* `e - `o  */
+    264,265,266,267,268,269,270,271,                 /* ze - zWa */
+    272,273,274,275,276,277,278,279,                 /* Ze - ZWa */
+    280,281,282,283,284,285,286,287,                 /* ye - yWa */
+    288,289,290,291,292,293,294,295,                 /* de - dWa */
+    296,297,298,299,300,301,302,303,                 /* De - DWa */
+    304,305,306,307,308,309,310,311,                 /* je - jWa */
+    312,313,314,315,316,317,318,NIL,                 /* ge - gWa */
+    319,NIL,321,322,323,320,NIL,NIL,                 /* gWe- gW  */
+/*  328,329,330,331,332,333,334,NIL,                 //`ge - `go */
+    336,337,338,339,340,341,342,346,                 /* Ge - GWa */
+/*  343,NIL,345,346,347,344,NIL,NIL,                 // GWe- GW  */
+    352,353,354,355,356,357,358,359,                 /* Te - TWa */
+    360,361,362,363,364,365,366,367,                 /* Ce - CWa */
+    368,369,370,371,372,373,374,375,                 /* Pe - PWa */
+    376,377,378,379,380,381,382,383,                 /* Se - SWa */
+    384,385,386,387,388,389,390,NIL,                 /*`Se - `So */
+    392,393,394,395,396,397,398,402,                 /* fe - fWa */
+/*  399,NIL,401,402,403,400,NIL,NIL,                 // fWe- fW  */
+    408,409,410,411,412,413,414,418,                 /* pe - pWa */
+/*  415,NIL,417,418,419,416,NIL,NIL,                 // pWe- pW  */
+    424,425,426,NIL,NIL,NIL,NIL,NIL,                 /* mYa- fYa */
+
+    452,453,458,454,455,457,456,459,460,             /* Punctuate*/
+    432,433,434,436,435,437,438,439,440,441,         /* Numbers  */
+    442,443,444,445,446,447,448,449,450,451,         /* Numbers  */
+    NIL,NIL,NIL,
+
+  
+     88, 89, 90, 91, 92, 93, 94,NIL,                 /*`qe - `qo */
+/*  mWx,bWx,GWx,fWx,pWx,                             */
+     31,119,343,399,415,NIL,NIL,NIL,                 /* mWe- pWe */
+    208,209,210,211,212,213,214,NIL,                 /*`ke - `ko */
+     33,121,345,401,417,NIL,NIL,NIL,                 /* mWi- pWi */
+    232,233,234,235,236,237,238,NIL,                 /* Xe - Xo  */
+     35,123,347,403,419,NIL,NIL,NIL,                 /* mWE- pWE */
+    328,329,330,331,332,333,334,NIL,                 /*`ge - `go */
+     32,120,344,400,416,NIL,NIL,NIL,                 /* mW - pW  */
+
+    467,468,469,470,471,                             /* glyphs   */
+    247,249,250,251,248,                             /* wWe- wW  */
+    466,465,464,461,462,463                          /* Misc Punc*/
+  };
+
+
+
+int UniToMod[UNITOTAL] =
+  {
+    176,177,178,179,180,181,182,NIL,                 /* he - ho  */
+      0,  1,  2,  3,  4,  5,  6,  7,                 /* le - lWa */
+      8,  9, 10 ,11 ,12, 13, 14, 15,                 /* He - HWa */ 
+    188,189,190,191,192,193,194,198,                 /* me - mWE */
+     16, 17, 18, 19, 20, 21, 22, 23,                 /*`se -`sWa */
+     24, 25, 26, 27, 28, 29, 30, 31,                 /* re - rWa */
+     32, 33, 34, 35, 36, 37, 38, 39,                 /* se - sWa */
+     40, 41, 42, 43, 44, 45, 46, 47,                 /* xe - xWa */
+    200,201,202,203,204,205,206,NIL,                 /* qe - qWa */
+    207,NIL,209,210,211,208,NIL,NIL,                 /*qWe - qW' */ 
+    212,213,214,215,216,217,218,NIL,                 /* Qe - QWa */
+    219,NIL,221,222,223,220,NIL,NIL,                 /*QWe - QW' */
+    224,225,226,227,228,229,230,234,                 /* be - bWE */
+     48, 49, 50, 51, 52, 53, 54, 55,                 /* ve - vWa */
+     56, 57, 58, 59, 60, 61, 62, 63,                 /* te - tWa */
+     64, 65, 66, 67, 68, 69, 70, 71,                 /* ce - cWa */
+    327,328,329,330,331,332,333,NIL,                 /*`he - `ho */
+    183,NIL,185,186,187,184,NIL,NIL,                 /*hWe - hW' */
+     72, 73, 74, 75, 76, 77, 78, 79,                 /* ne - nWa */
+     80, 81, 82, 83, 84, 85, 86, 87,                 /* Ne - NWa */
+     88, 89, 90, 91, 92, 93, 94, 95,                 /*  e - ea  */
+    236,237,238,239,240,241,242,NIL,                 /* ke - kWa */
+    243,NIL,245,246,247,244,NIL,NIL,                 /*kWe - kW' */
+    248,249,250,251,252,253,254,NIL,                 /* Ke - KWa */
+    255,NIL,257,258,259,256,NIL,NIL,                 /*KWe - KW' */
+    260,261,262,263,264,265,266,NIL,                 /* we - wo  */
+    348,349,350,351,352,353,354,NIL,                 /* `e - `o  */
+     96, 97, 98, 99,100,101,102,103,                 /* ze - zWa */
+    104,105,106,107,108,109,110,111,                 /* Ze - ZWa */
+    112,113,114,115,116,117,118,119,                 /* ye - yWa */
+    120,121,122,123,124,125,126,127,                 /* de - dWa */
+    128,129,130,131,132,133,134,135,                 /* De - DWa */
+    136,137,138,139,140,141,142,143,                 /* je - jWa */
+    272,273,274,275,276,277,278,NIL,                 /* ge - gWa */
+    279,NIL,281,282,283,280,NIL,NIL,                 /*gWe - gW' */
+    284,285,286,287,288,289,290,294,                 /* Ge - GWE */
+    144,145,146,147,148,149,150,151,                 /* Te - TWa */
+    152,153,154,155,156,157,158,159,                 /* Ce - CWa */
+    160,161,162,163,164,165,166,167,                 /* Pe - PWa */
+    168,169,170,171,172,173,174,175,                 /* Se - SWa */
+    362,363,364,365,366,367,368,NIL,                 /*`Se - `So */
+    296,297,298,299,300,301,302,306,                 /* fe - fWa */
+    308,309,310,311,312,313,314,318,                 /* pe - pWE */
+    369,370,371,NIL,NIL,NIL,NIL,NIL,                 /* Extended */
+    403,404,409,405,406,408,407,410,                 /* :  -  `? */
+    411,383,384,385,386,387,388,389,                 /*:|: -  `7 */
+    390,391,392,393,394,395,396,397,                 /* `8 - `60 */
+    398,399,400,401,402,NIL,NIL,NIL,                 /*`70 - `10K*/
+/* extensions */
+    320,321,322,323,324,325,326,NIL,                 /*`qe - `qo */
+    195,231,291,303,315,NIL,NIL,NIL,                 /*mWe - pWe */
+    334,335,336,337,338,339,340,NIL,                 /*`ke - `ko */
+    197,233,293,305,317,NIL,NIL,NIL,                 /*mWi - pWi */
+    341,342,343,344,345,346,347,NIL,                 /* Xe -  Xo */
+    199,235,295,307,319,NIL,NIL,NIL,                 /*mWE - pWE */
+    355,356,357,358,359,360,361,NIL,                 /*`ge - `go */
+    196,232,292,304,316,NIL,NIL,NIL,                 /* mW -  pW */
+/* private use shifted */
+    420,421,422,423,424,                             /* glyphs   */
+    267,269,270,271,268,                             /* wWe - wWE*/
+    414,415,416,417,418,419                          /* punctuate*/
+};
+
+
+int
+GeezMaps[41] =
+{
+  HAE,                    /* he */
+  LAE,                    /* le */
+  HHAE,                   /* He */
+  MAE,                    /* me */
+  SZAE,                   /*`se */
+  RAE,                    /* re */
+  SAE,                    /* se */
+  SHAE,                   /* xe */
+  QAE,                    /* qe */
+  QYAE,                   /*`qe */
+  QXAE,                   /* Qe */
+  BAE,                    /* be */
+  VAE,                    /* ve */
+  TAE,                    /* te */
+  CAE,                    /* ce */
+  HZAE,                   /*`he */
+  NAE,                    /* ne */
+  NYAE,                   /* Ne */
+  AE,                     /*  e */
+  KAE,                    /* ke */
+  KYAE,                   /*`ke */
+  KHAE,                   /* Ke */
+  XYAE,                   /* Xe */
+  WAE,                    /* `e */
+  OAE,                    /* we */
+  ZAE,                    /* ze */
+  ZHAE,                   /* Ze */
+  YAE,                    /* ye */
+  DAE,                    /* de */
+  DHAE,                   /* De */
+  JAE,                    /* je */
+  GAE,                    /* ge */
+  GYAE,                   /*`ge */
+  GGAE,                   /* Ge */
+  THAE,                   /* Te */
+  CHAE,                   /* Ce */
+  PHAE,                   /* Pe */
+  TSAE,                   /* Se */
+  TSZAE,                  /*`Se */
+  FAE,                    /* fe */
+  PAE,                    /* pe */
+};
+
+#endif  /* FIDEL_MAP */

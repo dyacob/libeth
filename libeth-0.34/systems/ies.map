@@ -1,0 +1,108 @@
+/* This is part of the LibEth library, an ANSI C library for Ethiopic
+   text and information processing (http://libeth.netpedia.net).
+   Copyright (C) 1995-1998 Daniel Yacob.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with this library; if not, write to the Free
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+/*
+**   These are phonetic mapping for Ethiopic script devised by Steven Wright 
+**   and adapted by the Institute of Ethiopian Studies and Kennedy Library
+**   for library cataloging.
+**
+**   Wright, Stephen, "The Transliteration of Amharic", Journal of Ethiopian
+**   Studies, Vol. II No. 1, Addis Ababa, January 1964.
+*/
+
+#ifndef IES_MAP
+#define IES_MAP 1
+
+#ifndef SUPPORT_IES
+#  define SUPPORT_IES 1
+#endif /* SUPPORT_IES */
+
+#ifndef MAPTYPES_H
+#  include "maptypes.h"
+#endif /* MAPTYPES_H */
+
+#ifndef IES_H
+#  include "ies.h"
+#endif /* IES_H */
+
+extern unsigned char* QubeePunctHash[];
+#define IESPunctHash QubeePunctHash
+
+unsigned char*
+IESFidelHash[] = 
+{
+     "h",
+     "l",  
+"\\d{h}",   /* Ge'ez & Tigrigna Only */
+     "m",  
+"\\'{s}",   /* Ge'ez Only */
+     "r",  
+     "s",  
+"\\v{s}",  
+     "q",  
+     "q",  
+"\\v{q}",  
+"\\v{q}",  
+     "b",  
+     "v",  
+     "t",  
+"\\v{c}",  
+"\\b{h}",   /* Ge'ez Only */
+"\\b{h}",   /* Ge'ez Only */
+     "n",  
+"\\~{n}",  
+     "a",  
+     "k",  
+     "k",  
+     "x",  
+     "x",  
+     "w",  
+     "`",   /* Ge'ez & Tigrigna Only */
+     "z",  
+"\\v{z}",  
+     "y",  
+     "d",
+"\\d{d}",
+     "j",
+     "g",
+     "g",
+"\\~{g}",
+"\\d{t}",
+"\\d{\\v{c}}",
+"\\d{p}",
+"\\d{s}",
+"\\d{z}",   /* Ge'ez Only */
+     "f",
+     "p"
+};
+
+unsigned char*
+IESVowelHash[7] =
+{
+ "\\\"{a}", "u",  "i",  "a",  "\\={e}",  "e",  "o"
+};
+
+unsigned char*
+IESLabialHash[6] =
+{
+ "$^{w\\\"{a}}$", "", "$^{wi}$", "$^{wa}$", "$^{w\\={e}}$", "$^{wu}$"
+};
+
+
+#endif  /* IES_MAP */

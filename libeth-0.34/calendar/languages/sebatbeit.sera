@@ -1,0 +1,479 @@
+\ #ifdef SUPPORT_SEBATBEIT
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* SebatbeitUTF8Days[7] = \
+  {
+    "wrsembet"\,
+    "wTet"\,
+    "weTet merega"\,
+    "earo"\,
+    "amWes"\,   /* not unicode compliant */
+    "jmat"\,
+    "qeTa sembet"
+  }\;
+\ unsigned char* SebatbeitUTF8Days2[7] = \
+  {
+    "wrsembet"\,
+    "wTet"\,
+    "megergebya"\,
+    "earew"\,
+    "Kemis"\,
+    "adare"\,
+    "qeTa sembet"
+  }\;
+\ unsigned char* SebatbeitUTF8Days3[7] = \
+  {
+    "wrsembet"\,
+    "wTet"\,
+    "weTet merega"\,
+    "earo"\,
+    "amwes"\,
+    "jmat"\,
+    "qeTa sembet"
+  }\;
+\ unsigned char* SebatbeitUTF8Months[13] = \
+  {
+    "ydar"\,
+    "mexe"\,
+    "Trr"\,
+    "menges"\,
+    "weto"\,
+    "manzya"\,
+    "grmWet"\,
+    "serye"\,
+    "nasE"\,
+    "amrE"\,
+    "mesKero"\,
+    "Tqmt"\,
+    "PagumEn"
+  }\;
+\ unsigned char* SebatbeitUTF8Months2[13] = \
+  {
+    "ydar"\,
+    "mexe"\,
+    "IntegWegWet"\,
+    "menges"\,
+    "weto"\,
+    "manzya"\,
+    "grmWet"\,
+    "serye"\,
+    "nasE"\,
+    "amrE"\,
+    "mesKero"\,
+    "Tqmt"\,
+    "PagumEn"
+  }\;
+\ unsigned char* SebatbeitUTF8Months3[13] = \
+  {
+    "ydar"\,
+    "mexe"\,
+    "IntegWegWet"\,
+    "menges"\,
+    "weto"\,
+    "manzya"\,
+    "grmwet"\,
+    "serye"\,
+    "nasE"\,
+    "amrE"\,
+    "mesKero"\,
+    "Tqmt"\,
+    "PagumEn"
+  }\;
+\ unsigned char* SebatbeitUTF8AbbreviatedDays[7] = \
+  {
+    "wr"\,
+    "wTe"\,
+    "weTe"\,
+    "earo"\,
+    "amWe"\,   /* not unicode compliant */
+    "jma"\,
+    "qeTa"
+  }\;
+\ unsigned char* SebatbeitUTF8AbbreviatedDays2[7] = \
+  {
+    "wr"\,
+    "wTe"\,
+    "mege"\,
+    "eare"\,
+    "Kemi"\,
+    "ada"\,
+    "qeTa"
+  }\;
+\ unsigned char* SebatbeitUTF8AbbreviatedDays3[7] = \
+  {
+    "wr"\,
+    "wTe"\,
+    "weTe"\,
+    "earo"\,
+    "am"\,
+    "jma"\,
+    "qeTa"
+  }\;
+\ unsigned char* SebatbeitUTF8AbbreviatedMonths[13] = \
+  {
+    "yda"\,
+    "mexe"\,
+    "Tr"\,
+    "men"\,
+    "weto"\,
+    "man"\,
+    "gr"\,
+    "ser"\,
+    "nasE"\,
+    "am"\,
+    "mes"\,
+    "Tq"\,
+    "Pagu"
+  }\;
+\ unsigned char* SebatbeitUTF8AbbreviatedMonths2[13] = \
+  {
+    "yda"\,
+    "mexe"\,
+    "In"\,
+    "men"\,
+    "weto"\,
+    "man"\,
+    "gr"\,
+    "ser"\,
+    "nasE"\,
+    "am"\,
+    "mes"\,
+    "Tq"\,
+    "Pagu"
+  }\;
+\ unsigned char* SebatbeitUTF8AbbreviatedMonths3[13] = \
+  {
+    "yda"\,
+    "mex"\,
+    "In"\,
+    "men"\,
+    "weto"\,
+    "man"\,
+    "gr"\,
+    "ser"\,
+    "nasE"\,
+    "am"\,
+    "mes"\,
+    "Tq"\,
+    "Pagu"
+  }\;
+\
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* SebatbeitSERADays[7] =
+  {
+    "wrsembet",
+    "wTet",
+    "weTet merega",
+    "earo",
+    "amWes",
+    "jmat",
+    "qeTa sembet"
+  };
+unsigned char* SebatbeitSERADays2[7] =
+  {
+    "wrsembet",
+    "wTet",
+    "megergebya",
+    "earew",
+    "Kemis",
+    "adare",
+    "qeTa sembet"
+  };
+unsigned char* SebatbeitSERADays3[7] =
+  {
+    "wrsembet",
+    "wTet",
+    "weTet merega",
+    "earo",
+    "amwes",
+    "jmat",
+    "qeTa sembet"
+  };
+unsigned char* SebatbeitSERAMonths[13] =
+  {
+    "ydar",
+    "mexe",
+    "Trr",
+    "menges",
+    "weto",
+    "manzya",
+    "grmWet",
+    "serye",
+    "nasE",
+    "amrE",
+    "mesKero",
+    "Tqmt",
+    "PagumEn"
+  };
+unsigned char* SebatbeitSERAMonths2[13] =
+  {
+    "ydar",
+    "mexe",
+    "IntegWegWet",
+    "menges",
+    "weto",
+    "manzya",
+    "grmWet",
+    "serye",
+    "nasE",
+    "amrE",
+    "mesKero",
+    "Tqmt",
+    "PagumEn"
+  };
+unsigned char* SebatbeitSERAMonths3[13] =
+  {
+    "ydar",
+    "mexe",
+    "IntegWegWet",
+    "menges",
+    "weto",
+    "manzya",
+    "grmwet",
+    "serye",
+    "nasE",
+    "amrE",
+    "mesKero",
+    "Tqmt",
+    "PagumEn"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* SebatbeitTranscribedDays[7] =
+  {
+    "Wirsembet",
+    "Witet",
+    "Wetet Merega",
+    "Ero",
+    "Amwes",
+    "Jimat",
+    "Keta Sembet"
+  };
+unsigned char* SebatbeitTranscribedDays2[7] =
+  {
+    "Wirsembet",
+    "Witet",
+    "Megergebya",
+    "Erew",
+    "Khemis",
+    "Adare",
+    "Keta Sembet"
+  };
+unsigned char* SebatbeitTranscribedMonths[13] =
+  {
+    "Yidar",
+    "Mexe",
+    "Tirir",
+    "Menges",
+    "Weto",
+    "Manzya",
+    "Girmwet",
+    "Serye",
+    "Nasei",
+    "Amrei",
+    "Meskero",
+    "Tikmt",
+    "Pagumein"
+  };
+unsigned char* SebatbeitTranscribedMonths2[13] =
+  {
+    "Yidar",
+    "Mexe",
+    "Entegwegwet",
+    "Menges",
+    "Weto",
+    "Manzya",
+    "Girmwet",
+    "Serye",
+    "Nasei",
+    "Amrei",
+    "Meskero",
+    "Tikmt",
+    "Pagumein"
+  };
+unsigned char* SebatbeitTranscribedAbbreviatedDays[7] =
+  {
+    "Wirsembet",
+    "Witet",
+    "Wetet Merega",
+    "Ero",
+    "Amwes",
+    "Jimat",
+    "Keta Sembet"
+  };
+unsigned char* SebatbeitTranscribedAbbreviatedDays2[7] =
+  {
+    "Wirsembet",
+    "Witet",
+    "Megergebya",
+    "Erew",
+    "Khemis",
+    "Adare",
+    "Keta Sembet"
+  };
+unsigned char* SebatbeitTranscribedAbbreviatedMonths[13] =
+  {
+    "Yidar",
+    "Mexe",
+    "Tirir",
+    "Menges",
+    "Weto",
+    "Manzya",
+    "Girmwet",
+    "Serye",
+    "Nasei",
+    "Amrei",
+    "Meskero",
+    "Tikmt",
+    "Pagumein"
+  };
+unsigned char* SebatbeitTranscribedAbbreviatedMonths2[13] =
+  {
+    "Yidar",
+    "Mexe",
+    "Entegwegwet",
+    "Menges",
+    "Weto",
+    "Manzya",
+    "Girmwet",
+    "Serye",
+    "Nasei",
+    "Amrei",
+    "Meskero",
+    "Tikmt",
+    "Pagumein"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** SebatbeitDays[9] =
+{
+	SebatbeitUTF8Days,
+#ifdef WITHSERA
+	SebatbeitSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	SebatbeitTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	SebatbeitUTF8Days2,
+#ifdef WITHSERA
+	SebatbeitSERADays2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	SebatbeitTranscribedDays2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	SebatbeitUTF8Days3,
+#ifdef WITHSERA
+	SebatbeitSERADays3,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	SebatbeitTranscribedDays2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char** SebatbeitMonths[9] =
+{
+	SebatbeitUTF8Months,
+#ifdef WITHSERA
+	SebatbeitSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	SebatbeitTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	SebatbeitUTF8Months2,
+#ifdef WITHSERA
+	SebatbeitSERAMonths2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	SebatbeitTranscribedMonths2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	SebatbeitUTF8Months3,
+#ifdef WITHSERA
+	SebatbeitSERAMonths3,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	SebatbeitTranscribedMonths2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char* SebatbeitDayNames[3] =
+  {
+	\ "kere"\ ,
+#ifdef WITHSERA
+	"kere",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Kere",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+unsigned char* SebatbeitNames[3] =
+  {
+	\ "sebatbEt"\ ,
+#ifdef WITHSERA
+	"sebatbEt",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Sebatbeit",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_SEBATBEIT */

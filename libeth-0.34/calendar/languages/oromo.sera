@@ -1,0 +1,523 @@
+\ #ifdef SUPPORT_OROMO
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* OromoUTF8Days[7] = \
+  {
+    "senbeta guda"\,
+    "wTeyta"\,
+    "kbTeta"\,
+    "arbi"\,
+    "kemsa"\,
+    "jmata"\,
+    "senbeta Tna"
+  }\;
+\ unsigned char* OromoUTF8Days2[7] = \
+  {
+    "dilbata"\,
+    "dfno"\,
+    "balo"\,
+    "robi"\,
+    "kemsa"\,
+    "jmata"\,
+    "ayan dura"
+  }\;
+\ unsigned char* OromoUTF8Days3[7] = \
+  {
+    "dilbata"\,
+    "hoja durE"\,
+    "feCasa"\,
+    "robi"\,
+    "kemsa"\,
+    "jmata"\,
+    "ayan dura"
+  }\;
+\ unsigned char* OromoUTF8Days4[7] = \
+  {
+    "dilbata"\,
+    "dfno"\,
+    "lamafo"\,
+    "robi"\,
+    "kemsa"\,
+    "jmata"\,
+    "ayan dura"
+  }\;
+\ unsigned char* OromoUTF8Months[13] = \
+  {
+    "bira"\,
+    "ankololEsa"\,
+    "sada`s"\,
+    "arfasa"\,
+    "amaji"\,
+    "gurandela"\,
+    "bitotEsa"\,
+    "Camsa"\,
+    "EbEla"\,
+    "weTebeji"\,
+    "adolEsa"\,
+    "Hegaya"\,
+    "qam'E"
+  }\;
+\ unsigned char* OromoUTF8Months2[13] = \
+  {
+    "fulbana"\,
+    "ankololEsa"\,
+    "sads"\,
+    "mudE"\,
+    "amaji"\,
+    "gurandela"\,
+    "bitotEsa"\,
+    "Camsa"\,
+    "EbEla"\,
+    "weTebeji"\,
+    "adolEsa"\,
+    "Hegaya"\,
+    "TawalwalE"
+  }\;
+\ unsigned char* OromoUTF8AbbreviatedDays[7] = \
+  {
+    "se/T"\,
+    "w"\,
+    "k"\,
+    "a"\,
+    "ke"\,
+    "j"\,
+    "se/gu"
+  }\;
+\ unsigned char* OromoUTF8AbbreviatedDays2[7] = \
+  {
+    "di"\,
+    "d"\,
+    "ba"\,
+    "ro"\,
+    "ke"\,
+    "j"\,
+    "a"
+  }\;
+\ unsigned char* OromoUTF8AbbreviatedDays3[7] = \
+  {
+    "di"\,
+    "ho"\,
+    "fe"\,
+    "ro"\,
+    "ke"\,
+    "j"\,
+    "a"
+  }\;
+\ unsigned char* OromoUTF8AbbreviatedDays4[7] = \
+  {
+    "di"\,
+    "d"\,
+    "la"\,
+    "ro"\,
+    "ke"\,
+    "j"\,
+    "a"
+  }\;
+\ unsigned char* OromoUTF8AbbreviatedMonths[13] = \
+  {
+    "bira"\,
+    "an"\,
+    "sada"\,
+    "ar"\,
+    "ama"\,
+    "gura"\,
+    "bito"\,
+    "Cam"\,
+    "EbE"\,
+    "weTe"\,
+    "ado"\,
+    "Hega"\,
+    "qam"
+  }\;
+\ unsigned char* OromoUTF8AbbreviatedMonths2[13] = \
+  {
+    "ful"\,
+    "ank"\,
+    "sad"\,
+    "mudE"\,
+    "ama"\,
+    "gura"\,
+    "bito"\,
+    "Cam"\,
+    "EbE"\,
+    "weTe"\,
+    "ado"\,
+    "Hega"\,
+    "Tawa"
+  }\;
+\
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* OromoUTF8Days[7] =
+  {
+    "senbeta guda",
+    "wTeyta",
+    "kbTeta",
+    "arbi",
+    "kemsa",
+    "jmata",
+    "senbeta Tna"
+  };
+unsigned char* OromoUTF8Days2[7] =
+  {
+    "dilbata",
+    "dfno",
+    "balo",
+    "robi",
+    "kemsa",
+    "jmata",
+    "ayan dura"
+  };
+unsigned char* OromoUTF8Days3[7] =
+  {
+    "dilbata",
+    "hoja durE",
+    "feCasa",
+    "robi",
+    "kemsa",
+    "jmata",
+    "ayan dura"
+  }\;
+unsigned char* OromoUTF8Days4[7] =
+  {
+    "dilbata",
+    "dfno",
+    "lamafo",
+    "robi",
+    "kemsa",
+    "jmata",
+    "ayan dura"
+  };
+unsigned char* OromoUTF8Months[13] =
+  {
+    "bira",
+    "ankololEsa",
+    "sada`s",
+    "arfasa",
+    "amaji",
+    "gurandela",
+    "bitotEsa",
+    "Camsa",
+    "EbEla",
+    "weTebeji",
+    "adolEsa",
+    "Hegaya",
+    "qam'E"
+  }\;
+unsigned char* OromoUTF8Months2[13] =
+  {
+    "fulbana",
+    "ankololEsa",
+    "sads",
+    "mudE",
+    "amaji",
+    "gurandela",
+    "bitotEsa",
+    "Camsa",
+    "EbEla",
+    "weTebeji",
+    "adolEsa",
+    "Hegaya",
+    "TawalwalE"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* OromoTranscribedDays[7] =
+  {
+    "Sanbata Guddaa",
+    "Wixata",
+    "Kibxata",
+    "Arbii",
+    "Kamisa",
+    "Jimaata",
+    "Sanbata Xinnaa"
+  };
+unsigned char* OromoTranscribedDays2[7] =
+  {
+    "Dilbata",
+    "Dafinoo",
+    "Balloo",
+    "Roobii",
+    "Kamisa",
+    "Jimaata",
+    "Ayyan Duraa"
+  };
+unsigned char* OromoTranscribedDays3[7] =
+  {
+    "Dilbata",
+    "Hojja Duree",
+    "Facaasaa",
+    "Roobii",
+    "Kamisa",
+    "Jimaata",
+    "Ayyan Duraa"
+  };
+unsigned char* OromoTranscribedDays4[7] =
+  {
+    "Dilbata",
+    "Hojja Duree",
+    "Lamaffoo",
+    "Roobii",
+    "Kamisa",
+    "Jimaata",
+    "Ayyan Duraa"
+  };
+unsigned char* OromoTranscribedMonths[13] =
+  {
+    "Birraa",
+    "Onkoloolessa",
+    "Sadaasa",
+    "Arfaasaa",
+    "Amajjii",
+    "Gurraandhala",
+    "Bitootessa",
+    "Caamsaa",
+    "Ebla",
+    "Waxabajjii",
+    "Adoolessa",
+    "Hagayya",
+    "Qaam'ee"
+  };
+unsigned char* OromoTranscribedMonths2[13] =
+  {
+    "Fulbana",
+    "Onkoloolessa",
+    "Sadis",
+    "Mudde",
+    "Amajjii",
+    "Gurraandhala",
+    "Bitootessa",
+    "Caamsaa",
+    "Ebla",
+    "Waxabajjii",
+    "Adoolessa",
+    "Hagayya",
+    "Xawalwale"
+  };
+unsigned char* OromoTranscribedAbbreviatedDays[7] =
+  {
+    "Sa/Gu",
+    "Wix",
+    "Kib",
+    "Arb",
+    "Kam",
+    "Jim",
+    "Sa/Xi"
+  };
+unsigned char* OromoTranscribedAbbreviatedDays2[7] =
+  {
+    "Dil",
+    "Daf",
+    "Bal",
+    "Roo",
+    "Kam",
+    "Jim",
+    "Ayy"
+  };
+unsigned char* OromoTranscribedAbbreviatedDays3[7] =
+  {
+    "Dil",
+    "Hoj,
+    "Fac",
+    "Roo",
+    "Kam",
+    "Jim",
+    "Ayy"
+  };
+unsigned char* OromoTranscribedAbbreviatedDays4[7] =
+  {
+    "Dil",
+    "Hoj",
+    "Lam",
+    "Roo",
+    "Kam",
+    "Jim",
+    "Ayy"
+  };
+unsigned char* OromoTranscribedAbbreviatedMonths[13] =
+  {
+    "Bir",
+    "Onk",
+    "Sad",
+    "Arf",
+    "Ama",
+    "Gur",
+    "Bit",
+    "Caa",
+    "Ebl",
+    "Wax",
+    "Ado",
+    "Hag",
+    "Qaa"
+  };
+unsigned char* OromoTranscribedAbbreviatedMonths2[13] =
+  {
+    "Ful",
+    "Onk",
+    "Sad",
+    "Mud",
+    "Ama",
+    "Gur",
+    "Bit",
+    "Caa",
+    "Ebl",
+    "Wax",
+    "Ado",
+    "Hag",
+    "Xaw"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** OromoMonths[12] =
+{
+	OromoUTF8Months,
+#ifdef WITHSERA
+	OromoSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	OromoUTF8Months2,
+#ifdef WITHSERA
+	OromoSERAMonths2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedMonths2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	OromoUTF8Months2,
+#ifdef WITHSERA
+	OromoSERAMonths2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedMonths2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	OromoUTF8Months2,
+#ifdef WITHSERA
+	OromoSERAMonths2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedMonths2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char** OromoDays[12] =
+{
+	OromoUTF8Days,
+#ifdef WITHSERA
+	OromoSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	OromoUTF8Days2,
+#ifdef WITHSERA
+	OromoSERADays2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedDays2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	OromoUTF8Days3,
+#ifdef WITHSERA
+	OromoSERADays3,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedDays3,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	OromoUTF8Days4,
+#ifdef WITHSERA
+	OromoSERADays4,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	OromoTranscribedDays4,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char* OromoDayNames[3] =
+  {
+	\ "guya"\ ,
+#ifdef WITHSERA
+	"guya",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Guya",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+unsigned char* OromoNames[3] =
+  {
+	\ "oromo"\ ,
+#ifdef WITHSERA
+	"oromo",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Oromo",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_OROMO */

@@ -1,0 +1,178 @@
+/* This is part of the LibEth library, an ANSI C library for Ethiopic
+   text and information processing (http://libeth.netpedia.net).
+   Copyright (C) 1995-1998 Daniel Yacob.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with this library; if not, write to the Free
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+#ifndef ETHIOP_MAP
+#define ETHIOP_MAP  1
+
+#ifndef SUPPORT_ETHIOP
+#  define SUPPORT_ETHIOP 1
+#endif /* SUPPORT_ETHIOP */
+
+#ifndef MAPTYPES_H
+#  include "maptypes.h"
+#endif /* MAPTYPES_H */
+
+#ifndef ETHIOP_H
+#  include "ethiop.h"
+#endif /* ETHIOP_H */
+
+#define USE_ETHIOP_FIDEL 0
+#if USE_ETHIOP_FIDEL
+
+unsigned char*
+EthiopFidel[UNITOTAL] = 
+{
+  "ha",  "hu",  "hi",  "hA",  "hE",   "h",  "ho",    "",
+  "la",  "lu",  "li",  "lA",  "lE",   "l",  "lo", "luA",
+ ".ha", ".hu", ".hi", ".hA", ".hE",  ".h", ".ho",".huA",
+  "ma",  "mu",  "mi",  "mA",  "mE",   "m",  "mo", "muA",
+ "'sa", "'su", "'si", "'sA", "'sE",  "'s", "'so","'suA",
+  "ra",  "ru",  "ri",  "rA",  "rE",   "r",  "ro", "ruA",
+  "sa",  "su",  "si",  "sA",  "sE",   "s",  "so", "suA",
+ "^sa", "^su", "^si", "^sA", "^sE", "^s",  "^so","^suA",
+  "qa",  "qu",  "qi",  "qA",  "qE",   "q",  "qo",    "",
+ "qua",    "", "qui", "quA", "quE", "que",    "",    "",
+ ".qa", ".qu", ".qi", ".qA", ".qE",  ".q", ".qo",    "",
+".qua",    "",".qui",".quA",".quE",".que",    "",    "",
+  "ba",  "bu",  "bi",  "bA",  "bE",   "b",  "bo", "buA",
+  "va",  "vu",  "vi",  "vA",  "vE",   "v",  "vo", "vuA",
+  "ta",  "tu",  "ti",  "tA",  "tE",   "t",  "to", "tuA",
+ "^ca", "^cu", "^ci", "^cA", "^cE",  "^c", "^co","^cuA",
+ "_ha", "_hu", "_hi", "_hA", "_hE",  "_h", "_ho",    "",
+"_hua",    "","_hui","_huA","_huE","_hue",    "",    "",
+  "na",  "nu",  "ni",  "nA",  "nE",   "n",  "no", "nuA",
+ "~na", "~nu", "~ni", "~nA", "~nE",  "~n", "~no","~nuA",
+  "'a",  "'u",  "'i",  "'A",  "'E",  "'e",  "'o",  "ua",
+  "ka",  "ku",  "ki",  "kA",  "kE",   "k",  "ko",    "",
+ "kua",    "", "kui", "kuA", "kuE",  "ku",    "",    "",
+ "_ka", "_ku", "_ki", "_kA", "_kE",  "_k", "_ko",    "",
+"_kua",    "","_kui","_kuA","_kuE","_kue",    "",    "",
+  "wa",  "wu",  "wi",  "wA",  "wE",   "w",  "wo",    "",
+  "`a",  "`u",  "`i",  "`A",  "`E",  "`e",  "`o",    "",
+  "za",  "zu",  "zi",  "zA",  "zE",   "z",  "zo", "zuA",
+ "^za", "^zu", "^zi", "^zA", "^zE",  "^z", "^zo","^zuA",
+  "ya",  "yu",  "yi",  "yA",  "yE",   "y",  "yo", "yua",
+  "da",  "du",  "di",  "dA",  "dE",   "d",  "do", "duA",
+ ".da", ".du", ".di", ".dA", ".dE",  ".d", ".do",".duA",
+ "^ga", "^gu", "^gi", "^gA", "^gE",  "^g", "^go","^guA",
+  "ga",  "gu",  "gi",  "gA",  "gE",   "g",  "go",    "",
+ "gua",    "", "gui", "guA", "guE", "gue",    "",    "",
+ ".ga", ".gu", ".gi", ".gA", ".gE",  ".g", ".go",".guA",
+ ".ta", ".tu", ".ti", ".tA", ".tE",  ".t", ".to",".tuA",
+ "^Ca", "^Cu", "^Ci", "^CA", "^CE",  "^C", "^Co","^CuA",
+ ".pa", ".pu", ".pi", ".pA", ".pE",  ".p", ".po",".puA",
+ ".sa", ".su", ".si", ".sA", ".sE",  ".s", ".so",".suA",
+ ".ca", ".cu", ".ci", ".cA", ".cE",  ".c", ".co",    "",
+  "fa",  "fu",  "fi",  "fA",  "fE",   "f",  "fo", "fuA",
+  "pa",  "pu",  "pi",  "pA",  "pE",   "p",  "po", "puA",
+ "myA", "ryA", "fyA",    "",    "",    "",    "",    "",
+
+ "\" \""," : ","::", ",", ";", ":=", ":-", "`?",":|:",
+  "\\ethnum{1}", "\\ethnum{2}", "\\ethnum{3}", "\\ethnum{4}", "\\ethnum{5}", "\\ethnum{6}", "\\ethnum{7}", "\\ethnum{8}",  "\\ethnum{9}", "\\ethnum{10}",
+ "\\ethnum{20}","\\ethnum{30}","\\ethnum{40}","\\ethnum{50}","\\ethnum{60}","\\ethnum{70}","\\ethnum{80}","\\ethnum{90}","\\ethnum{100}", "\\ethnum{10000}",
+   "",   "",    "",
+  
+ "'qa", "'qu", "'qi", "'qA", "'qE", "'q", "'qo",  "", "mua", "bua", "Gua", "fua", "pua",  "",   "",   "",
+ "'ka", "'ku", "'ki", "'kA", "'kE", "'k", "'ko",  "", "mui", "bui", "Gui", "fui", "pui",  "",   "",   "",
+ "'ha", "'hu", "'hi", "'hA", "'hE", "'h", "'ho",  "", "muE", "buE", "GuE", "fuE", "puE",  "",   "",   "",
+ "'ga", "'gu", "'gi", "'gA", "'gE", "'g", "'go",  "", "mue", "bue", "Gue", "fue", "pue",  "",   "",   "", 
+
+     "",   "",    "",    "",    "",   "",    "",  "",    "",    "",
+ "''", "`!", ".", "<<", ">>", "?"
+};
+
+#else
+
+
+unsigned char*
+EthiopFidelHash[] = 
+{
+  "h",
+  "l",
+ ".h",
+  "m",
+ "'s",
+  "r",
+  "s",
+ "^s",
+  "q",
+ "qu",
+ ".q",
+".qu",
+  "b",
+  "v",
+  "t",
+ "^c",
+ "_h",
+"_hu",
+  "n",
+ "~n",
+  "'",
+  "k",
+ "ku",
+ "_k",
+"_ku",
+  "w",
+  "`",
+  "z",
+ "^z",
+  "y",
+  "d",
+ ".d",
+ "^g",
+  "g",
+ "gu",
+ ".g",
+ ".t",
+ "^C",
+ ".p",
+ ".s",
+ ".c",
+  "f",
+  "p"
+};
+
+unsigned char*
+EthiopVowelHash[8] =
+{
+  "a", "u", "i", "A", "E", "e", "o", "uA"
+};
+
+unsigned char*
+EthiopPunctHash[8] =
+{
+  " : ", "::", ",", ";", ":=", ":-", "`?", ":|:"
+};
+  
+unsigned char*
+EthiopExtHash[] =
+{
+ "'qa", "'qu", "'qi", "'qA", "'qE", "'q", "'qo",  "", "mua", "bua", "Gua", "fua", "pua",  "",   "",   "",
+ "'ka", "'ku", "'ki", "'kA", "'kE", "'k", "'ko",  "", "mui", "bui", "Gui", "fui", "pui",  "",   "",   "",
+ "'ha", "'hu", "'hi", "'hA", "'hE", "'h", "'ho",  "", "muE", "buE", "GuE", "fuE", "puE",  "",   "",   "",
+ "'ga", "'gu", "'gi", "'gA", "'gE", "'g", "'go",  "", "mue", "bue", "Gue", "fue", "pue",  "",   "",   "", 
+
+     "",   "",    "",    "",    "",   "",    "",  "",    "",    "",
+ "''", "`!", ".", "<<", ">>", "?"
+};
+
+#endif /* USE_ETHIOP_FIDEL */
+
+
+#endif  /* ETHIOP_MAP */

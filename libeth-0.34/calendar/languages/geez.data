@@ -1,0 +1,281 @@
+#ifdef SUPPORT_GEEZ
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* GeezUTF8Days[7] = 
+  {
+    "አኀዱ",
+    "ሰኑይ",
+    "ሠሉስ",
+    "ራብዕ",
+    "ኃምስ",
+    "ዓርበ",
+    "ቀዳም"
+  };
+unsigned char* GeezUTF8Days2[7] = 
+  {
+    "እኁድ",
+    "ዕብራ",
+    "ምንትው",
+    "ረቡዕ",
+    "ኃሙስ",   /* ሐሙስ */
+    "ዓርብ",
+    "ቀዳሚት"
+  };
+unsigned char* GeezUTF8Months[13] = 
+  {
+    "ከረመ",
+    "ጠቀመ",
+    "ኀደረ",
+    "ኀሠሠ",
+    "ጠሐረ",
+    "ከተተ",
+    "መገበ",
+    "አኀዘ",
+    "ግንባት",
+    "ሠንየ",
+    "ሐመለ",
+    "ነሐሰ",
+    "ጳጉመን"
+  };
+unsigned char* GeezUTF8Months2[13] = 
+  {
+    "ከረመ",
+    "ጠቀመ",
+    "ኀደረ",
+    "ኀሠሠ",
+    "ጥሕረ",
+    "ከተተ",
+    "መገበ",
+    "አኀዘ",
+    "ግንባት",
+    "ሠንየ",
+    "ሐመለ",
+    "ነሐሰ",
+    "ጳጉመን"
+  };
+
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* GeezSERADays[7] =
+  {
+    "a`hedu",
+    "senuy",
+    "`selus",
+    "rab`I",
+    "`hams",
+    "`arbe",
+    "qedam"
+  };
+unsigned char* GeezSERADays2[7] =
+  {
+    "I`hud",
+    "`Ibra",
+    "mntw",
+    "rebu`I",
+    "`hamus",   /* Hemus */
+    "`arb",
+    "qedamit"
+  };
+unsigned char* GeezSERAMonths[13] = 
+  {
+    "kereme",
+    "Teqeme",
+    "`hedere",
+    "`he`se`se",
+    "TeHere",
+    "ketete",
+    "megebe",
+    "a`heze",
+    "gnbat",
+    "`senye",
+    "Hemele",
+    "neHese",
+    "Pagumen"
+  };
+unsigned char* GeezSERAMonths2[13] = 
+  {
+    "kereme",
+    "Teqeme",
+    "`hedere",
+    "`he`se`se",
+    "THre",
+    "ketete",
+    "megebe",
+    "a`heze",
+    "gnbat",
+    "`senye",
+    "Hemele",
+    "neHese",
+    "Pagumen"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* GeezTranscribedDays[7] =
+  {
+    "Ahadu",   /* Ehud */
+    "Senuy",   /* Ebra */
+    "Sellus",  /* Mintew */
+    "Rabi",    /* Rebu`i */
+    "Hamis",   /* Hamus, Hemus */
+    "Arbe",    /* Arb */
+    "Kedam"    /* Kedamit */
+  };
+unsigned char* GeezTranscribedDays2[7] =
+  {
+    "Ehud",
+    "Ibra",
+    "Mintew",
+    "Rebu`i",
+    "Hamus",   /* Hemus */
+    "Arb",
+    "Kedamit"
+  };
+unsigned char* GeezTranscribedMonths[13] =
+  {
+    "Kereme",
+    "Tekeme",
+    "Hedere",
+    "Hesese",
+    "Tehere",
+    "Ketete",
+    "Megebe",
+    "Aheze",
+    "Genbat",
+    "Senye",
+    "Hemele",
+    "Nehese",
+    "Pagumen"
+  };
+unsigned char* GeezTranscribedMonths2[13] =
+  {
+    "Kereme",
+    "Tekeme",
+    "Hedere",
+    "Hesese",
+    "Tihire",
+    "Ketete",
+    "Megebe",
+    "Aheze",
+    "Genbat",
+    "Senye",
+    "Hemele",
+    "Nehese",
+    "Pagumen"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** GeezDays[2][3] =
+{
+  {
+	GeezUTF8Days,
+#ifdef WITHSERA
+	GeezSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	GeezTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  },
+  {
+	GeezUTF8Days2,
+#ifdef WITHSERA
+	GeezSERADays2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	GeezTranscribedDays2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  },
+};
+
+
+unsigned char** GeezMonths[6] =
+{
+	GeezUTF8Months,
+#ifdef WITHSERA
+	GeezSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	GeezTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	GeezUTF8Months2,
+#ifdef WITHSERA
+	GeezSERAMonths2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	GeezTranscribedMonths2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char* GeezDayNames[4] =
+  {
+	"ዕለት",
+#ifdef WITHSERA
+	"`Ilet",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Ilet",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	"me`alt"
+  };
+
+
+unsigned char* GeezNames[4] =
+  {
+	"ግዕዝኛ",
+#ifdef WITHSERA
+	"g`IzNa",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Ge'ez",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	"ግእዝኛ",
+  };
+
+
+#endif /* SUPPORT_GEEZ */

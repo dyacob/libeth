@@ -1,0 +1,201 @@
+#ifdef SUPPORT_TIGRE
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* TigreUTF8Days[7] = 
+  {
+    "ሰንበት ዓባይ",
+    "አትኒን",
+    "አታሉት",
+    "አራቦዐ",
+    "ኻሚስ",
+    "ጅምዓት",
+    "ሰንበት ንኢሽ"
+  };
+unsigned char* TigreUTF8Days2[7] = 
+  {
+    "ሰንበት ዓባይ",
+    "አልትኒን",
+    "አታሉት",
+    "አረርባዓ",
+    "ካሚስ",
+    "አልጅምዓት",
+    "ሰንበት ንኢሽ"
+  };
+unsigned char* TigreUTF8Days3[7] = 
+  {
+    "ሰንበት ዓባይ",
+    "አልትኒን",
+    "አታሉት",
+    "አረርባዓ",
+    "አልካሚስ",
+    "አልጅምዓት",
+    "ሰንበት ንኢሽ"
+  };
+
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* TigreSERADays[7] =
+  {
+    "senbet `abay",
+    "atnin",
+    "atalut",
+    "arabo`e",
+    "Kamis",
+    "jm`at",
+    "senbet n'ix"
+  };
+unsigned char* TigreSERADays2[7] =
+  {
+    "senbet `abay",
+    "altnin",
+    "atalut",
+    "arerba`a",
+    "kamis",
+    "aljm`at",
+    "senbet n'ix"
+  };
+unsigned char* TigreSERADays3[7] =
+  {
+    "senbet `abay",
+    "altnin",
+    "atalut",
+    "arerba`a",
+    "alkamis",
+    "aljm`at",
+    "senbet n'ix"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* TigreTranscribedDays[7] =
+  {
+    "Senbet Abay",
+    "Atnin",
+    "Atalut",
+    "Arabo'e",
+    "Khamis",
+    "Jim'at",
+    "Senbet Nish"
+  };
+unsigned char* TigreTranscribedDays2[7] =
+  {
+    "Senbet Abay",
+    "Altnin",
+    "Atalut",
+    "Arerba'a",
+    "Kamis",
+    "Aljim'at",
+    "Senbet Nish"
+  };
+unsigned char* TigreTranscribedDays3[7] =
+  {
+    "Senbet Abay",
+    "Altnin",
+    "Atalut",
+    "Arerba'a",
+    "Alkamis",
+    "Aljim'at",
+    "Senbet Nish"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** TigreDays[9] =
+{
+	TigreUTF8Days,
+#ifdef WITHSERA
+	TigreSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigreTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	TigreUTF8Days2,
+#ifdef WITHSERA
+	TigreSERADays2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigreTranscribedDays2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	TigreUTF8Days3,
+#ifdef WITHSERA
+	TigreSERADays3,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigreTranscribedDays3,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char** TigreMonths[9] =
+  {
+  	DefaultMonths,
+  	DefaultMonths,
+  	DefaultMonths,
+  };
+
+
+unsigned char* TigreDayNames[3] =
+  {
+	"ዮም",
+#ifdef WITHSERA
+	"yom",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Yom",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+unsigned char* TigreNames[3] =
+  {
+	"ትግረ",
+#ifdef WITHSERA
+	"tgre",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Tigre"
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_TIGRE */
