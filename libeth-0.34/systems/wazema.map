@@ -32,13 +32,17 @@
 #  include "wazema.h"
 #endif /* WAZEMA_H */
 
-#define NUM_WAZEMA 4
+#define NUM_WAZEMA 8
 #define WAZEMASETLENGTH 2
 unsigned char* WazemaTTFNames[NUM_WAZEMA] = { 
     "A1 Desta",
     "A2 Desta",
+    "A1 Kidan",
+    "A2 Kidan",
+    "A1 Qelem",
+    "A2 Qelem",
     "A1 Tesfa",
-    "A2 Tesfa",
+    "A2 Tesfa"
 };
 char* WazemaRTFPrefix[] = { 
     "\\fnil\\fprq2\\fcharset2" 

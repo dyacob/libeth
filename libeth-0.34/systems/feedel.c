@@ -607,7 +607,7 @@ Feedel_get_setRTFPrefix (setid, fontFace, RTFPrefix)
   int fontFace;
   char** RTFPrefix;
 {
-int isGeezABC = ( 6 < fontFace && fontFace < 10 ) ? 1 : 0;
+int isGeezABC = ( 6 < fontFace && fontFace < 12 ) ? 1 : 0;
 
   *RTFPrefix = strdup ( FeedelRTFPrefix[0 + isGeezABC] );
 
