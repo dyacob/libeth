@@ -1,4 +1,27 @@
 add an option to drop or absorb extra diacritic marks.
+add memo-izer
+
+Wed Apr 23 14:18:55 PDT 2003
+
+* added braille files after nearly a year of waiting.
+
+* updates to ethiop and ed, misc.
+
+Sun Apr 28 08:59:47 PDT 2002
+
+* systems/phonetic.map, systems/phonetic.c: updates to read/write "d" and "D"
+  correctly, which use a diacritic mark for the sadis form.
+
+Sat Mar 30 12:25:48 PST 2002
+
+* systems/wazema.c, systems/wazema.map:  updates for wazema1 and wazema2
+  conversion as an input encoding.
+
+Sat Mar 23 12:59:12 PST 2002
+
+* systems/feedel.map: ZewdituA, ZewdituB typefaces added.
+
+* systems/wazema.map: A1-Kidan, A2-Kidan, A1-Qelem, A2-Qelem typefaces added.
 
 Sun Aug  5 16:41:14 PDT 2001
 
