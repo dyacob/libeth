@@ -764,7 +764,7 @@ toFixed ( self, ... )
 
 		getDateArgs ( ax,items, &date, &month, &year );
 
-		RETVAL = ( ix == ethio ) ? GregorianToFixed ( date, month, year ) : EthiopicToFixed ( date, month, year ) ;
+		RETVAL = ( ix == ethio ) ? EthiopicToFixed ( date, month, year ) : GregorianToFixed ( date, month, year ) ;
 
 	OUTPUT:
 	RETVAL

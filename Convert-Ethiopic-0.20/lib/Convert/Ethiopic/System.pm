@@ -113,8 +113,12 @@ sub BEGIN
 #
 	'A1-Desta' 			=>	[ 'A1 Desta',				$wazema1,		0,	0,	0,	'\\A1 \\desta' ],
 	'A2-Desta' 			=>	[ 'A2 Desta',				$wazema2,		0,	1,	1,	'\\A2 \\desta' ],
-	'A1-Tesfa' 			=>	[ 'A1 Tesfa',				$wazema1,		0,	2,	0,	'\\A1 \\tesfa' ],
-	'A2-Tesfa' 			=>	[ 'A2 Tesfa',				$wazema2,		0,	3,	1,	'\\A2 \\tesfa' ],
+	'A1-Kidan' 			=>	[ 'A1 Kidan',				$wazema1,		0,	2,	0,	'\\A1 \\kidan' ],
+	'A2-Kidan' 			=>	[ 'A2 Kidan',				$wazema2,		0,	3,	1,	'\\A2 \\kidan' ],
+	'A1-Qelem' 			=>	[ 'A1 Qelem',				$wazema1,		0,	4,	0,	'\\A1 \\qelem' ],
+	'A2-Qelem' 			=>	[ 'A2 Qelem',				$wazema2,		0,	5,	1,	'\\A2 \\qelem' ],
+	'A1-Tesfa' 			=>	[ 'A1 Tesfa',				$wazema1,		0,	6,	0,	'\\A1 \\tesfa' ],
+	'A2-Tesfa' 			=>	[ 'A2 Tesfa',				$wazema2,		0,	7,	1,	'\\A2 \\tesfa' ],
 
 #
 #	Alex Ethiopian http://www.acuwork.com/
@@ -216,16 +220,18 @@ sub BEGIN
 #	Feedel http://members.aol.com/Feedel/Feedel.htm
 #
 	'Geezigna'  			=>	[ 'Geezigna',					$gezigna,		0,	0,	0,	'gI2zNa'        ],
-	'Geez'  				=>	[ 'Geez',						$gezi,	 		0,	0,	1,	'gI2z'          ],
-	'Geez II'	  			=>	[ 'Geez II',					$gezii,	 		0,	1,	1,	'gI2z'          ],
+	'Geez'  			=>	[ 'Geez',					$gezi,	 		0,	0,	1,	'gI2z'          ],
+	'Geez II'	  		=>	[ 'Geez II',					$gezii,	 		0,	1,	1,	'gI2z'          ],
 	'GeezNewA'  			=>	[ 'GeezNewA',					$geznewa,		0,	0,	1,	'gI2z\\New\\'   ],
 	'GeezNewB'  			=>	[ 'GeezNewB',					$geznewb,		0,	1,	1,	'gI2z\\New\\'   ],
 	'GeezSindeA'	  		=>	[ 'GeezSindeA',					$geznewa,		0,	2,	1,	'gI2z\\Sinde\\' ],
 	'GeezSindeB'	  		=>	[ 'GeezSindeB',					$geznewa,		0,	3,	1,	'gI2z\\Sinde\\' ],
-	'GeezA'  				=>	[ 'GeezA',						$geznewa,		0,	4,	1,	'gI2z'          ],
-	'GeezB'  				=>	[ 'GeezB',						$geznewb,		0,	5,	1,	'gI2z'          ],
-	'GeezDemo'  			=>	[ 'Geez Demo',					$geznewa,		0,	7,	0,	'gI2z\\Demo\\'  ],
-	'GeezNet'  				=>	[ 'Geez Net',					$geznewa,		0,	8,	0,	'gI2z\\Net\\'   ],
+	'ZewdituA'	  		=>	[ 'ZewdituA',					$geznewa,		0,	4,	1,	'zewditu\\A' ],
+	'ZewdituB'	  		=>	[ 'ZewdituB',					$geznewa,		0,	5,	1,	'zewditu\\B' ],
+	'GeezA'  			=>	[ 'GeezA',					$geznewa,		0,	6,	1,	'gI2z'          ],
+	'GeezB'  			=>	[ 'GeezB',					$geznewb,		0,	7,	1,	'gI2z'          ],
+	'GeezDemo'  			=>	[ 'Geez Demo',					$geznewa,		0,	8,	0,	'gI2z\\Demo\\'  ],
+	'GeezNet'  			=>	[ 'Geez Net',					$geznewa,		0,	9,	0,	'gI2z\\Net\\'   ],
 
 
 #
