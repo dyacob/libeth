@@ -10,6 +10,7 @@ SOURCE  = base.c \
           acuwork.c \
           addisword.c \
           alpas.c \
+          braille.c \
           brana.c \
           cbhale.c \
           cvtutf.c \
