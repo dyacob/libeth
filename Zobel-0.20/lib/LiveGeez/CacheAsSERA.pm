@@ -416,6 +416,7 @@ my ( $file, $sourceFile ) = @_;
 
 	# printf STDERR "Parsing[$$]: $sourceFile\n";
 	$p->parse_file( $sourceFile );
+	$p->eof;
 	# printf STDERR "Done[$$]:    $sourceFile\n";
 
 	$_ = join ( "", @gFile );

@@ -530,6 +530,7 @@ my ( $file, $htmlData ) = ( @_ );
 
 	# printf STDERR "Begin Directives[$$]\n";
 	$p->parse ( $htmlData );
+	$p->eof;
 	# printf STDERR "End Directives[$$]\n";
 
 	$_ = join ( "", @gFile );
