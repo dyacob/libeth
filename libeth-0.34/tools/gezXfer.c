@@ -485,7 +485,11 @@ extern char* ISO639_3Names[];
                                   exit (0);
                                 }
 #endif
-                              else if ( !strcmp (&argv[i][1], "ames") )
+                              else if ( !strcmp (argv[i], "escd") )
+                                (*lethFlags)->tvOut = escd;
+                              else if ( !strcmp (argv[i], "esch") )
+                                (*lethFlags)->tvOut = esch;
+                              else if ( !strcmp (&argv[i][1], "ame") )
                                 (*lethFlags)->tvOut = uname;
                               else if ( !strcmp (&argv[i][1], "plus") )
                                 (*lethFlags)->tvOut = uplus;
@@ -501,6 +505,7 @@ extern char* ISO639_3Names[];
                                 (*lethFlags)->tvOut = xml;
 
                               if ( ( ((*lethFlags)->tvOut == clike)
+                                     || ((*lethFlags)->tvOut == esch) 
                                      || ((*lethFlags)->tvOut == java) 
                                      || ((*lethFlags)->tvOut == uname)
                                      || ((*lethFlags)->tvOut == uplus) 

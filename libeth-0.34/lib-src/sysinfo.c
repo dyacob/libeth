@@ -864,10 +864,14 @@ FCHAR uch = fch;
         {
           switch ( mylflags->tvOut )
             {
+              case escd   :
               case decimal:
                    if ( 0x7f < fch )
                      {
-                       sprintf ( &newCh[j], "d%i", fch );
+                       if ( mylflags->tvOut == escd )
+                         sprintf ( &newCh[j], "&#%i;", fch );
+                       else
+                         sprintf ( &newCh[j], "d%i", fch );
                        j = strlen ( newCh );
                      }
                    else
@@ -892,6 +896,7 @@ FCHAR uch = fch;
 
                    break;
 
+              case esch  : newCh[j++] = '&';
               case java  :
               case clike :
               case uplus :
@@ -903,7 +908,14 @@ FCHAR uch = fch;
 
                    if ( 0x7f < fch )
                      {
-                       if ( mylflags->tvOut == clike || mylflags->tvOut == zerox )
+                       if ( mylflags->tvOut == esch )
+                         {
+                           newCh[j] = '#';
+                           newCh[j+1] = 'x';
+                           strcat ( newCh, ";" );
+                           // sprintf ( &newCh[j+2], "x%s;", &newCh[j+2] );
+                         }
+                       else if ( mylflags->tvOut == clike || mylflags->tvOut == zerox )
                          {
                            newCh[j+1] = 'x';
                            if ( mylflags->tvOut == zerox )

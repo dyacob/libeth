@@ -97,7 +97,7 @@ enum ContentSubType  { plain, html, rtf, ltx, tex };
 
 enum CharacterSet  { nocs, acis, acuwork, addisword1, addisword2, alpas, branai, branaii, cbhalea, cbhaleb, dehai, dejene1, dejene2, ecoling, ed, enhpfr, ethcitap, ethcitas, ethcitau, ethiome, ethiomex, ethiop, ethiopic1, ethiopic2, ethiosoft, ethiosys, ethiosysx, ethiowalia, fidelxtr1, fidelxtr2, gezbausi, gezedit, gezedit98, gezfont, gezfree1, gezfree2, gezigna, gezi, gezii, geznewa, geznewb, geztype, geztypenet, ies, image, iso, jis, junet, laser, mainz, monotype1, monotype2, monotype3, monoalt, mononum, muletex, nci, ncic, ncic_et, omnitech, powergez, powergeznum, qubee, samwp, sam98, sera, sil1, sil2, sil3, tfanus, tfanusnew, unicode, visualgez, visualgez2k, wazema1, wazema2, all };
 
-enum TransferVariant { notv, clike, decimal, dos, java, uname, uplus, utf7, utf8, utf16, xml, zerox };
+enum TransferVariant { notv, clike, decimal, dos, escd, esch, java, uname, uplus, utf7, utf8, utf16, xml, zerox };
 
 enum ContentTransferEncoding  { bit7, bit8, base64, binary, quotedprintable };
 
