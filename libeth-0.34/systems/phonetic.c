@@ -188,7 +188,7 @@ char formNumber;
 
               case GT_yo :  if (fch == YAE)
                                fch += SABI;
-                            else if (fch == TSAE || fch == PHAE)
+                            else if (fch == DAE || fch == PHAE || fch == TSAE || fch == DHAE)
                                fch += SADS;
                             break;
 
