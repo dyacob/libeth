@@ -42,7 +42,73 @@ unsigned char base;
       return ( (FCHAR) base );
     }
 
+  if ( fch == DIACRITIC || fch == WORDSPACE )
+    {
+      FCHAR oFch = NIL;
+      unsigned char oBase; 
+      char formNumber;
 
+      oBase = base;
+      oFch  = fch;
+
+      fch  = WazemaA1HashTable[(base = getToken())-0x20];
+
+      formNumber = fch%8; /* what is my vowel ? */
+      fch -= formNumber;  /* normalize to ge'ez form to simplify following switch */   
+
+      switch (oBase)
+        {
+          case WAZ_Ba :
+          case WAZ_Bb :
+          case WAZ_Bc :
+          case WAZ_Bd :
+          case WAZ_Be :  if ( fch == BAE )
+                             fch = VAE + formNumber;
+                         else if ( fch == TAE )
+                             fch = CAE + formNumber;
+                         else if ( fch == SAE )
+                             fch = SHAE + formNumber;
+                         else if ( fch == DAE )
+                             fch = JAE + formNumber;
+                         else if ( fch == KAE )
+                             fch = KHAE + formNumber;
+                         else if ( fch == QAE )
+                             fch = QXAE + formNumber;
+                         else if ( fch == GAE )
+                             fch = GGAE + formNumber;
+			 else
+                           {
+             	             ungetToken (base);
+                             fch = oBase;  // was a rogue
+                           }
+                         break;
+
+          case WAZ_P  :  if ( fch == DAE )
+                             fch = DHAE + formNumber;
+                         else if ( fch == TSAE )
+                             fch = PHAE + formNumber;
+			 else
+                            fch = oFch;  // was a rogue
+
+                         break;
+
+          case WAZ_WS :  if ( fch == SPACE )
+                            fch = FULLSTOP;
+			 else
+                           {
+            	  	     ungetToken (base);
+                             fch = WORDSPACE;
+                           }
+                         break;
+				 	
+
+          default:  
+            ungetToken (base);
+            fch = oFch;
+            break;
+        }
+  }
+    
   return (fch);
 
 }
@@ -66,6 +132,74 @@ unsigned char base;
     {
       return ( (FCHAR) base );
     }
+
+
+  if ( fch == DIACRITIC || fch == WORDSPACE )
+    {
+      FCHAR oFch = NIL;
+      unsigned char oBase; 
+      char formNumber;
+
+      oBase = base;
+      oFch  = fch;
+
+      fch  = WazemaA2HashTable[(base = getToken())-0x20];
+
+      formNumber = fch%8; /* what is my vowel ? */
+      fch -= formNumber;  /* normalize to ge'ez form to simplify following switch */   
+
+      switch (oBase)
+        {
+          case WAZ_Ba :
+          case WAZ_Bb :
+          case WAZ_Bc :
+          case WAZ_Bd :
+          case WAZ_Be :  if ( fch == BAE )
+                             fch = VAE + formNumber;
+                         else if ( fch == TAE )
+                             fch = CAE + formNumber;
+                         else if ( fch == SAE )
+                             fch = SHAE + formNumber;
+                         else if ( fch == DAE )
+                             fch = JAE + formNumber;
+                         else if ( fch == KAE )
+                             fch = KHAE + formNumber;
+                         else if ( fch == QAE )
+                             fch = QXAE + formNumber;
+                         else if ( fch == GAE )
+                             fch = GGAE + formNumber;
+			 else
+                           {
+             	             ungetToken (base);
+                             fch = oBase;  // was a rogue
+                           }
+                         break;
+
+          case WAZ_P  :  if ( fch == DAE )
+                             fch = DHAE + formNumber;
+                         else if ( fch == TSAE )
+                             fch = PHAE + formNumber;
+			 else
+                            fch = oFch;  // was a rogue
+
+                         break;
+
+          case WAZ_WS :  if ( fch == SPACE )
+                            fch = FULLSTOP;
+			 else
+                           {
+            	  	     ungetToken (base);
+                             fch = WORDSPACE;
+                           }
+                         break;
+				 	
+
+          default:  
+            ungetToken (base);
+            fch = oFch;
+            break;
+        }
+  }
 
 
   return (fch);

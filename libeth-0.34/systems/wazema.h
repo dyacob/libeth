@@ -28,6 +28,20 @@
 #define WAZEMA_WWW   "http://members.aol.com/w4z5m4/wazema.html"
 #define WAZEMA_FTP   ""  /* check this... */
 
+#define WAZ_Ba   0x3e
+#define WAZ_Bb   0x4d
+#define WAZ_Bc   0x97
+#define WAZ_Bd   0xee
+#define WAZ_Be   0xf6
+#define WAZ_P    0xf7
+#define WAZ_WS   0x9f
+
+#define SWAZ_Ba   "0x3e"
+#define SWAZ_Bb   "0x4d"
+#define SWAZ_Bc   "0x97"
+#define SWAZ_Bd   "0xee"
+#define SWAZ_Be   "0xf6"
+#define SWAZ_P    "0xf7"
 
 #ifndef LIBETH_H
 #  include "libeth.h"
