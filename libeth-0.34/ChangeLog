@@ -1,8 +1,15 @@
 add an option to drop or absorb extra diacritic marks.
 
+Sun Aug  5 16:41:14 PDT 2001
+
+* transfer variant escd and esch added for &#dddd; and &#xABCD; ML escapes.
+
+* systems/cbales.map,monotype.map,powergeez.map:  caught 0xfffd and 0xfffe
+  that should have been 0xfdfd and 0xfdfe.
+
 Tue May  1 21:50:58 EDT 2001
 
-* systems/base.c introduced for other systems to derive from.  This saves at
+* systems/base.c:  introduced for other systems to derive from.  This saves at
   least 30K.
 
 * isGoodANSI routines return an unsigned char instead of a boolean to handle
