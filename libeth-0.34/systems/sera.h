@@ -26,9 +26,9 @@
 
 #define IS_TRANSLIT_SYS  1
 
-#define SERA_EMAIL "dmulholl@cs.indiana.edu"
-#define SERA_WWW   "www.cs.indiana.edu/hyplan/dmulholl/fidel/sera-faq.html"
-#define SERA_FTP   "ftp.cs.indiana.edu/pub/fidel/sera/"
+#define SERA_EMAIL "yacob@geez.org"
+#define SERA_WWW   "www.abyssiniagateway.net/fidel/sera-faq.html"
+#define SERA_FTP   "ftp.geez.org/pub/sera/"
 
 #define SERAALT     '`'
 #define SERASTOP    '\''

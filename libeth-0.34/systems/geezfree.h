@@ -24,9 +24,9 @@
 #  define SUPPORT_GEEZFREE 1
 #endif /* SUPPORT_GEEZFREE */
 
-#define GEEZFREE_WWW   "www.cs.indiana.edu/hyplan/dmulholl/fidel.html"
-#define GEEZFREE_FTP   "ftp.cs.indiana.edu/pub/fidel/"
-#define GEEZFREE_EMAIL "dmulholl@cs.indiana.edu"
+#define GEEZFREE_WWW   "www.geez.org/fidel/"
+#define GEEZFREE_FTP   "ftp.geez.org/pub/"
+#define GEEZFREE_EMAIL "yacob@geez.org"
 
 #ifndef LIBETH_H
 #  include "libeth.h"

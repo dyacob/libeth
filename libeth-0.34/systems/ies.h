@@ -33,8 +33,8 @@
 #  define SUPPORT_IES 1
 #endif /* SUPORT_IES */
 
-#define IES_EMAIL "ies@padis.gn.apc.org"
-#define IES_WWW   "www.cs.indiana.edu/hyplan/dmulholl/ethiopia/aau/ies.html"
+#define IES_EMAIL "ies@telecom.net.et"
+#define IES_WWW   "www.ies-ethiopia.org/"
 #define IES_FTP   ""
 
 #ifndef LIBETH_H
