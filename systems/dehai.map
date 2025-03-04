@@ -1,0 +1,276 @@
+/* This is part of the LibEth library, an ANSI C library for Ethiopic
+   text and information processing (http://libeth.netpedia.net).
+   Copyright (C) 1995-1998 Daniel Yacob.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with this library; if not, write to the Free
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+#ifndef DEHAI_MAP
+#define DEHAI_MAP  1
+
+#ifndef SUPPORT_DEHAI
+#  define SUPPORT_DEHAI 1
+#endif /* SUPPORT_DEHAI */
+
+#ifndef MAPTYPES_H
+#  include "maptypes.h"
+#endif /* MAPTYPES_H */
+
+#ifndef DEHAI_H
+#  include "dehai.h"
+#endif /* SUPPORT_H */
+
+extern unsigned char* SERAFidelHash[];
+#define DehaiFidelHash SERAFidelHash
+
+/*  Since SERA and Dehai systems differ in only 3 cases (ch, Ch, sh) we'll
+ *  use the SERAFidelHash table and test for these 3 cases.  For sylalbles
+ *  not defined in the Dehai system we'll use SERA values for map onto
+ *  their phonetic equivalents (`s => s, `h => h).
+ *
+unsigned char*
+DehaiFidelHash[] = 
+{
+  "h",
+  "l",
+  "H",
+  "m",
+  "s",
+  "r",
+  "s",
+ "sh",
+  "q",
+ "qW",
+  "Q",
+ "QW",
+  "b",
+  "v",
+  "t",
+ "ch",
+  "h",
+ "hW",
+  "n",
+  "N",
+  "`",
+  "k",
+ "kW",
+  "K",
+ "KW",
+  "w",
+ "`e",
+  "z",
+  "Z",
+  "y",
+  "d",
+  "D",
+  "j",
+  "g",
+ "gW",
+  "G",
+  "T",
+ "Ch",
+  "P",
+  "S",
+  "S",
+  "f",
+  "p"
+};
+*/
+
+
+unsigned char*
+DehaiVowelHash[8] =
+{
+  "e", "u", "i", "a", "ie", "e", "o", "Wa"
+};
+
+unsigned char*
+DehaiAynuAHash[7] =
+{
+  "~", "U", "I", "A", "Iie", "E", "O",
+};
+
+unsigned char*
+DehaiPunctHash[8] =
+{
+  " : ", "::", ",", ";", "-:", ":-", "?", ":|:"
+};
+
+#define DEHAIHASHBASE '!'
+#define DEHAIHASHTOP  'z'
+
+FCHAR
+DehaiHash   []  =
+{
+  /*  '!'  =>  */   SAFEANSI,
+  /*  '"'  =>  */   SAFEANSI,
+  /*  '#'  =>  */   SAFEANSI,
+  /*  '$'  =>  */   SAFEANSI,
+  /*  '%'  =>  */   SAFEANSI,
+  /*  '&'  =>  */   DEHAIPUNCT,  /* A trick for HTML */
+  /*  '\'' =>  */   DEHAISTOP,
+  /*  '('  =>  */   SAFEANSI,
+  /*  ')'  =>  */   SAFEANSI,
+  /*  '*'  =>  */   SAFEANSI,
+  /*  '+'  =>  */   SAFEANSI,
+  /*  ','  =>  */   COMMA,
+  /*  '-'  =>  */   DEHAIPUNCT,
+  /*  '.'  =>  */   NETEB,
+  /*  '/'  =>  */   SAFEANSI,
+  /*  '0'  =>  */   SAFEANSI,
+  /*  '1'  =>  */   SAFEANSI,
+  /*  '2'  =>  */   SAFEANSI,
+  /*  '3'  =>  */   SAFEANSI,
+  /*  '4'  =>  */   SAFEANSI,
+  /*  '5'  =>  */   SAFEANSI,
+  /*  '6'  =>  */   SAFEANSI,
+  /*  '7'  =>  */   SAFEANSI,
+  /*  '8'  =>  */   SAFEANSI,
+  /*  '9'  =>  */   SAFEANSI,
+  /*  ':'  =>  */   DEHAIPUNCT,
+  /*  ';'  =>  */   SEMICOLON,
+  /*  '<'  =>  */   DEHAIPUNCT,
+  /*  '='  =>  */   SAFEANSI,
+  /*  '>'  =>  */   DEHAIPUNCT,
+  /*  '?'  =>  */   EQUESTIONMARK,
+  /*  '@'  =>  */   SAFEANSI,
+  /*  'A'  =>  */    AE + RABI,
+  /*  'B'  =>  */   BAE,
+  /*  'C'  =>  */  CHAE,       /* 'C' never appears by itself */
+  /*  'D'  =>  */  DHAE,
+  /*  'E'  =>  */    AE + HAMS,
+  /*  'F'  =>  */   FAE,
+  /*  'G'  =>  */  GGAE,
+  /*  'H'  =>  */  HHAE,
+  /*  'I'  =>  */    AE + SADS,
+  /*  'J'  =>  */   JAE,
+  /*  'K'  =>  */  KHAE,
+  /*  'L'  =>  */   LAE,
+  /*  'M'  =>  */   MAE,
+  /*  'N'  =>  */  NYAE,
+  /*  'O'  =>  */    AE + SABI,
+  /*  'P'  =>  */  PHAE,
+  /*  'Q'  =>  */  QXAE,
+  /*  'R'  =>  */   RAE,
+  /*  'S'  =>  */  TSAE,
+  /*  'T'  =>  */  THAE,
+  /*  'U'  =>  */    AE + KAIB,
+  /*  'V'  =>  */   VAE,
+  /*  'W'  =>  */   WAE,
+  /*  'X'  =>  */  XYAE,
+  /*  'Y'  =>  */   YAE,
+  /*  'Z'  =>  */  ZHAE,
+  /*  '['  =>  */  SAFEANSI,
+  /*  '\\' =>  */  SAFEANSI,
+  /*  ']'  =>  */  SAFEANSI,
+  /*  '^'  =>  */  DEHAIESCAPE,
+  /*  '_'  =>  */  SAFEANSI,
+  /*  '`'  =>  */  DEHAIALT,
+  /*  'a'  =>  */    AE,
+  /*  'b'  =>  */   BAE,
+  /*  'c'  =>  */   CAE,       /* 'c' never appears by itself */
+  /*  'd'  =>  */   DAE,
+  /*  'e'  =>  */    AE,
+  /*  'f'  =>  */   FAE,
+  /*  'g'  =>  */   GAE,
+  /*  'h'  =>  */   HAE,
+  /*  'i'  =>  */    AE + SALS,
+  /*  'j'  =>  */   JAE,
+  /*  'k'  =>  */   KAE,
+  /*  'l'  =>  */   LAE,
+  /*  'm'  =>  */   MAE,
+  /*  'n'  =>  */   NAE,
+  /*  'o'  =>  */    AE + SABI,
+  /*  'p'  =>  */   PAE,
+  /*  'q'  =>  */   QAE,
+  /*  'r'  =>  */   RAE,
+  /*  's'  =>  */   SAE,       /* 'h' *might* follow for 'sh' */
+  /*  't'  =>  */   TAE,
+  /*  'u'  =>  */    AE + KAIB,
+  /*  'v'  =>  */   VAE,
+  /*  'w'  =>  */   WAE,
+  /*  'x'  =>  */  SHAE,
+  /*  'y'  =>  */   YAE,
+  /*  'z'  =>  */   ZAE,
+};
+
+
+#define DEHAIALTHASHBASE 'A'
+#define DEHAIALTHASHTOP SERAHASHTOP 
+
+FCHAR
+DehaiAltHash    []  =
+{
+  /*  'A'  =>  */   OAE + RABI,
+  /*  'B'  =>  */   NUL,  /* Silte(?) */
+  /*  'C'  =>  */ CCHAE,  /* Bench    */
+  /*  'D'  =>  */   NUL,
+  /*  'E'  =>  */   OAE + HAMS,
+  /*  'F'  =>  */   NUL,
+  /*  'G'  =>  */   NUL,
+  /*  'H'  =>  */   NUL,
+  /*  'I'  =>  */   OAE + SADS,
+  /*  'J'  =>  */   NUL,
+  /*  'K'  =>  */  XYAE,
+  /*  'L'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  'M'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  'N'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  'O'  =>  */   OAE + SABI,
+  /*  'P'  =>  */   NUL,
+  /*  'Q'  =>  */   NUL,
+  /*  'R'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  'S'  =>  */ TSZAE,
+  /*  'T'  =>  */   NUL,
+  /*  'U'  =>  */   OAE + KAIB,
+  /*  'V'  =>  */   NUL,
+  /*  'W'  =>  */   NUL,
+  /*  'X'  =>  */   NUL,  /* Bench */
+  /*  'Y'  =>  */   NUL,
+  /*  'Z'  =>  */   NUL,  /* Bench */
+  /*  '['  =>  */   NUL,
+  /*  '\\' =>  */   NUL,
+  /*  ']'  =>  */   NUL,
+  /*  '^'  =>  */   NUL,
+  /*  '_'  =>  */   NUL,
+  /*  '`'  =>  */   NUL,
+  /*  'a'  =>  */   OAE + RABI,
+  /*  'b'  =>  */   NUL,  /* Silte(?) */
+  /*  'c'  =>  */  CCAE,  /* Bench    */
+  /*  'd'  =>  */   NUL,
+  /*  'e'  =>  */   OAE,
+  /*  'f'  =>  */   NUL,
+  /*  'g'  =>  */  GYAE,  /* Sebatbet */
+  /*  'h'  =>  */  HZAE,
+  /*  'i'  =>  */   OAE + SALS,
+  /*  'j'  =>  */   NUL,
+  /*  'k'  =>  */  KYAE,
+  /*  'l'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  'm'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  'n'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  'o'  =>  */   OAE + SABI,
+  /*  'p'  =>  */   NUL,
+  /*  'q'  =>  */  QYAE,
+  /*  'r'  =>  */   NUL,  /* Gedeo, Sidama */
+  /*  's'  =>  */  SZAE,
+  /*  't'  =>  */   NUL,
+  /*  'u'  =>  */   OAE + KAIB,
+  /*  'v'  =>  */   NUL,
+  /*  'w'  =>  */   NUL,
+  /*  'x'  =>  */  SSAE,  /* Bench */
+  /*  'y'  =>  */   NUL,
+  /*  'z'  =>  */   NUL
+};
+  
+#endif  /* DEHAI_MAP */

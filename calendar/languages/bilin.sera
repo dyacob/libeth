@@ -1,0 +1,254 @@
+\ #ifdef SUPPORT_BILIN
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* BilinUTF8Days[7] = \
+  {
+    "senber qdakWu"\,
+    "senu"\,
+    "seliG"\,
+    "lebWa"\,  /* legWa */
+    "Amd"\,
+    "Ar"\,
+    "senber xugWaKWu"
+  }\;
+\ unsigned char* BilinUTF8Months[13] = \
+  {
+    "yaKenitri"\,      /* yaKeni mesaqleri */
+    "metelu"\,
+    "mkEl mexweri"\,
+    "tHsasri"\,
+    "ldetri"\,
+    "kebaKbti"\,
+    "kbla"\,
+    "fajKiri"\,
+    "gnbotri"\,        /* kbitri */
+    "mkEl tngWaniri"\,
+    "kWerku"\,
+    "maryamtri"\,
+    "gWaqume"
+  }\;
+\ unsigned char* BilinUTF8AbbreviatedDays[7] = \
+  {
+    "sen"\,
+    "senu"\,
+    "seli"\,
+    "lebWa"\,  /* legWa */
+    "Am"\,
+    "Ar"\,
+    "sen"
+  }\;
+\ unsigned char* BilinUTF8AbbreviatedMonths[13] = \
+  {
+    "yaKe"\,      /* yaKe */
+    "mete"\,
+    "m/me"\,
+    "tH"\,
+    "lde"\,
+    "keba"\,
+    "kb"\,
+    "faj"\,
+    "gn"\,        /* kbi */
+    "m/t"\,
+    "kWer"\,
+    "mar"\,
+    "gWaqu"
+  }\;
+\
+
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* BilinSERADays[7] =
+  {
+    "senber qdakWu",
+    "senu",
+    "seliG",
+    "lebWa",  /* legWa */
+    "Amd",
+    "Ar",
+    "senber xugWaKWu"
+  };
+unsigned char* BilinSERAMonths[13] = 
+  {
+    "yaKenitri",      /* yaKeni mesaqleri */
+    "metelu",
+    "mkEl mexweri",
+    "tHsasri",
+    "ldetri",
+    "kebaKbti",
+    "kbla",
+    "fajKiri",
+    "gnbotri",        /* kbitri */
+    "mkEl tngWaniri",
+    "kWerku",
+    "maryamtri",
+    "gWaqume"
+  };
+unsigned char* BilinSERAAbbreviatedDays[7] =
+  {
+    "se/q",
+    "senu",
+    "seli",
+    "lebWa",  /* legWa */
+    "Am",
+    "Ar",
+    "se/xu"
+  };
+unsigned char* BilinSERAAbbreviatedMonths[13] =
+  {
+    "yaKe",      /* yaKe */
+    "mete",
+    "m/me",
+    "tH",
+    "lde",
+    "keba",
+    "kb",
+    "faj",
+    "gn",        /* kbi */
+    "m/t",
+    "kWer",
+    "mar",
+    "gWaqu"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* BilinTranscribedDays[7] =
+  {
+    "Senber Kidakwu",
+    "Senu",
+    "Seling",
+    "Lebwa",  /* legWa */
+    "Amd",
+    "Ar",
+    "Senber Shugwakhwu"
+  };
+unsigned char* BilinTranscribedMonths[13] =
+  {
+    "Yakhenitri",
+    "Metelu",
+    "Michiel Meshweri",
+    "Tihisasri",
+    "Lidetri",
+    "Kebakhbti",
+    "Kibla",
+    "Fajkiri",
+    "Genbotri",
+    "Michiel Tingwaniri",
+    "Querku",
+    "Maryamtri",
+    "Gwakume"
+  };
+unsigned char* BilinTranscribedAbbreviatedDays[7] =
+  {
+    "S/K",
+    "Sen",
+    "Sel",
+    "Leb",  /* legWa */
+    "Amd",
+    "Ar",
+    "S/S"
+  };
+unsigned char* BilinTranscribedAbbreviatedMonths[13] =
+  {
+    "Yak",
+    "Met",
+    "M/M",
+    "Tih",
+    "Lid",
+    "Keb",
+    "Kib",
+    "Faj",
+    "Gen",
+    "M/T",
+    "Que",
+    "Mar",
+    "Gwa"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** BilinMonths[3] =
+{
+	BilinUTF8Months,
+#ifdef WITHSERA
+	BilinSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	BilinTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char** BilinDays[3] =
+{
+	BilinUTF8Days,
+#ifdef WITHSERA
+	BilinSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	BilinTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char* BilinDayNames[3] =
+  {
+	\ "grga"\ ,
+#ifdef WITHSERA
+	"grga",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Girga",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+unsigned char* BilinNames[3] =
+  {
+	\ "blin"\ ,
+#ifdef WITHSERA
+	"blin",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Bilin",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_BILIN */

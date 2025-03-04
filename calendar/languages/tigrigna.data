@@ -1,0 +1,264 @@
+#ifdef SUPPORT_TIGRIGNA
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* TigrignaUTF8Days[7] = 
+  {
+    "ሰንበት",
+    "ሰኑይ",
+    "ሰሉስ",
+    "ረቡዕ",
+    "ሓሙስ",
+    "ዓርቢ",
+    "ቀዳም"
+  };
+unsigned char* TigrignaUTF8Days2[7] = 
+  {
+    "ሰንበት",
+    "ሶኒ",
+    "ስሉስ",
+    "ሮብዕ",
+    "ሓሙስ",
+    "ዓርቢ",
+    "ቀዳም"
+  };
+unsigned char* OldTigrignaUTF8Days[7] = 
+  {
+    "ሰንበት",
+    "ሰኑይ",
+    "ሠሉስ",
+    "ረቡዕ",
+    "ኃሙስ",
+    "ዓርቢ",
+    "ቀዳም"
+  };
+unsigned char* TigrignaUTF8Months[13] =  
+  {
+    "መስከረም",
+    "ጥቅምቲ",
+    "ሕዳር",
+    "ታሕሳስ",
+    "ጥሪ",
+    "ለካቲት",
+    "መጋቢት",
+    "ሚያዝያ",
+    "ግንቦት",
+    "ሰነ",
+    "ሓምለ",
+    "ነሓሰ",
+    "ጳጉሜን"
+  };
+
+
+
+#ifdef WITHSERA
+unsigned char* TigrignaSERADays[7] =
+  {
+    "senbet",
+    "senuy",
+    "selus",
+    "rebu`I",
+    "Hamus",
+    "`arbi",
+    "qedam"
+  };
+unsigned char* TigrignaSERADays2[7] =
+  {
+    "senbet",
+    "soni",
+    "slus",
+    "rob`I",
+    "Hamus",
+    "`arbi",
+    "qedam"
+  };
+unsigned char* OldTigrignaSERADays[7] =
+  {
+    "senbet",
+    "senuy",
+    "`selus",
+    "rebu`I",
+    "`hamus",
+    "`arbi",
+    "qedam"
+  };
+unsigned char* TigrignaSERAMonths[13] = 
+  {
+    "meskerem",
+    "Tqmti",
+    "Hdar",
+    "taHsas",
+    "Tri",
+    "lekatit",
+    "megabit",
+    "miyazya",
+    "gnbot",
+    "sene",
+    "Hamle",
+    "neHase",
+    "PagumEn"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* TigrignaTranscribedDays[7] =
+  {
+    "Sennebet",
+    "Senoi",
+    "Sellus",
+    "Rebu",
+    "Hamus",
+    "Arbi",
+    "Kidam" 
+  };
+unsigned char* TigrignaTranscribedDays2[7] =
+  {
+    "Sennebet",
+    "Soni",
+    "Sillus",
+    "Robi",
+    "Hamus",
+    "Arbi",
+    "Kidam" 
+  };
+unsigned char* TigrignaTranscribedMonths[13] =
+  {
+    "Meskerem",
+    "Tekemti",
+    "Hedar",
+    "Tahsas",
+    "Teri",
+    "Lekatit",
+    "Megabit",
+    "Miazia",
+    "Genbot",
+    "Sene",
+    "Hamle",
+    "Nehasse",
+    "Pagumen"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** TigrignaDays[9] =
+{
+	TigrignaUTF8Days,
+#ifdef WITHSERA
+	TigrignaSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigrignaTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	TigrignaUTF8Days2,
+#ifdef WITHSERA
+	TigrignaSERADays2,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigrignaTranscribedDays2,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	OldTigrignaUTF8Days,
+#ifdef WITHSERA
+	OldTigrignaSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigrignaTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+unsigned char** TigrignaMonths[9] =
+{
+	TigrignaUTF8Months,
+#ifdef WITHSERA
+	TigrignaSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigrignaTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	TigrignaUTF8Months,
+#ifdef WITHSERA
+	TigrignaSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigrignaTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	TigrignaUTF8Months,
+#ifdef WITHSERA
+	TigrignaSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	TigrignaTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+unsigned char* TigrignaDayNames[4] =
+  {
+	"መዓልቲ",
+#ifdef WITHSERA
+	"me`alti",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Me`alti",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	"ዕለት",  /* formal */
+  };
+
+
+unsigned char* TigrignaNames[4] =
+  {
+	"ትግርኛ",
+#ifdef WITHSERA
+	"tgrNa",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Tigrigna",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+	"ትግርኛ",
+  };
+
+
+#endif /* SUPPORT_TIGRIGNA */

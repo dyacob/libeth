@@ -1,0 +1,196 @@
+/* This is part of the LibEth library, an ANSI C library for Ethiopic
+   text and information processing (http://libeth.netpedia.net).
+   Copyright (C) 1995-1998 Daniel Yacob.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with this library; if not, write to the Free
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+#ifndef ETHHIOME_MAP
+#define ETHHIOME_MAP  1
+
+#ifndef SUPPORT_ETHHIOME
+#  define SUPPORT_ETHHIOME 1
+#endif /* SUPPORT_ETHIOME */
+
+#ifndef MAPTYPES_H
+#  include "maptypes.h"
+#endif /* MAPTYPES_H */
+
+#ifndef ETHHIOME_H
+#  include "ethiome.h"
+#endif /* ETHIOME_H */
+
+
+
+LETCHAR EthioMEFidel[UNITOTAL] = 
+{
+/* he */  {"h", NOCH, SET0}, {"∞", NOCH, SET0}, {"±", NOCH, SET0}, {"≤", NOCH, SET0}, {"≥", NOCH, SET0}, {"¥", NOCH, SET0}, {"µ", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* le */  {"l", NOCH, SET0}, {"»", NOCH, SET0}, {"…", NOCH, SET0}, {" ", NOCH, SET0}, {"À", NOCH, SET0}, {"Ã", NOCH, SET0}, {"Õ", NOCH, SET0}, {" ", NOCH, SET1},
+/* He */  {"h", NOCH, SET0}, {"∞", NOCH, SET0}, {"±", NOCH, SET0}, {"≤", NOCH, SET0}, {"≥", NOCH, SET0}, {"¥", NOCH, SET0}, {"µ", NOCH, SET0}, {"K", NOCH, SET1},
+/* me */  {"m", NOCH, SET0}, {"Œ", NOCH, SET0}, {"œ", NOCH, SET0}, {"–", NOCH, SET0}, {"—", NOCH, SET0}, {"“", NOCH, SET0}, {"”", NOCH, SET0}, {"–", NOCH, SET1},
+/*`se */  {"c", NOCH, SET0}, {"í", NOCH, SET0}, {"ì", NOCH, SET0}, {"î", NOCH, SET0}, {"ï", NOCH, SET0}, {"ñ", NOCH, SET0}, {"ó", NOCH, SET0}, {"î", NOCH, SET1},
+/* re */  {"r", NOCH, SET0}, {"Ï", NOCH, SET0}, {"Ì", NOCH, SET0}, {"Ó", NOCH, SET0}, {"Ô", NOCH, SET0}, {"", NOCH, SET0}, {"Ò", NOCH, SET0}, {"Ó", NOCH, SET1},
+/* se */  {"c", NOCH, SET0}, {"í", NOCH, SET0}, {"ì", NOCH, SET0}, {"î", NOCH, SET0}, {"ï", NOCH, SET0}, {"ñ", NOCH, SET0}, {"ó", NOCH, SET0}, {"î", NOCH, SET1},
+/* xe */  {"u", NOCH, SET0}, {"Z", NOCH, SET0}, {"Y", NOCH, SET0}, {"X", NOCH, SET0}, {"W", NOCH, SET0}, {"V", NOCH, SET0}, {"U", NOCH, SET0}, {"X", NOCH, SET1},
+/* qe */  {"k", NOCH, SET0}, {"¬", NOCH, SET0}, {"√", NOCH, SET0}, {"ƒ", NOCH, SET0}, {"≈", NOCH, SET0}, {"∆", NOCH, SET0}, {"«", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {"k", NOCH, SET1}, {NOCH, NOCH, NOCH}, {"√", NOCH, SET1}, {"ƒ", NOCH, SET1}, {"≈", NOCH, SET1}, {"¬", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* Qe */  {"k", NOCH, SET0}, {"¬", NOCH, SET0}, {"√", NOCH, SET0}, {"ƒ", NOCH, SET0}, {"≈", NOCH, SET0}, {"∆", NOCH, SET0}, {"«", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {"k", NOCH, SET1}, {NOCH, NOCH, NOCH}, {"√", NOCH, SET1}, {"ƒ", NOCH, SET1}, {"≈", NOCH, SET1}, {"¬", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* be */  {"b", NOCH, SET0}, {"å", NOCH, SET0}, {"ç", NOCH, SET0}, {"é", NOCH, SET0}, {"è", NOCH, SET0}, {"ê", NOCH, SET0}, {"ë", NOCH, SET0}, {"é", NOCH, SET1},
+/* ve */  {"b", NOCH, SET0}, {"å", NOCH, SET0}, {"ç", NOCH, SET0}, {"é", NOCH, SET0}, {"è", NOCH, SET0}, {"ê", NOCH, SET0}, {"ë", NOCH, SET0}, {"é", NOCH, SET1},
+/* te */  {"t", NOCH, SET0}, {"¯", NOCH, SET0}, {"˘", NOCH, SET0}, {"˙", NOCH, SET0}, {"˚", NOCH, SET0}, {"¸", NOCH, SET0}, {"˝", NOCH, SET0}, {"˙", NOCH, SET1},
+/* ce */  {"v", NOCH, SET0}, {"T", NOCH, SET0}, {"S", NOCH, SET0}, {"R", NOCH, SET0}, {"Q", NOCH, SET0}, {"P", NOCH, SET0}, {"O", NOCH, SET0}, {"R", NOCH, SET1},
+/*`he */  {"j", NOCH, SET0}, {"º", NOCH, SET0}, {"Ω", NOCH, SET0}, {"æ", NOCH, SET0}, {"ø", NOCH, SET0}, {"¿", NOCH, SET0}, {"¡", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {"w", NOCH, SET1}, {NOCH, NOCH, NOCH}, {"M", NOCH, SET1}, {"L", NOCH, SET1}, {"K", NOCH, SET1}, {"N", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* ne */  {"n", NOCH, SET0}, {"‘", NOCH, SET0}, {"’", NOCH, SET0}, {"÷", NOCH, SET0}, {"◊", NOCH, SET0}, {"ÿ", NOCH, SET0}, {"Ÿ", NOCH, SET0}, {"÷", NOCH, SET1},
+/* Ne */  {"o", NOCH, SET0}, {"⁄", NOCH, SET0}, {"€", NOCH, SET0}, {"‹", NOCH, SET0}, {"›", NOCH, SET0}, {"ﬁ", NOCH, SET0}, {"ﬂ", NOCH, SET0}, {"‹", NOCH, SET1},
+/*  e */  {"a", NOCH, SET0}, {"Ü", NOCH, SET0}, {"á", NOCH, SET0}, {"à", NOCH, SET0}, {"â", NOCH, SET0}, {"ä", NOCH, SET0}, {"ã", NOCH, SET0}, {"a", NOCH, SET1},
+/* ke */  {"q", NOCH, SET0}, {"Ê", NOCH, SET0}, {"Á", NOCH, SET0}, {"Ë", NOCH, SET0}, {"È", NOCH, SET0}, {"Í", NOCH, SET0}, {"Î", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {"i", NOCH, SET1}, {NOCH, NOCH, NOCH}, {"∑", NOCH, SET1}, {"∏", NOCH, SET1}, {"π", NOCH, SET1}, {"∂", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* Ke */  {"q", NOCH, SET0}, {"Ê", NOCH, SET0}, {"Á", NOCH, SET0}, {"Ë", NOCH, SET0}, {"È", NOCH, SET0}, {"Í", NOCH, SET0}, {"Î", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {"i", NOCH, SET1}, {NOCH, NOCH, NOCH}, {"∑", NOCH, SET1}, {"∏", NOCH, SET1}, {"π", NOCH, SET1}, {"∂", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* we */  {"w", NOCH, SET0}, {"N", NOCH, SET0}, {"M", NOCH, SET0}, {"L", NOCH, SET0}, {"K", NOCH, SET0}, {"J", NOCH, SET0}, {"I", NOCH, SET0}, {NOCH, NOCH, SET0},
+/* `e */  {"a", NOCH, SET0}, {"Ü", NOCH, SET0}, {"á", NOCH, SET0}, {"à", NOCH, SET0}, {"â", NOCH, SET0}, {"ä", NOCH, SET0}, {"ã", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* ze */  {"z", NOCH, SET0}, {"Ä", NOCH, SET0}, {"Å", NOCH, SET0}, {"Ç", NOCH, SET0}, {"É", NOCH, SET0}, {"Ñ", NOCH, SET0}, {"Ö", NOCH, SET0}, {"Ç", NOCH, SET1},
+/* Ze */  {"z", NOCH, SET0}, {"Ä", NOCH, SET0}, {"Å", NOCH, SET0}, {"Ç", NOCH, SET0}, {"É", NOCH, SET0}, {"Ñ", NOCH, SET0}, {"Ö", NOCH, SET0}, {"z", NOCH, SET1},
+/* ye */  {"i", NOCH, SET0}, {"∂", NOCH, SET0}, {"∑", NOCH, SET0}, {"∏", NOCH, SET0}, {"π", NOCH, SET0}, {"∫", NOCH, SET0}, {"ª", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* de */  {"d", NOCH, SET0}, {"ò", NOCH, SET0}, {"ô", NOCH, SET0}, {"ö", NOCH, SET0}, {"õ", NOCH, SET0}, {"ú", NOCH, SET0}, {"ù", NOCH, SET0}, {"ö", NOCH, SET1},
+/* De */  {"d", NOCH, SET0}, {"ò", NOCH, SET0}, {"ô", NOCH, SET0}, {"ö", NOCH, SET0}, {"õ", NOCH, SET0}, {"ú", NOCH, SET0}, {"ù", NOCH, SET0}, {"ö", NOCH, SET1},
+/* je */  {"j", NOCH, SET0}, {"º", NOCH, SET0}, {"Ω", NOCH, SET0}, {"æ", NOCH, SET0}, {"ø", NOCH, SET0}, {"¿", NOCH, SET0}, {"¡", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* ge */  {"g", NOCH, SET0}, {"™", NOCH, SET0}, {"´", NOCH, SET0}, {"¨", NOCH, SET0}, {"≠", NOCH, SET0}, {"Æ", NOCH, SET0}, {"Ø", NOCH, SET0}, {"¨", NOCH, SET0},
+          {"g", NOCH, SET1}, {"™", NOCH, SET1}, {"´", NOCH, SET1}, {"¨", NOCH, SET1}, {"≠", NOCH, SET1}, {"Æ", NOCH, SET1}, {"Ø", NOCH, SET1}, {"¨", NOCH, SET1},
+/* Te */  {"x", NOCH, SET0}, {"H", NOCH, SET0}, {"G", NOCH, SET0}, {"F", NOCH, SET0}, {"E", NOCH, SET0}, {"D", NOCH, SET0}, {"C", NOCH, SET0}, {"F", NOCH, SET1},
+/* Ce */  {"e", NOCH, SET0}, {"û", NOCH, SET0}, {"ü", NOCH, SET0}, {"†", NOCH, SET0}, {"°", NOCH, SET0}, {"¢", NOCH, SET0}, {"£", NOCH, SET0}, {"†", NOCH, SET1},
+/* Pe */  {"p", NOCH, SET0}, {"‡", NOCH, SET0}, {"·", NOCH, SET0}, {"‚", NOCH, SET0}, {"„", NOCH, SET0}, {"‰", NOCH, SET0}, {"Â", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* Se */  {"s", NOCH, SET0}, {"Ú", NOCH, SET0}, {"Û", NOCH, SET0}, {"Ù", NOCH, SET0}, {"ı", NOCH, SET0}, {"ˆ", NOCH, SET0}, {"˜", NOCH, SET0}, {"Ù", NOCH, SET1},
+/*`Se */  {"s", NOCH, SET0}, {"Ú", NOCH, SET0}, {"Û", NOCH, SET0}, {"Ù", NOCH, SET0}, {"ı", NOCH, SET0}, {"ˆ", NOCH, SET0}, {"˜", NOCH, SET0}, {"Ù", NOCH, SET1},
+/* fe */  {"f", NOCH, SET0}, {"§", NOCH, SET0}, {"•", NOCH, SET0}, {"¶", NOCH, SET0}, {"ß", NOCH, SET0}, {"®", NOCH, SET0}, {"©", NOCH, SET0}, {"¶", NOCH, SET1},
+/* pe */  {"p", NOCH, SET0}, {"‡", NOCH, SET0}, {"·", NOCH, SET0}, {"‚", NOCH, SET0}, {"„", NOCH, SET0}, {"‰", NOCH, SET0}, {"Â", NOCH, SET0}, {NOCH, NOCH, NOCH},
+
+
+          {NOCH, NOCH, NOCH}, {".", NOCH, SET0}, {"..", NOCH, SET0}, {"/", NOCH, SET0}, {";", NOCH, SET0}, {":", NOCH, SET0}, {":", NOCH, SET0}, {"?", NOCH, SET0}, {"", NOCH, SET1},
+
+
+
+          {"1", NOCH, SET1}, {"2", NOCH, SET1}, {"3", NOCH, SET1}, {"4", NOCH, SET1}, {"5", NOCH, SET1}, {"6", NOCH, SET1}, {"7", NOCH, SET1}, {"8", NOCH, SET1}, {"9", NOCH, SET1}, {"0", NOCH, SET1},
+          {"»", NOCH, SET1}, {"…", NOCH, SET1}, {" ", NOCH, SET1}, {"À", NOCH, SET1}, {"Ã", NOCH, SET1}, {"Õ", NOCH, SET1}, {"Œ", NOCH, SET1}, {"œ", NOCH, SET1}, {"–", NOCH, SET1}, 
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, 
+
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, 
+		  {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {"!`",  NOCH, SET0}, {"\"", NOCH, SET0}, {"``", NOCH, SET0}, {"''", NOCH, SET0}, {"?", NOCH, SET0}
+};
+
+int EthioMEPrimaryHashTable[224] = {
+
+/*        ,      !,      ",      #,      $,      %,      &,      ',      (,      ),      *,      +,      ,,      -,      .,      /, */
+    0x0000, 0x13ba, 0x13bb, 0x0000, 0x0000, 0x0000, 0x0000, 0x13bd, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1351, 0x1353,
+
+/*       0,      1,      2,      3,      4,      5,      6,      7,      8,      9,      :,      ;,      <,      =,      >,      ?, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1355, 0x1354, 0x0000, 0x0000, 0x0000, 0x1357,
+
+/*       @,      A,      B,      C,      D,      E,      F,      G,      H,      I,      J,      K,      L,      M,      N,      O, */
+    0x0000, 0x0000, 0x0000, 0x131e, 0x131d, 0x131c, 0x131b, 0x131a, 0x1319, 0x12ce, 0x12cd, 0x12cc, 0x12cb, 0x12ca, 0x12c9, 0x127e,
+
+/*       P,      Q,      R,      S,      T,      U,      V,      W,      X,      Y,      Z,      [,      \,      ],      ^,      _, */
+    0x127d, 0x127c, 0x127b, 0x127a, 0x1279, 0x123e, 0x123d, 0x123c, 0x123b, 0x123a, 0x1239, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       `,      a,      b,      c,      d,      e,      f,      g,      h,      i,      j,      k,      l,      m,      n,      o, */
+    0x13bc, 0x12a0, 0x1260, 0x1220, 0x12f0, 0x1320, 0x1340, 0x1308, 0x1200, 0x12e8, 0x1280, 0x1240, 0x1208, 0x1218, 0x1290, 0x1298,
+
+/*       p,      q,      r,      s,      t,      u,      v,      w,      x,      y,      z,      {,      |,      },      ~,      , */
+    0x1328, 0x12a8, 0x1228, 0x1330, 0x1270, 0x1238, 0x1278, 0x12c8, 0x1318, 0x0000, 0x12d8, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*    0x80,   0x81,   0x82,   0x83,   0x84,   0x85,   0x86,   0x87,   0x88,   0x89,   0x8a,   0x8b,   0x8c,   0x8d,   0x8e,   0x8f, */
+    0x12d9, 0x12da, 0x12db, 0x12dc, 0x12dd, 0x12de, 0x12a1, 0x12a2, 0x12a3, 0x12a4, 0x12a5, 0x12a6, 0x1261, 0x1262, 0x1263, 0x1264,
+
+/*    0x90,   0x91,   0x92,   0x93,   0x94,   0x95,   0x96,   0x97,   0x98,   0x99,   0x9a,   0x9b,   0x9c,   0x9d,   0x9e,   0x9f, */
+    0x1265, 0x1266, 0x1221, 0x1222, 0x1223, 0x1224, 0x1225, 0x1226, 0x12f1, 0x12f2, 0x12f3, 0x12f4, 0x12f5, 0x12f6, 0x1321, 0x1322,
+
+/*    0xa0,      °,      ¢,      £,      §,      •,      ¶,      ß,      ®,      ©,      ™,      ´,      ¨,      ≠,      Æ,      Ø, */
+    0x1323, 0x1324, 0x1325, 0x1326, 0x1341, 0x1342, 0x1343, 0x1344, 0x1345, 0x1346, 0x1309, 0x130a, 0x130b, 0x130c, 0x130d, 0x130e,
+
+/*       ∞,      ±,      ≤,      ≥,      ¥,      µ,      ∂,      ∑,      ∏,      π,      ∫,      ª,      º,      Ω,      æ,      ø, */
+    0x1201, 0x1202, 0x1203, 0x1204, 0x1205, 0x1206, 0x12e9, 0x12ea, 0x12eb, 0x12ec, 0x12ed, 0x12ee, 0x1281, 0x1282, 0x1283, 0x1284,
+
+/*       ¿,      ¡,      ¬,      √,      ƒ,      ≈,      ∆,      «,      »,      …,       ,      À,      Ã,      Õ,      Œ,      œ, */
+    0x1285, 0x1286, 0x1241, 0x1242, 0x1243, 0x1244, 0x1245, 0x1246, 0x1209, 0x120a, 0x120b, 0x120c, 0x120d, 0x120e, 0x1219, 0x121a,
+
+/*       –,      —,      “,      ”,      ‘,      ’,      ÷,      ◊,      ÿ,      Ÿ,      ⁄,      €,      ‹,      ›,      ﬁ,      ﬂ, */
+    0x121b, 0x121c, 0x121d, 0x121e, 0x1291, 0x1292, 0x1293, 0x1294, 0x1295, 0x1296, 0x1299, 0x129a, 0x129b, 0x129c, 0x129d, 0x129e,
+
+/*       ‡,      ·,      ‚,      „,      ‰,      Â,      Ê,      Á,      Ë,      È,      Í,      Î,      Ï,      Ì,      Ó,      Ô, */
+    0x1329, 0x132a, 0x132b, 0x132c, 0x132d, 0x132e, 0x12a9, 0x12aa, 0x12ab, 0x12ac, 0x12ad, 0x12ae, 0x1229, 0x122a, 0x122b, 0x122c,
+
+/*       ,      Ò,      Ú,      Û,      Ù,      ı,      ˆ,      ˜,      ¯,      ˘,      ˙,      ˚,      ¸,      ˝,      ˛,      ˇ, */
+    0x122d, 0x122e, 0x1331, 0x1332, 0x1333, 0x1334, 0x1335, 0x1336, 0x1271, 0x1272, 0x1273, 0x1274, 0x1275, 0x1276, 0x0000, 0x0000,
+
+};
+
+int EthioMESecondaryHashTable[224] = {
+
+/*        ,      !,      ",      #,      $,      %,      &,      ',      (,      ),      *,      +,      ,,      -,      .,      /, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       0,      1,      2,      3,      4,      5,      6,      7,      8,      9,      :,      ;,      <,      =,      >,      ?, */
+    0x1362, 0x1359, 0x135a, 0x135b, 0x135c, 0x135d, 0x135e, 0x135f, 0x1360, 0x1361, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       @,      A,      B,      C,      D,      E,      F,      G,      H,      I,      J,      K,      L,      M,      N,      O, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x131f, 0x0000, 0x0000, 0x0000, 0x0000, 0x1217, 0x128b, 0x128a, 0x128d, 0x0000,
+
+/*       P,      Q,      R,      S,      T,      U,      V,      W,      X,      Y,      Z,      [,      \,      ],      ^,      _, */
+    0x0000, 0x0000, 0x127f, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x123f, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       `,      a,      b,      c,      d,      e,      f,      g,      h,      i,      j,      k,      l,      m,      n,      o, */
+    0x0000, 0x12a7, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1310, 0x0000, 0x12b0, 0x0000, 0x1248, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       p,      q,      r,      s,      t,      u,      v,      w,      x,      y,      z,      {,      |,      },      ~,      , */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1288, 0x0000, 0x0000, 0x12e7, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*    0x80,   0x81,   0x82,   0x83,   0x84,   0x85,   0x86,   0x87,   0x88,   0x89,   0x8a,   0x8b,   0x8c,   0x8d,   0x8e,   0x8f, */
+    0x0000, 0x0000, 0x12df, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1267, 0x0000,
+
+/*    0x90,   0x91,   0x92,   0x93,   0x94,   0x95,   0x96,   0x97,   0x98,   0x99,   0x9a,   0x9b,   0x9c,   0x9d,   0x9e,   0x9f, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x1227, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x12f7, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*    0xa0,      °,      ¢,      £,      §,      •,      ¶,      ß,      ®,      ©,      ™,      ´,      ¨,      ≠,      Æ,      Ø, */
+    0x1327, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1347, 0x0000, 0x0000, 0x0000, 0x1311, 0x1312, 0x1313, 0x1314, 0x1315, 0x1316,
+
+/*       ∞,      ±,      ≤,      ≥,      ¥,      µ,      ∂,      ∑,      ∏,      π,      ∫,      ª,      º,      Ω,      æ,      ø, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x12b5, 0x12b2, 0x12b3, 0x12b4, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       ¿,      ¡,      ¬,      √,      ƒ,      ≈,      ∆,      «,      »,      …,       ,      À,      Ã,      Õ,      Œ,      œ, */
+    0x0000, 0x0000, 0x124d, 0x124a, 0x124b, 0x124c, 0x0000, 0x0000, 0x1363, 0x1364, 0x120f, 0x1366, 0x1367, 0x1368, 0x1369, 0x136a,
+
+/*       –,      —,      “,      ”,      ‘,      ’,      ÷,      ◊,      ÿ,      Ÿ,      ⁄,      €,      ‹,      ›,      ﬁ,      ﬂ, */
+    0x121f, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1297, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x129f, 0x0000, 0x0000, 0x0000,
+
+/*       ‡,      ·,      ‚,      „,      ‰,      Â,      Ê,      Á,      Ë,      È,      Í,      Î,      Ï,      Ì,      Ó,      Ô, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x122f, 0x0000,
+
+/*       ,      Ò,      Ú,      Û,      Ù,      ı,      ˆ,      ˜,      ¯,      ˘,      ˙,      ˚,      ¸,      ˝,      ˛,      ˇ, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x1337, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1277, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+};
+
+#endif /* ETHHIOME_MAP */

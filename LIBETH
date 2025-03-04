@@ -1,0 +1,40 @@
+
+Divisions of LibEth
+===================
+
+Syllabic Processing
+-------------------
+The ANSI C "strings" and "ctype" modules are extended to understand Ethiopic
+syllables under Ethiopic conventions.  For instance you may do boolean tests
+for Ethiopic character classes, querry and reset syllabic forms, and
+progressive language sensitive orthographic simplifications for text
+retreival.
+
+
+Character Code Conversions
+--------------------------
+In the absence of any standard for Ethiopic character encoding over the
+years (Unicode 3.0 will be the first recognized standard) a large miaraid
+of proprietary standards have evolved.  LibEth recognizes 61 encoding and
+transiliteration systems and offers conversions between most of these
+systems.  The data these encoding systems occupy within the library accounts
+for bulk of LibEth's mass.  This section may be thought of as a less
+sophisticated version of GNU "recode".
+
+In application this functionality of LibEth has so far been the most
+often applied in web document conversion service.
+
+
+Calendar Conversions
+--------------------
+In addition to providing the ANSI time functions (with formatting
+localization of course) routines are available to convert between Gregorian
+and Ethiopic calendar systems.  Since this section is often of greater
+interest by itself it is also provided as a seperate package.
+
+
+Other Localizations
+-------------------
+Routines for Ethiopic to/from Arabic numeral conversions are available
+as well as for Ethiopic ordered lists generation.  Routines for the various
+Ethiopic sorting schemes will later be a part of the library.

@@ -1,0 +1,176 @@
+#ifdef SUPPORT_BILIN
+
+
+/**
+ *   Required UTF8 Terms
+ *
+ */
+
+
+unsigned char* BilinUTF8Days[7] = 
+  {
+    "ሰንበር ቅዳኵ",
+    "ሰኑ",
+    "ሰሊጝ",
+    "ለቧ",  /* ለጓ */
+    "ኣምድ",
+    "ኣር",
+    "ሰንበር ሹጓዅ"
+  };
+unsigned char* BilinUTF8Months[13] = 
+  {
+    "ያኸኒትሪ",      /* ያኸኒ መሳቅለሪ */
+    "መተሉ",
+    "ምኬል መሽወሪ",
+    "ትሕሳስሪ",
+    "ልደትሪ",
+    "ከባኽብቲ",
+    "ክብላ",
+    "ፋጅኺሪ",
+    "ግንቦትሪ",        /* ክቢትሪ */
+    "ምኬል ትንጓኒሪ",
+    "ኰርኩ",
+    "ማርያምትሪ",
+    "ጓቁመ"
+  };
+
+
+
+/**
+ *   SERA Terms
+ *
+ */
+
+
+#ifdef WITHSERA
+unsigned char* BilinSERADays[7] =
+  {
+    "senber qdakWu",
+    "senu",
+    "seliG",
+    "lebWa",  /* legWa */
+    "Amd",
+    "Ar",
+    "senber xugWaKWu"
+  };
+unsigned char* BilinSERAMonths[13] = 
+  {
+    "yaKenitri",      /* yaKeni mesaqleri */
+    "metelu",
+    "mkEl mexweri",
+    "tHsasri",
+    "ldetri",
+    "kebaKbti",
+    "kbla",
+    "fajKiri",
+    "gnbotri",        /* kbitri */
+    "mkEl tngWaniri",
+    "kWerku",
+    "maryamtri",
+    "gWaqume"
+  };
+#endif /* WITHSERA */
+
+
+/**
+ *
+ *   Transcribed Terms
+ *
+ */
+
+
+#ifdef WITHTRANSCRIPTION
+unsigned char* BilinTranscribedDays[7] =
+  {
+    "Senber Kidakwu",
+    "Senu",
+    "Seling",
+    "Lebwa",  /* legWa */
+    "Amd",
+    "Ar",
+    "Senber Shugwakhwu"
+  };
+unsigned char* BilinTranscribedMonths[13] =
+  {
+    "Yakhenitri",
+    "Metelu",
+    "Michiel Meshweri",
+    "Tihisasri",
+    "Lidetri",
+    "Kebakhbti",
+    "Kibla",
+    "Fajkiri",
+    "Genbotri",
+    "Michiel Tingwaniri",
+    "Querku",
+    "Maryamtri",
+    "Gwakume"
+  };
+#endif /* WITHTRANSCRIPTION */
+
+
+unsigned char** BilinMonths[3] =
+{
+	BilinUTF8Months,
+#ifdef WITHSERA
+	BilinSERAMonths,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	BilinTranscribedMonths,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char** BilinDays[3] =
+{
+	BilinUTF8Days,
+#ifdef WITHSERA
+	BilinSERADays,
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	BilinTranscribedDays,
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+};
+
+
+unsigned char* BilinDayNames[3] =
+  {
+	"ግርጋ",
+#ifdef WITHSERA
+	"grga",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Girga",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+unsigned char* BilinNames[3] =
+  {
+	"ብሊን",
+#ifdef WITHSERA
+	"blin",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Bilin",
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_BILIN */

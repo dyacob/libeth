@@ -1,0 +1,49 @@
+\ #ifdef SUPPORT_SIDAMO
+
+
+unsigned char** SidamoMonths[3] =
+  {
+  	DefaultMonths
+  };
+
+
+unsigned char** SidamoDays[3] =
+  {
+  	DefaultDays
+  };
+
+
+#define SidamoDayNames DefaultDayNames
+
+
+unsigned char** SidamoAbbreviatedMonths[3] =
+  {
+  	DefaultAbbreviatedMonths
+  };
+
+
+unsigned char** SidamoAbbreviatedDays[3] =
+  {
+  	DefaultAbbreviatedDays
+  };
+
+#define SidamoAbbreviatedDayNames DefaultAbbreviatedDayNames
+
+
+unsigned char* SidamoNames[3] =
+  {
+	\ "sidamo"\ ,
+#ifdef WITHSERA
+	"sidamo",
+#else
+	NULL,
+#endif /* WITHSERA */
+#ifdef WITHTRANSCRIPTION
+	"Sidamo"
+#else
+	NULL,
+#endif /* WITHTRANSCRIPTION */
+  };
+
+
+#endif /* SUPPORT_SIDAMO */

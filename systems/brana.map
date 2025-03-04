@@ -1,0 +1,212 @@
+/* This is part of the LibEth library, an ANSI C library for Ethiopic
+   text and information processing (http://libeth.netpedia.net).
+   Copyright (C) 1995-1998 Daniel Yacob.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with this library; if not, write to the Free
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+#ifndef BRANA_MAP
+#define BRANA_MAP  1
+
+#ifndef SUPPORT_BRANA
+#  define SUPPORT_BRANA 1
+#endif /* SUPPORT_BRANA */
+
+#ifndef MAPTYPES_H
+#  include "maptypes.h"
+#endif /* MAPTYPES_H */
+
+#ifndef BRANA_H
+#  include "brana.h"
+#endif /* BRANA_H */
+
+#define NUM_BRANA 2
+#define BRANASETLENGTH 2
+unsigned char* BranaTTFNames[NUM_BRANA] = { 
+    "Brana I",
+    "Brana II"
+};
+char* BranaRTFPrefix[] = { 
+    "\\fnil\\fprq2\\fcharset2"
+};
+
+
+LETCHAR BranaFidel[UNITOTAL] = 
+       {
+/* he */  {"\x25", NOCH, SET0}, {"\x23", NOCH, SET0}, {"\x24", NOCH, SET0}, {"\xa5", NOCH, SET1}, {"\x26", NOCH, SET0}, {"\x27", NOCH, SET0}, {"\x2a", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* le */  {"\x2b", NOCH, SET0}, {"\x3c", NOCH, SET0}, {"\x3d", NOCH, SET0}, {"\x3e", NOCH, SET0}, {"\x40", NOCH, SET0}, {"\x41", NOCH, SET0}, {"\x42", NOCH, SET0}, {"\xc4", NOCH, SET1},
+/* He */  {"\x95", NOCH, SET1}, {"\x96", NOCH, SET1}, {"\x97", NOCH, SET1}, {"\x98", NOCH, SET1}, {"\x99", NOCH, SET1}, {"\x9a", NOCH, SET1}, {"\x9b", NOCH, SET1}, {"\xde", NOCH, SET1},
+/*
+ *  correct in the hash table that 0xde goes to hWa and not HWa
+ */
+/* me */  {"\x43", NOCH, SET0}, {"\x44", NOCH, SET0}, {"\x45", NOCH, SET0}, {"\x46", NOCH, SET0}, {"\x47", NOCH, SET0}, {"\x48", NOCH, SET0}, {"\x49", NOCH, SET0}, {"\xc5", NOCH, SET1},
+/*`se */  {"\xac", NOCH, SET1}, {"\xad", NOCH, SET1}, {"\xae", NOCH, SET1}, {"\xaf", NOCH, SET1}, {"\xb0", NOCH, SET1}, {"\xb1", NOCH, SET1}, {"\xb2", NOCH, SET1}, {"\xc7", NOCH, SET1},
+/* re */  {"\x51", NOCH, SET0}, {"\x52", NOCH, SET0}, {"\x53", NOCH, SET0}, {"\x54", NOCH, SET0}, {"\x55", NOCH, SET0}, {"\x56", NOCH, SET0}, {"\x57", NOCH, SET0}, {"\xc9", NOCH, SET1},
+/* se */  {"\x4a", NOCH, SET0}, {"\x4b", NOCH, SET0}, {"\x4c", NOCH, SET0}, {"\x4d", NOCH, SET0}, {"\x4e", NOCH, SET0}, {"\x4f", NOCH, SET0}, {"\x50", NOCH, SET0}, {"\xc6", NOCH, SET1},
+/* xe */  {"\x58", NOCH, SET0}, {"\x59", NOCH, SET0}, {"\x5a", NOCH, SET0}, {"\x5b", NOCH, SET0}, {"\x5c", NOCH, SET0}, {"\x5d", NOCH, SET0}, {"\x5e", NOCH, SET0}, {"\xc8", NOCH, SET1},
+/* qe */  {"\x5f", NOCH, SET0}, {"\x60", NOCH, SET0}, {"\x61", NOCH, SET0}, {"\x62", NOCH, SET0}, {"\x63", NOCH, SET0}, {"\x64", NOCH, SET0}, {"\x65", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {"\xe5", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {"\xe7", NOCH, SET1}, {"\xe8", NOCH, SET1}, {"\xe6", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* Qe */  {"\xe9", NOCH, SET1}, {"\xea", NOCH, SET1}, {"\xeb", NOCH, SET1}, {"\xec", NOCH, SET1}, {"\xed", NOCH, SET1}, {"\xee", NOCH, SET1}, {"\xef", NOCH, SET1}, {NOCH, NOCH, NOCH},
+          {"\xf0", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {"\xf2", NOCH, SET1}, {"\xf3", NOCH, SET1}, {"\xf1", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* be */  {"\x66", NOCH, SET0}, {"\x67", NOCH, SET0}, {"\x68", NOCH, SET0}, {"\x69", NOCH, SET0}, {"\x6a", NOCH, SET0}, {"\x6b", NOCH, SET0}, {"\x6c", NOCH, SET0}, {"\xca", NOCH, SET1},
+/* ve */  {"\xf9", NOCH, SET0}, {"\xfa", NOCH, SET0}, {"\xfb", NOCH, SET0}, {"\xfc", NOCH, SET0}, {"\xfd", NOCH, SET0}, {"\xfe", NOCH, SET0}, {"\xff", NOCH, SET0}, {"\xca", NOCH, SET1},
+/* te */  {"\x6d", NOCH, SET0}, {"\x6e", NOCH, SET0}, {"\x6f", NOCH, SET0}, {"\x70", NOCH, SET0}, {"\x71", NOCH, SET0}, {"\x72", NOCH, SET0}, {"\x73", NOCH, SET0}, {"\xcb", NOCH, SET1},
+/* ce */  {"\x74", NOCH, SET0}, {"\x75", NOCH, SET0}, {"\x76", NOCH, SET0}, {"\x77", NOCH, SET0}, {"\x78", NOCH, SET0}, {"\x79", NOCH, SET0}, {"\x7a", NOCH, SET0}, {"\xcc", NOCH, SET1},
+/*`he */  {"\x9c", NOCH, SET1}, {"\x9d", NOCH, SET1}, {"\x9e", NOCH, SET1}, {"\x9f", NOCH, SET1}, {"\xa1", NOCH, SET1}, {"\xa2", NOCH, SET1}, {"\xa3", NOCH, SET1}, {NOCH, NOCH, NOCH},
+          {"\xdc", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {"\xde", NOCH, SET1}, {"\xdf", NOCH, SET1}, {"\xdd", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* ne */  {"\x7b", NOCH, SET0}, {"\x7c", NOCH, SET0}, {"\x7d", NOCH, SET0}, {"\x7e", NOCH, SET0}, {"\x80", NOCH, SET0}, {"\x81", NOCH, SET0}, {"\x82", NOCH, SET0}, {"\xcd", NOCH, SET1},
+/* Ne */  {"\x83", NOCH, SET0}, {"\x84", NOCH, SET0}, {"\x85", NOCH, SET0}, {"\x86", NOCH, SET0}, {"\x87", NOCH, SET0}, {"\x88", NOCH, SET0}, {"\x89", NOCH, SET0}, {"\xce", NOCH, SET1},
+/* e  */  {"\x8d", NOCH, SET0}, {"\x8b", NOCH, SET0}, {"\x8c", NOCH, SET0}, {"\xb3", NOCH, SET1}, {"\x8e", NOCH, SET0}, {"\x8f", NOCH, SET0}, {"\x90", NOCH, SET0}, {"\x8a", NOCH, SET0},
+/* ke */  {"\x91", NOCH, SET0}, {"\x92", NOCH, SET0}, {"\x93", NOCH, SET0}, {"\x94", NOCH, SET0}, {"\x95", NOCH, SET0}, {"\x96", NOCH, SET0}, {"\x97", NOCH, SET0}, {NOCH, NOCH, SETD},
+          {"\xe0", NOCH, SET1}, {NOCH, NOCH, NOCH}, {"\xe1", NOCH, SET1}, {"\xe2", NOCH, SET1}, {"\xe3", NOCH, SET1}, {"\xe4", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* Ke */  {"\x22", NOCH, SET0}, {"\xa6", NOCH, SET1}, {"\xa7", NOCH, SET1}, {"\xa8", NOCH, SET1}, {"\xa9", NOCH, SET1}, {"\xaa", NOCH, SET1}, {"\xab", NOCH, SET1}, {NOCH, NOCH, NOCH},
+          {"\xf4", NOCH, SET1}, {NOCH, NOCH, NOCH}, {"\xf5", NOCH, SET1}, {"\xf6", NOCH, SET1}, {"\xf7", NOCH, SET1}, {"\xf8", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* we */  {"\x98", NOCH, SET0}, {"\x99", NOCH, SET0}, {"\x9a", NOCH, SET0}, {"\x9b", NOCH, SET0}, {"\x9c", NOCH, SET0}, {"\x9d", NOCH, SET0}, {"\x9e", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* `e */  {"\xb4", NOCH, SET1}, {"\xb5", NOCH, SET1}, {"\xb8", NOCH, SET1}, {"\xb9", NOCH, SET1}, {"\xba", NOCH, SET1}, {"\xbb", NOCH, SET1}, {"\xbc", NOCH, SET1}, {NOCH, NOCH, NOCH},
+/* ze */  {"\x9f", NOCH, SET0}, {"\xa1", NOCH, SET0}, {"\xa2", NOCH, SET0}, {"\xa3", NOCH, SET0}, {"\xa5", NOCH, SET0}, {"\xa6", NOCH, SET0}, {"\xa7", NOCH, SET0}, {"\xcf", NOCH, SET1},
+/* Ze */  {"\xa8", NOCH, SET0}, {"\xa9", NOCH, SET0}, {"\xaa", NOCH, SET0}, {"\xac", NOCH, SET0}, {"\xad", NOCH, SET0}, {"\xae", NOCH, SET0}, {"\xaf", NOCH, SET0}, {"\xd0", NOCH, SET1},
+/* ye */  {"\xb0", NOCH, SET0}, {"\xb1", NOCH, SET0}, {"\xb2", NOCH, SET0}, {"\xb3", NOCH, SET0}, {"\xb4", NOCH, SET0}, {"\xb5", NOCH, SET0}, {"\xb8", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* de */  {"\xb9", NOCH, SET0}, {"\xba", NOCH, SET0}, {"\xbc", NOCH, SET0}, {"\xbd", NOCH, SET0}, {"\xbe", NOCH, SET0}, {"\xbf", NOCH, SET0}, {"\xc0", NOCH, SET0}, {"\xd1", NOCH, SET1},
+/* De */  {"\xf9", NOCH, SET1}, {"\xfa", NOCH, SET1}, {"\xfb", NOCH, SET1}, {"\xfc", NOCH, SET1}, {"\xfd", NOCH, SET1}, {"\xfe", NOCH, SET1}, {"\xff", NOCH, SET1}, {"\xd1", NOCH, SET1},
+/* je */  {"\xc1", NOCH, SET0}, {"\xc2", NOCH, SET0}, {"\xc3", NOCH, SET0}, {"\xc4", NOCH, SET0}, {"\xc5", NOCH, SET0}, {"\xc6", NOCH, SET0}, {"\xc7", NOCH, SET0}, {"\xd2", NOCH, SET1},
+/* ge */  {"\xc8", NOCH, SET0}, {"\xc9", NOCH, SET0}, {"\xca", NOCH, SET0}, {"\xcb", NOCH, SET0}, {"\xcc", NOCH, SET0}, {"\xcd", NOCH, SET0}, {"\xce", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {"\xd8", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {"\xda", NOCH, SET1}, {"\xdb", NOCH, SET1}, {"\xd9", NOCH, SET1}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/* Ge */  {"\xc8", NOCH, SET0}, {"\xc9", NOCH, SET0}, {"\xca", NOCH, SET0}, {"\xcb", NOCH, SET0}, {"\xcc", NOCH, SET0}, {"\xcd", NOCH, SET0}, {"\xce", NOCH, SET0}, {"\xda", NOCH, SET1},
+/* Te */  {"\xcf", NOCH, SET0}, {"\xd0", NOCH, SET0}, {"\xd1", NOCH, SET0}, {"\xd2", NOCH, SET0}, {"\xd3", NOCH, SET0}, {"\xd4", NOCH, SET0}, {"\xd5", NOCH, SET0}, {"\xd3", NOCH, SET1},
+/* Ce */  {"\xd6", NOCH, SET0}, {"\xd7", NOCH, SET0}, {"\xd8", NOCH, SET0}, {"\xd9", NOCH, SET0}, {"\xda", NOCH, SET0}, {"\xdb", NOCH, SET0}, {"\xdc", NOCH, SET0}, {"\xd4", NOCH, SET1},
+/* Pe */  {"\xdd", NOCH, SET0}, {"\xde", NOCH, SET0}, {"\xdf", NOCH, SET0}, {"\xe0", NOCH, SET0}, {"\xe0", NOCH, SET0}, {"\xe2", NOCH, SET0}, {"\xe3", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* Se */  {"\xbd", NOCH, SET1}, {"\xbe", NOCH, SET1}, {"\xbf", NOCH, SET1}, {"\xc0", NOCH, SET1}, {"\xc1", NOCH, SET1}, {"\xc2", NOCH, SET1}, {"\xc3", NOCH, SET1}, {"\xd5", NOCH, SET1},
+/*`Se */  {"\xe4", NOCH, SET0}, {"\xe5", NOCH, SET0}, {"\xe6", NOCH, SET0}, {"\xe7", NOCH, SET0}, {"\xe8", NOCH, SET0}, {"\xe9", NOCH, SET0}, {"\xea", NOCH, SET0}, {NOCH, NOCH, NOCH},
+/* fe */  {"\xeb", NOCH, SET0}, {"\xec", NOCH, SET0}, {"\xed", NOCH, SET0}, {"\xee", NOCH, SET0}, {"\xef", NOCH, SET0}, {"\xf0", NOCH, SET0}, {"\xf1", NOCH, SET0}, {"\xd6", NOCH, SET1},
+/* pe */  {"\xf2", NOCH, SET0}, {"\xf3", NOCH, SET0}, {"\xf4", NOCH, SET0}, {"\xf5", NOCH, SET0}, {"\xf6", NOCH, SET0}, {"\xf7", NOCH, SET0}, {"\xf8", NOCH, SET0}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+ 
+          {NOCH, NOCH, NOCH}, {"\x3a", NOCH, SET0}, {"\x3a", "\x3a", SET0}, {"\x81", NOCH, SET1}, {"\x3b", NOCH, SET0}, {"\x2c", NOCH, SET0}, {"\x2c", NOCH, SET0}, {"\x3f", NOCH, SET0}, {NOCH, NOCH, NOCH},
+
+          {"\x82", NOCH, SET1}, {"\x83", NOCH, SET1}, {"\x84", NOCH, SET1}, {"\x85", NOCH, SET1}, {"\x86", NOCH, SET1}, {"\x87", NOCH, SET1}, {"\x88", NOCH, SET1}, {"\x89", NOCH, SET1}, {"\x8a", NOCH, SET1}, {"\x8b", NOCH, SET1},
+          {"\x8c", NOCH, SET1}, {"\x8d", NOCH, SET1}, {"\x8e", NOCH, SET1}, {"\x8f", NOCH, SET1}, {"\x90", NOCH, SET1}, {"\x91", NOCH, SET1}, {"\x92", NOCH, SET1}, {"\x93", NOCH, SET1}, {"\x94", NOCH, SET1}, {"\x94", "\x94", SET1},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, 
+
+  
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+
+
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {"\x2e", NOCH, SET0}, {"\xab", NOCH, SET0}, {"\xbb", NOCH, SET0}, {"\x3f", NOCH, SET0}
+};
+
+
+int BranaIHashTable[224] = {
+
+/*        ,      !,      ",      #,      $,      %,      &,      ',      (,      ),      *,      +,      ,,      -,      .,      /, */
+    0x0000, 0x0000, 0x0000, 0x1201, 0x1202, 0x1200, 0x1204, 0x1205, 0x0000, 0x0000, 0x1206, 0x1208, 0x1365, 0x0000, 0x0000, 0x0000,
+
+/*       0,      1,      2,      3,      4,      5,      6,      7,      8,      9,      :,      ;,      <,      =,      >,      ?, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1361, 0x1364, 0x1209, 0x120a, 0x120b, 0x1367,
+
+/*       @,      A,      B,      C,      D,      E,      F,      G,      H,      I,      J,      K,      L,      M,      N,      O, */
+    0x120c, 0x120d, 0x120e, 0x1218, 0x1219, 0x121a, 0x121b, 0x121c, 0x121d, 0x121e, 0x1230, 0x1231, 0x1232, 0x1233, 0x1234, 0x1235,
+
+/*       P,      Q,      R,      S,      T,      U,      V,      W,      X,      Y,      Z,      [,      \,      ],      ^,      _, */
+    0x1236, 0x1228, 0x1229, 0x122a, 0x122b, 0x122c, 0x122d, 0x122e, 0x1238, 0x1239, 0x123a, 0x123b, 0x123c, 0x123d, 0x123e, 0x1240,
+
+/*       `,      a,      b,      c,      d,      e,      f,      g,      h,      i,      j,      k,      l,      m,      n,      o, */
+    0x1241, 0x1242, 0x1243, 0x1244, 0x1245, 0x1246, 0x1260, 0x1261, 0x1262, 0x1263, 0x1264, 0x1265, 0x1266, 0x1270, 0x1271, 0x1272,
+
+/*       p,      q,      r,      s,      t,      u,      v,      w,      x,      y,      z,      {,      |,      },      ~,      , */
+    0x1273, 0x1274, 0x1275, 0x1276, 0x1278, 0x1279, 0x127a, 0x127b, 0x127c, 0x127d, 0x127e, 0x1290, 0x1291, 0x1292, 0x1293, 0x0000,
+
+/*    0x80,   0x81,   0x82,   0x83,   0x84,   0x85,   0x86,   0x87,   0x88,   0x89,   0x8a,   0x8b,   0x8c,   0x8d,   0x8e,   0x8f, */
+    0x1294, 0x1295, 0x1296, 0x1298, 0x1299, 0x129a, 0x129b, 0x129c, 0x129d, 0x129e, 0x12a7, 0x12a1, 0x12a2, 0x12a0, 0x12a4, 0x12a5,
+
+/*    0x90,   0x91,   0x92,   0x93,   0x94,   0x95,   0x96,   0x97,   0x98,   0x99,   0x9a,   0x9b,   0x9c,   0x9d,   0x9e,   0x9f, */
+    0x12a6, 0x12a8, 0x12a9, 0x12aa, 0x12ab, 0x12ac, 0x12ad, 0x12ae, 0x12c8, 0x12c9, 0x12ca, 0x12cb, 0x12cc, 0x12cd, 0x12ce, 0x0000,
+
+/*    0xa0,      ¡,      ¢,      £,      ¤,      ¥,      ¦,      §,      ¨,      ©,      ª,      «,      ¬,      ­,      ®,      ¯, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x12e0, 0x12e1, 0x12e2, 0x0000, 0x12e3, 0x12e4, 0x12e5, 0x12e6,
+
+/*       °,      ±,      ²,      ³,      ´,      µ,      ¶,      ·,      ¸,      ¹,      º,      »,      ¼,      ½,      ¾,      ¿, */
+    0x12e8, 0x12e9, 0x12ea, 0x12eb, 0x12ec, 0x12ed, 0x0000, 0x0000, 0x12ee, 0x12f0, 0x12f1, 0x0000, 0x12f2, 0x12f3, 0x12f4, 0x12f5,
+
+/*       À,      Á,      Â,      Ã,      Ä,      Å,      Æ,      Ç,      È,      É,      Ê,      Ë,      Ì,      Í,      Î,      Ï, */
+    0x12f6, 0x1300, 0x1301, 0x1302, 0x1303, 0x1304, 0x1305, 0x1306, 0x1308, 0x1309, 0x130a, 0x130b, 0x130c, 0x130d, 0x130e, 0x1320,
+
+/*       Ð,      Ñ,      Ò,      Ó,      Ô,      Õ,      Ö,      ×,      Ø,      Ù,      Ú,      Û,      Ü,      Ý,      Þ,      ß, */
+    0x1321, 0x1322, 0x1323, 0x1324, 0x1325, 0x1326, 0x1328, 0x1329, 0x132a, 0x132b, 0x132c, 0x132d, 0x132e, 0x0000, 0x0000, 0x0000,
+
+/*       à,      á,      â,      ã,      ä,      å,      æ,      ç,      è,      é,      ê,      ë,      ì,      í,      î,      ï, */
+    0x0000, 0x0000, 0x1335, 0x0000, 0x1340, 0x1341, 0x1342, 0x1343, 0x1344, 0x1345, 0x1346, 0x1348, 0x1349, 0x134a, 0x134b, 0x134c,
+
+/*       ð,      ñ,      ò,      ó,      ô,      õ,      ö,      ÷,      ø,      ù,      ú,      û,      ü,      ý,      þ,      ÿ, */
+    0x134d, 0x134e, 0x1350, 0x1351, 0x1352, 0x1353, 0x1354, 0x1355, 0x1356, 0x0000, 0x0000, 0x0000, 0x12b8, 0x0000, 0x0000, 0x0000,
+
+};
+
+
+int BranaIIHashTable[224] = {
+
+/*        ,      !,      ",      #,      $,      %,      &,      ',      (,      ),      *,      +,      ,,      -,      .,      /, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       0,      1,      2,      3,      4,      5,      6,      7,      8,      9,      :,      ;,      <,      =,      >,      ?, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       @,      A,      B,      C,      D,      E,      F,      G,      H,      I,      J,      K,      L,      M,      N,      O, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       P,      Q,      R,      S,      T,      U,      V,      W,      X,      Y,      Z,      [,      \,      ],      ^,      _, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       `,      a,      b,      c,      d,      e,      f,      g,      h,      i,      j,      k,      l,      m,      n,      o, */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1248, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*       p,      q,      r,      s,      t,      u,      v,      w,      x,      y,      z,      {,      |,      },      ~,      , */
+    0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000,
+
+/*    0x80,   0x81,   0x82,   0x83,   0x84,   0x85,   0x86,   0x87,   0x88,   0x89,   0x8a,   0x8b,   0x8c,   0x8d,   0x8e,   0x8f, */
+    0x0000, 0x1363, 0x1369, 0x136a, 0x136b, 0x136c, 0x136d, 0x136e, 0x136f, 0x1370, 0x1371, 0x1372, 0x1373, 0x1374, 0x1375, 0x1376,
+
+/*    0x90,   0x91,   0x92,   0x93,   0x94,   0x95,   0x96,   0x97,   0x98,   0x99,   0x9a,   0x9b,   0x9c,   0x9d,   0x9e,   0x9f, */
+    0x1377, 0x1378, 0x1379, 0x137a, 0x137b, 0x1210, 0x1211, 0x1212, 0x1213, 0x1214, 0x1215, 0x1216, 0x1280, 0x1281, 0x1282, 0x1283,
+
+/*    0xa0,      ¡,      ¢,      £,      ¤,      ¥,      ¦,      §,      ¨,      ©,      ª,      «,      ¬,      ­,      ®,      ¯, */
+    0x0000, 0x1284, 0x1285, 0x1286, 0x0000, 0x1203, 0x12dd, 0x12de, 0x0000, 0x12b9, 0x12ba, 0x12bb, 0x1220, 0x1221, 0x1222, 0x1223,
+
+/*       °,      ±,      ²,      ³,      ´,      µ,      ¶,      ·,      ¸,      ¹,      º,      »,      ¼,      ½,      ¾,      ¿, */
+    0x1224, 0x1225, 0x1226, 0x12a3, 0x12d0, 0x12d1, 0x0000, 0x0000, 0x12d2, 0x12d3, 0x12d4, 0x12d5, 0x12d6, 0x1338, 0x1339, 0x133a,
+
+/*       À,      Á,      Â,      Ã,      Ä,      Å,      Æ,      Ç,      È,      É,      Ê,      Ë,      Ì,      Í,      Î,      Ï, */
+    0x133b, 0x133c, 0x133d, 0x133e, 0x120f, 0x121f, 0x1237, 0x1227, 0x123f, 0x122f, 0x1267, 0x1277, 0x127f, 0x1297, 0x129f, 0x12b4,
+
+/*       Ð,      Ñ,      Ò,      Ó,      Ô,      Õ,      Ö,      ×,      Ø,      Ù,      Ú,      Û,      Ü,      Ý,      Þ,      ß, */
+    0x12e7, 0x12f7, 0x1307, 0x1327, 0x132f, 0x133f, 0x134f, 0x126f, 0x1310, 0x1315, 0x1313, 0x1314, 0x1288, 0x128d, 0x1217, 0x128c,
+
+/*       à,      á,      â,      ã,      ä,      å,      æ,      ç,      è,      é,      ê,      ë,      ì,      í,      î,      ï, */
+    0x1333, 0x1334, 0x0000, 0x1336, 0x0000, 0x0000, 0x124d, 0x124b, 0x124c, 0x1250, 0x1251, 0x1252, 0x1253, 0x1254, 0x1255, 0x1256,
+
+/*       ð,      ñ,      ò,      ó,      ô,      õ,      ö,      ÷,      ø,      ù,      ú,      û,      ü,      ý,      þ,      ÿ, */
+    0x1258, 0x125d, 0x125b, 0x125c, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x1268, 0x1269, 0x126a, 0x126b, 0x126c, 0x126d, 0x126e,
+
+};
+
+
+#endif  /* BRANA_MAP */

@@ -1,0 +1,184 @@
+/* This is part of the LibEth library, an ANSI C library for Ethiopic
+   text and information processing (http://libeth.netpedia.net).
+   Copyright (C) 1995-1998 Daniel Yacob.
+
+   This library is free software; you can redistribute it and/or
+   modify it under the terms of the GNU Library General Public
+   License as published by the Free Software Foundation; either
+   version 2 of the License, or (at your option) any later version.
+
+   This library is distributed in the hope that it will be useful,
+   but WITHOUT ANY WARRANTY; without even the implied warranty of
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+   Library General Public License for more details.
+
+   You should have received a copy of the GNU Library General Public
+   License along with this library; if not, write to the Free
+   Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+*/
+
+#ifndef PHONETIC_MAP
+#define PHONETIC_MAP 1
+
+#ifndef SUPPORT_PHONETIC
+#  define SUPPORT_PHONETIC 1
+#endif /* SUPPORT_PHONETIC */
+
+#ifndef MAPTYPES_H
+#  include "maptypes.h"
+#endif /* MAPTYPES_H */
+
+#ifndef PHONETIC_H
+#  include "phonetic.h"
+#endif /* PHONETIC_H */
+
+#define NUM_PHONETIC 2
+#define PHONETICSETLENGTH 1 
+unsigned char* PhoneticTTFNames[NUM_PHONETIC] = {
+    "GeezType",
+    "GeezTypeNet"
+};
+char* PhoneticRTFPrefix[] = {
+    "\\fnil\\fprq2\\fcharset2"
+};
+
+
+LETCHAR GeezTypeFidel[UNITOTAL] = 
+       {
+/*  he  */  {"\x40", NOCH, SET0},   {"\x40", SGT_uru, SET0},   {"\x41", SGT_il, SET0},  {"\x41", NOCH, SET0},   {"\x41", SGT_El, SET0},  {"\x42", NOCH, SET0},  {"\x43", NOCH, SET0},      {NOCH, NOCH, NOCH},
+/*  le  */  {"\x44", NOCH, SET0},   {"\x44", SGT_uru, SET0},   {"\x44", SGT_ir, SET0},  {"\x45", NOCH, SET0},   {"\x44", SGT_Er, SET0},  {"\x46", NOCH, SET0},  {"\x44", NOCH, SET0},  {"\x45", SGT_War, SET0},
+/*  He  */  {"\x47", NOCH, SET0},   {"\x47", SGT_uru, SET0},   {"\x47", SGT_ir, SET0},  {"\x48", NOCH, SET0},   {"\x47", SGT_Er, SET0},  {"\x49", NOCH, SET0},  {"\x4a", NOCH, SET0},  {"\x48", SGT_War, SET0},
+/*  me  */  {"\x4b", NOCH, SET0},  {"\x4b", SGT_uru, SET0},  {"\x4c", SGT_im, SET0},  {"\x4c", NOCH, SET0},   {"\x4c", SGT_El, SET0},  {"\x4d", NOCH, SET0},  {"\x4e", NOCH, SET0},  {"\x4c", SGT_Wam, SET0},
+/* `se  */  {"\x4f", NOCH, SET0},  {"\x4f", SGT_uru, SET0},  {"\x50", SGT_im, SET0},  {"\x50", NOCH, SET0},   {"\x50", SGT_El, SET0},  {"\x51", NOCH, SET0},  {"\x52", NOCH, SET0},  {"\x50", SGT_Wam, SET0},
+/*  re  */  {"\x53", NOCH, SET0},     {"\x54", NOCH, SET0},    {"\x55", NOCH, SET0},  {"\x56", NOCH, SET0},     {"\x57", NOCH, SET0},  {"\x58", NOCH, SET0},  {"\x59", NOCH, SET0},    {"\x5a", NOCH, SET0},
+/*  se  */  {"\x5b", NOCH, SET0},  {"\x5b", SGT_uru, SET0},  {"\x5b", SGT_ir, SET0},  {"\x5c", NOCH, SET0},   {"\x5b", SGT_Er, SET0},  {"\x5d", NOCH, SET0},  {"\x5e", NOCH, SET0},  {"\x5c", SGT_War, SET0},
+/*  xe  */  {"\x5f", NOCH, SET0},   {"\x5f", SGT_ul, SET0},  {"\x5f", SGT_im, SET0},  {"\x60", NOCH, SET0},   {"\x5f", SGT_El, SET0},  {"\x61", NOCH, SET0},  {"\x62", NOCH, SET0},  {"\x60", SGT_Wam, SET0},
+/*  qe  */  {"\x63", NOCH, SET0},  {"\x63", SGT_ull, SET0},  {"\x63", SGT_il, SET0},  {"\x64", NOCH, SET0},  {"\x63", SGT_Elll, SET0},  {"\x65", NOCH, SET0},  {"\x66", NOCH, SET0},      {NOCH, NOCH, SETD},
+/* qWe  */  {"\x63", SGT_Weu, SET0},    {NOCH, NOCH, NOCH},  {"\x63", SGT_Wi, SET0},  {"\x63", SGT_Wal, SET0},  {"\x63", SGT_WEl, SET0},  {"\x63", SGT_Wu, SET0},    {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/*  Qe  */  {"\x67", NOCH, SET0},  {"\x67", SGT_ull, SET0},  {"\x67", SGT_il, SET0},  {"\x68", NOCH, SET0},  {"\x67", SGT_Elll, SET0},  {"\x69", NOCH, SET0},  {"\x6a", NOCH, SET0},      {NOCH, NOCH, SETD},
+/* QWe  */  {"\x67", SGT_Weu, SET0},    {NOCH, NOCH, NOCH},  {"\x67", SGT_Wi, SET0},  {"\x67", SGT_Wal, SET0},  {"\x67", SGT_WEl, NOCH},  {"\x67", SGT_Wu, SET0},    {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},
+/*  be  */  {"\x6b", NOCH, SET0},  {"\x6b", SGT_uru, SET0},  {"\x6b", SGT_ir, SET0},  {"\x6c", NOCH, SET0},   {"\x6b", SGT_Er, SET0},  {SGT_S, "\x6b", SET0},  {"\x6e", NOCH, SET0},  {"\x6c", SGT_War, SET0},
+/*  ve  */  {"\x6b\x7a", NOCH, SET0},  {"\x6b\x7a", SGT_uru, SET0},  {"\x6b\x7a", SGT_ir, SET0},  {"\x6c\x7a", NOCH, SET0},   {"\x6b\x7a", SGT_Er, SET0},  {SGT_S, "\x6b\x7a", SET0},  {"\x6e\x7a", NOCH, SET0},  {"\x6c\x7a", SGT_War, SET0},
+/*  te  */  {"\x6f", NOCH, SET0},  {"\x6f", SGT_uld, SET0},  {"\x6f", SGT_il, SET0},  {"\x70", NOCH, SET0},  {"\x6f", SGT_Elll, SET0},  {"\x71", NOCH, SET0},  {"\x72", NOCH, SET0},  {"\x6f", SGT_Wal, SET0},
+/*  ce  */  {"\x73", NOCH, SET0},  {"\x73", SGT_uld, SET0},  {"\x73", SGT_il, SET0},  {"\x74", NOCH, SET0},  {"\x73", SGT_Elll, SET0},  {"\x75", NOCH, SET0},  {"\x76", NOCH, SET0},  {"\x73", SGT_Wal, SET0},
+/* `he  */  {"\x77", NOCH, SET0},  {"\x77", SGT_uru, SET0},  {"\x77", SGT_ir, SET0},  {"\x78", NOCH, SET0},   {"\x77", SGT_El, SET0},  {"\x79", NOCH, SET0},  {"\x6d\x7e", NOCH, SET0},      {NOCH, NOCH, SETD},
+/* hWe  */  {"\x77", SGT_Weu, SET0},    {NOCH, NOCH, NOCH},  {"\x77", SGT_Wi, SET0},  {"\x77", SGT_War, SET0},  {"\x77", SGT_WEr, SET0},  {"\x77", SGT_Wu, SET0},    {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+/*  ne  */  {"\x7b", NOCH, SET0},  {"\x7b", SGT_uru, SET0},  {"\x7b", SGT_im, SET0},  {"\x7c", NOCH, SET0},   {"\x7b", SGT_El, SET0},  {"\x7d", NOCH, SET0},  {"\x7e", NOCH, SET0},    {"\x7c", SGT_Wal, SET0},
+/*  Ne  */  {"\x80", NOCH, SET0},  {"\x80", SGT_ull, SET0},  {"\x80", SGT_il, SET0},  {"\x81", NOCH, SET0},   {"\x80", SGT_Elll, SET0},  {"\x82", NOCH, SET0},  {"\x83", NOCH, SET0},  {"\x81", SGT_Wal, SET0},
+/*   e  */  {"\x84", NOCH, SET0},  {"\x84", SGT_ul, SET0},  {"\x84", SGT_ir, SET0},  {"\x85", NOCH, SET0},   {"\x84", SGT_Er, SET0},  {"\x86", NOCH, SET0},  {"\x87", NOCH, SET0},    {"\x88", NOCH, SET0},
+/*  ke  */  {"\x89", NOCH, SET0},  {"\x89", SGT_uru, SET0},  {"\x89", SGT_ir, SET0},  {"\x8a", NOCH, SET0},   {"\x89", SGT_Er, SET0},  {"\x8b", NOCH, SET0},  {"\x8c", NOCH, SET0},      {NOCH, NOCH, SETD},
+/* kWe  */  {"\x89", SGT_Weu, SET0},    {NOCH, NOCH, NOCH},  {"\x89", SGT_Wi, SET0},  {"\x8a", SGT_War, SET0},  {"\x89", SGT_WEr, SET0},  {"\x89", SGT_Wu, SET0},    {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},
+/*  Ke  */  {"\x8d", NOCH, SET0},  {"\x8d", SGT_uru, SET0},  {"\x8d", SGT_ir, SET0},  {"\x8e", NOCH, SET0},   {"\x8d", SGT_Er, SET0},  {"\x8f", NOCH, SET0},  {"\x90", NOCH, SET0},      {NOCH, NOCH, SETD},
+/* KWe  */  {"\x8d", SGT_Weu, SET0},    {NOCH, NOCH, NOCH},  {"\x8d", SGT_Wi, SET0},  {"\x8e", SGT_War, SET0},  {"\x8d", SGT_WEr, SET0},  {"\x8d", SGT_Wu, SET0},    {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},
+/*  we  */  {"\x91", NOCH, SET0},    {"\x92", NOCH, SET0},   {"\x93", SGT_il, SET0},  {"\x93", NOCH, SET0},  {"\x93", SGT_Elll, SET0},  {"\x91", SGT_uru, SET0},  {"\x94", NOCH, SET0},    {NOCH, NOCH, NOCH},
+/*  `e  */  {"\x95", NOCH, SET0},  {"\x95", SGT_uru, SET0},  {"\x96", SGT_im, SET0},  {"\x96", NOCH, SET0},   {"\x96", SGT_El, SET0},  {"\x97", NOCH, SET0},  {"\x98", NOCH, SET0},    {NOCH, NOCH, NOCH},
+/*  ze  */  {"\x99", NOCH, SET0},  {"\x99", SGT_uru, SET0},  {"\x99", SGT_ir, SET0},  {"\x9a", NOCH, SET0},   {"\x99", SGT_El, SET0},  {"\x9b", NOCH, SET0},  {"\x9c", NOCH, SET0},  {"\x9a", SGT_War, SET0},
+/*  Ze  */  {"\x9d", NOCH, SET0},  {"\x9d", SGT_ulll, SET0},  {"\x9d", SGT_il, SET0},  {"\x9e", NOCH, SET0},   {"\x9d", SGT_Elll, SET0},  {"\x9f", NOCH, SET0},  {"\xa1", NOCH, SET0},  {"\x9e", SGT_Wal, SET0},
+/*  ye  */  {"\xa2", NOCH, SET0},     {"\xa3", NOCH, SET0},    {"\xa4", NOCH, SET0},  {"\xa5", NOCH, SET0},     {"\xa6", NOCH, SET0},  {"\xa7", NOCH, SET0},  {"\xa8", NOCH, SET0},    {NOCH, NOCH, NOCH},
+/*  de  */  {"\xa9", NOCH, SET0},   {"\xaa", SGT_ul, SET0},  {"\xaa", SGT_ir, SET0},  {"\xaa", NOCH, SET0},     {"\xab", NOCH, SET0},  {"\xa9", SGT_yo, SET0},  {"\xac", NOCH, SET0},  {"\xa9", SGT_War, SET0},
+/*  De  */  {"\xa9\xc2", NOCH, SET0},   {"\xaa\xc2", SGT_ul, SET0},  {"\xaa\xc2", SGT_ir, SET0},  {"\xaa\xc2", NOCH, SET0},     {"\xab\xc2", NOCH, SET0},  {"\xa9\xc2", SGT_yo, SET0},  {"\xac\xc2", NOCH, SET0},  {"\xa9\xc2", SGT_War, SET0},
+/*  je  */  {"\xad", NOCH, SET0},   {"\xae", SGT_ul, SET0},  {"\xae", SGT_im, SET0},  {"\xae", NOCH, SET0},     {"\xaf", NOCH, SET0},  {"\xb0", NOCH, SET0},  {"\xb1", NOCH, SET0},  {"\xad", SGT_War, SET0},
+/*  ge  */  {"\xb2", NOCH, SET0},  {"\xb2", SGT_uru, SET0},  {"\xb2", SGT_im, SET0},  {"\xb3", NOCH, SET0},   {"\xb2", SGT_Ell, SET0},  {"\xb4", NOCH, SET0},  {"\xb5", NOCH, SET0},    {NOCH, NOCH, SETD},
+/* gWe  */  {"\xb2", SGT_Weu, SET0},    {NOCH, NOCH, NOCH},  {"\xb2", SGT_Wi, SET0},  {"\xb6", NOCH, SET0},   {"\xb2", SGT_WEr, SET0},  {"\xb2", SGT_Wu, SET0},    {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},
+/*  Ge  */  {"\xb2\x7a", NOCH, SET0},  {"\xb2\x7a", SGT_uru, SET0},  {"\xb2\x7a", SGT_im, SET0},  {"\xb3\x7a", NOCH, SET0},   {"\xb2\x7a", SGT_Ell, SET0},  {"\xb4\x7a", NOCH, SET0},  {"\xb5\x7a", NOCH, SET0},    {NOCH, NOCH, NOCH},
+/*  Te  */  {"\xb7", NOCH, SET0},  {"\xb7", SGT_uru, SET0},  {"\xb7", SGT_ir, SET0},  {"\xb8", NOCH, SET0},   {"\xb7", SGT_Er, SET0},  {"\xb9", NOCH, SET0},  {"\xba", NOCH, SET0},  {"\xb8", SGT_War, SET0},
+/*  Ce  */  {"\xbb", NOCH, SET0},  {"\xbb", SGT_ull, SET0},    {"\xbc", NOCH, SET0},  {"\xbd", NOCH, SET0},     {"\xbe", NOCH, SET0},  {"\xbf", NOCH, SET0},  {"\xc0", NOCH, SET0},  {"\xc1", NOCH, SET0},
+/*  Pe  */  {"\xc3\xc2", NOCH, SET0},  {"\xc3\xc2", SGT_ul, SET0},  {"\xc3\xc2", SGT_ir, SET0},  {"\xc4\xc2", NOCH, SET0},   {"\xc3\xc2", SGT_El, SET0},  {"\xc3\xc2", SGT_yo, SET0},  {"\xc5\xc2", NOCH, SET0},  {"\xc4\xc2", SGT_War, SET0},
+/*  Se  */  {"\xc3", NOCH, SET0},  {"\xc3", SGT_ul, SET0},  {"\xc3", SGT_ir, SET0},  {"\xc4", NOCH, SET0},   {"\xc3", SGT_El, SET0},  {"\xc3", SGT_yo, SET0},  {"\xc5", NOCH, SET0},  {"\xc4", SGT_War, SET0},
+/* `Se  */  {"\xc6", NOCH, SET0},  {"\xc6", SGT_uru, SET0},  {"\xc7", SGT_im, SET0},  {"\xc7", NOCH, SET0},   {"\xc7", SGT_El, SET0},  {"\xc8", NOCH, SET0},  {"\xc9", NOCH, SET0},    {NOCH, NOCH, NOCH},
+/*  fe  */  {"\xca", NOCH, SET0},     {"\xcb", NOCH, SET0},    {"\xcc", NOCH, SET0},  {"\xcd", NOCH, SET0},     {"\xce", NOCH, SET0},  {"\xcf", NOCH, SET0},  {"\xd0", NOCH, SET0},  {"\xcd", SGT_Wal, SET0},
+/*  pe  */  {"\xd1", NOCH, SET0},  {"\xd1", SGT_ulll, SET0},    {"\xd1", NOCH, SET0},  {"\xd2", NOCH, SET0},  {"\xd1", SGT_Elll, SET0}, {"\xd3", NOCH, SET0},  {"\xd4", NOCH, SET0},    {"\xd1", SGT_Wal, NOCH},
+              {NOCH, NOCH, NOCH},       {NOCH, NOCH, NOCH},      {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},       {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},    {NOCH, NOCH, NOCH},            {NOCH, NOCH, NOCH},
+ 
+              {NOCH, NOCH, NOCH},      {"\x3a", NOCH, SET0},      {"\x3b", NOCH, SET0},    {"\x22", NOCH, SET0},     {"\x26", NOCH, SET0},  {"\x23", NOCH, SET0},    {"\x3a", "-", SET0},  {NOCH, NOCH, NOCH},  {NOCH, NOCH, NOCH},
+
+            {"\xd5", NOCH, SET0},      {"\xd6", NOCH, SET0},      {"\xd7", NOCH, SET0},  {"\xd8", NOCH, SET0},     {"\xd9", NOCH, SET0},  {"\xda", NOCH, SET0},  {"\xdb", NOCH, SET0},    {"\xdc", NOCH, SET0},  {"\xdd", NOCH, SET0},  {"\xde", NOCH, SET0},
+            {"\xdf", NOCH, SET0},      {"\xe0", NOCH, SET0},      {"\xe1", NOCH, SET0},  {"\xe2", NOCH, SET0},     {"\xe3", NOCH, SET0},  {"\xe4", NOCH, SET0},  {"\xe5", NOCH, SET0},    {"\xe6", NOCH, SET0},  {"\xe7", NOCH, SET0},  {"\xe7", "\xe7", SET0},
+              {NOCH, NOCH, NOCH},        {NOCH, NOCH, NOCH},        {NOCH, NOCH, NOCH}, 
+
+
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+
+
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH},
+          {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {NOCH, NOCH, NOCH}, {"\x3c", NOCH, SET0}, {"\x3e", NOCH, SET0}, {"?", NOCH, SET0}
+};
+
+
+int GeezTypeHashTable[224] = {
+
+/*        ,      !,      ",      #,      $,      %,      &,      ',      (,      ),      *,      +,      ,,      -,      .,      /, */
+    0x0000, 0x0002, 0x1363, 0x1365, 0x0002, 0x0002, 0x1364, 0x0000, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0xfdfc, 0x0002,
+
+/*       0,      1,      2,      3,      4,      5,      6,      7,      8,      9,      :,      ;,      <,      =,      >,      ?, */
+    0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x0002, 0x1361, 0x1362, 0xfdfd, 0x0000, 0xfdfe, 0xfdff,
+
+/*       @,      A,      B,      C,      D,      E,      F,      G,      H,      I,      J,      K,      L,      M,      N,      O, */
+    0x1200, 0x1203, 0x1205, 0x1206, 0x1208, 0x120b, 0x120d, 0x1210, 0x1213, 0x1215, 0x1216, 0x1218, 0x121b, 0x121d, 0x121e, 0x1220,
+
+/*       P,      Q,      R,      S,      T,      U,      V,      W,      X,      Y,      Z,      [,      \,      ],      ^,      _, */
+    0x1223, 0x1225, 0x1226, 0x1228, 0x1229, 0x122a, 0x122b, 0x122c, 0x122d, 0x122e, 0x122f, 0x1230, 0x1233, 0x1235, 0x1236, 0x1238,
+
+/*       `,      a,      b,      c,      d,      e,      f,      g,      h,      i,      j,      k,      l,      m,      n,      o, */
+    0x123b, 0x123d, 0x123e, 0x1240, 0x1243, 0x1245, 0x1246, 0x1250, 0x1253, 0x1255, 0x1256, 0x1260, 0x1263, 0x0001, 0x1266, 0x1270,
+
+/*       p,      q,      r,      s,      t,      u,      v,      w,      x,      y,      z,      {,      |,      },      ~,      , */
+    0x1273, 0x1275, 0x1276, 0x1278, 0x127b, 0x127d, 0x127e, 0x1280, 0x1283, 0x1285, 0x0001, 0x1290, 0x1293, 0x1295, 0x1296, 0x0000,
+
+/*    0x80,   0x81,   0x82,   0x83,   0x84,   0x85,   0x86,   0x87,   0x88,   0x89,   0x8a,   0x8b,   0x8c,   0x8d,   0x8e,   0x8f, */
+    0x1298, 0x129b, 0x129d, 0x129e, 0x12a0, 0x12a3, 0x12a5, 0x12a6, 0x12a7, 0x12a8, 0x12ab, 0x12ad, 0x12ae, 0x12b8, 0x12bb, 0x12bd,
+
+/*    0x90,   0x91,   0x92,   0x93,   0x94,   0x95,   0x96,   0x97,   0x98,   0x99,   0x9a,   0x9b,   0x9c,   0x9d,   0x9e,   0x9f, */
+    0x12be, 0x12c8, 0x12c9, 0x12cb, 0x12ce, 0x12d0, 0x12d3, 0x12d5, 0x12d6, 0x12d8, 0x12db, 0x12dd, 0x12de, 0x12e0, 0x12e3, 0x12e5,
+
+/*    0xa0,      ¡,      ¢,      £,      ¤,      ¥,      ¦,      §,      ¨,      ©,      ª,      «,      ¬,      ­,      ®,      ¯, */
+    0x00a0, 0x12e6, 0x12e8, 0x12e9, 0x12ea, 0x12eb, 0x12ec, 0x12ed, 0x12ee, 0x12f0, 0x12f3, 0x12f4, 0x12f6, 0x1300, 0x1303, 0x1304,
+
+/*       °,      ±,      ²,      ³,      ´,      µ,      ¶,      ·,      ¸,      ¹,      º,      »,      ¼,      ½,      ¾,      ¿, */
+    0x1305, 0x1306, 0x1308, 0x130b, 0x130d, 0x130e, 0x1313, 0x1320, 0x1323, 0x1325, 0x1326, 0x1328, 0x132a, 0x132b, 0x132c, 0x132d,
+
+/*       À,      Á,      Â,      Ã,      Ä,      Å,      Æ,      Ç,      È,      É,      Ê,      Ë,      Ì,      Í,      Î,      Ï, */
+    0x132e, 0x132f, 0x0001, 0x1338, 0x133b, 0x133e, 0x1340, 0x1343, 0x1345, 0x1346, 0x1348, 0x1349, 0x134a, 0x134b, 0x134c, 0x134d,
+
+/*       Ð,      Ñ,      Ò,      Ó,      Ô,      Õ,      Ö,      ×,      Ø,      Ù,      Ú,      Û,      Ü,      Ý,      Þ,      ß, */
+    0x134e, 0x1350, 0x1353, 0x1355, 0x1356, 0x1369, 0x136a, 0x136b, 0x136c, 0x136d, 0x136e, 0x136f, 0x1370, 0x1371, 0x1372, 0x1373,
+
+/*       à,      á,      â,      ã,      ä,      å,      æ,      ç,      è,      é,      ê,      ë,      ì,      í,      î,      ï, */
+    0x1374, 0x1375, 0x1376, 0x1377, 0x1378, 0x1379, 0x137a, 0x137b, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001,
+
+/*       ð,      ñ,      ò,      ó,      ô,      õ,      ö,      ÷,      ø,      ù,      ú,      û,      ü,      ý,      þ,      ÿ, */
+    0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001, 0x0001,
+
+};
+
+
+/*
+TypeNet Remap:
+
+dec    hex
+103 => 67   Qe => wa
+104 => 68   Qa => NOCH => hat
+115 => 73   ce => NOCH => 
+116 => 74   ca => NOCH =>
+128 => 80   Ne => NOCH => x8f
+141 => 8d   Ke => NOCH
+142 => 8e   Ka => NOCH
+143 => 8f   K  => NOCH
+144 => 90   Ko => NOCH
+147 => 93   wa => NOCH => x67
+148 => 94   wo => NOCH => xc8
+153 => 99   ze => NOCH => x73
+158 => 9e   Za => NOCH => x90
+198 => c6  `Se => -
+200 => c8  `S  => wa
+
+ */
+
+#endif  /* PHONETIC_MAP */
