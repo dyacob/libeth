@@ -1,0 +1,1250 @@
+<html>
+<head>
+  <title>The LiveGe'ez Remote Processing Protocol</title>
+</head>
+<body bgcolor="#f0f0f0">
+<div align="center">
+<hr>
+<em>Until this notice is removed this is a draft document.  Comments and suggestions should be sent to <a href="LiveGeez@EthiopiaOnline.Net">LiveGeez@EthiopiaOnline.Net</a>.  The document will be submitted to the RFC Editor when the drafting stages are complete.</em>
+<hr>
+</div>
+<spacer type="vertical" size="50">
+
+<table width="100%">
+<tr>
+<td align="left">
+<address>
+Network Working Group<br>
+Request for Comments: XXXX<br>
+Category: Experimental
+</address>
+</td>
+<td align="right">
+<address>
+Daniel Yacob<br>
+Ge'ez Frontiers Foundation<br>
+January 1999
+</address>
+</td>
+</tr>
+</table>
+
+<hr>
+<h1 align="center">The LiveGe'ez Remote Processing Protocol</h1>
+<h4 align="center"></h4>
+<hr>
+
+<h2>Status of this Memo</h2>
+<p>This memo defines an Experimental Protocol for the Internet community.  This memo does not specify an Internet standard of any kind.  Distribution of this memo is unlimited.</p>
+
+
+<h2>Abstract</h2>
+<p>Ethiopic web publishing is burdened with a legacy of numerous disparate
+systems.  The probability is then very high that a document published in one
+encoding system becomes inaccessible to the majority of users who will wish to
+read the document.  A conversion service is proposed to alleviate this
+problem.</p>
+
+<p>This document describes a Common Gateway Interface API and Hypertext
+Markup Language extensions for the conversion of web documents on remote
+servers from one encoding system into another.</p>
+
+
+<p>&nbsp;</p>
+
+<h2>1.  Motivation</h2>
+<p>Although Ethiopic character set / character code conversion software is available in the public domain it remains inaccessible to the average user wishing
+to publish with it.  At issue in the foreseeable future are web hosting services reluctant to install said software.  The need then arises for such users for
+access to a remote processing service.</p>
+
+
+<p>&nbsp;</p>
+
+<a name="Sec2"></a><h2>2.  Definitions, Conventions, and Generic BNF Grammar</h2>
+<p>Although the mechanisms specified in this document are all described in prose, most are also described formally in the augmented BNF notation of 
+<a href="http://www.faqs.org/rfcs/rfc822.html">RFC 822</a>. 
+Implementors will need to be familiar with this notation in order to understand this document, and are referred to 
+<a href="http://www.faqs.org/rfcs/rfc822.html">RFC 822</a>
+for a complete explanation of the augmented BNF notation.</p>
+
+<p>All CGI parameter and HTML markup and parameter names as defined are case-insensitive.  However, parameter values are case-sensitive unless otherwise specified for the specific parameter.</p>
+
+<p><strong>FORMATTING NOTE</strong>:  Notes, such at this one, provide additional nonessential information which may be skipped by the reader without missing anything essential.  The primary purpose of these nonessential notes is to convey information about the rationale of this documents or to place this document in the proper historical or evolutionary context.  Such information may in particular be skipped by those who are focused entirely on building a conformant implementation, but may be of use to those who wish to understand why certain design choices were made.</p>
+
+<h3>2.1  Character Set</h3>
+
+<p><a href="http://www.oac.uci.edu/indiv/ehood/MIME/2045/rfc2045.html">RFC 2045</a> provides our definition of character set:</p>
+
+<blockquote>
+The term "character set" is used in MIME to refer to a method of converting a sequence of octets into a sequence of characters.  Note that unconditional and unambiguous conversion in the other direction is not required, in that not all characters may be representable by a given character set and a character set may provide more than one sequence of octets to represent a particular sequence of characters.
+</blockquote>
+
+<p>It is noted in the RFC that the above definition is intentionally very general and in some communities will be interchanged with the term "character encoding".  A general definition for character sets is practical for discussion of Ethiopic encoding methods as a plethora of different methods have been applied to
+electronically encode the Ethiopic system of writing.  The major systems addressed by this specification are encodings in computer fonts, transliteration, and transcription.  A review of these approaches follows.</p>
+
+<h4>2.1.1 Computer Font Systems</h4>
+<p>Ethiopic fonts have been encoded on personal computer systems in one of three approaches.  The governing design constraint in devising an encoding systems has been the address space limitation for encoding glyphs that many font systems impose.</p>
+
+<p><b>1. Diacritic Based Systems</b> whereby the character set is broken down into base glyphs and diacritic symbols.  Usually more than one of a given diacritic symbol is given to enhance screen and printed rendering against the geometry of the base glyph.  The use of diacritic symbols is a means to encode more characters into available space.  Less frequently used characters may be omitted.</p>
+
+<p><b>2. Whole Glyph Systems</b> whereby glyphs remain intact, again less frequently used characters may be omitted to meet font space limitations.</p>
+
+<p><b>3. Distributed Encoding Systems</b> whereby approach (1) or (2) is taken but characters are spread over multiple physical fonts.  In this way the less
+frequent characters need not be omitted from the character set.</p>
+
+<p>It is important to note before continuing that in Approach 1 the resultant encoding scheme will be multibyte while using a single physical font. Base glyphs are themselves valid characters and will need only a single byte of encoding.  While as many as 3 diacritic symbols along with a base glyph (4 bytes total) may be needed to encode other characters.  In Approach 3 an Ethiopic "character set" becomes a collection of character encodings from each of the independent fonts.  When diacritic symbols are in a different font file from the base glyphs the encoding of a single character becomes not only multi-byte but multi-typeface (encoded by two coded character sets).</p>
+
+
+<h4>2.1.2  Transliteration Systems</h4>
+<p>John Clews provides an apt definition of transliteration:</p>
+
+<blockquote>
+<p>Transliteration is the process which consists of representing the characters of an alphabetical or syllabic system of writing by the characters of a conversion alphabet, this being the easiest way to ensure the complete and unambiguous reversibility of the conversion alphabet in the converted system.</p>
+</blockquote>
+<!-- 
+<p>In exceptional cases, e.g. when the number of characters used in the conversion system is smaller than the number of characters of the converted system, it is necessary to use digraphs or diacritical marks. In this case one must avoid as far as possible arbitrary choice and the use of purely conventional marks, and try to maintain a certain phonetic logic in order to give the system a wide acceptance.</p> 
+
+<p>However, it must be accepted that the graphism obtained may not always be correctly pronounced according to the phonetic habits of the language(or of all the languages) which usually use(s) the conversion alphabet. On the other hand this graphism must be such that the reader who has a knowledge of the converted language may mentally restore unequivocally the original graphism and thus pronounce it.</p> 
+-->
+
+<h4>2.1.3  Transcription Systems</h4>
+<p>Again John Clews writes:</p>
+<blockquote>
+<p>Transcription is the process whereby the sounds of a given language are noted by the system of signs of a conversion language.</p> 
+
+<p>A transcription system is of necessity based on the orthographical conventions of the conversion language. Transcription is not strictly reversible.</p> 
+
+<p>Transcription may be used for the conversion of all writing systems. It is the only method that can be used for systems that are not entirely alphabetical or syllabic and for all ideophonographical systems of writing like Chinese.</p> 
+</blockquote>
+
+
+<h3>2.2  Transfer Variant</h3>
+<p>A "Transfer Variant" refers to an additional encoding of a character set for purpose of information interchange.  For instance a document composed in the "Geezigna" character set might be transfered as UTF-7, UTF-8, Quoted-Printable, or UUEncoded.</p>
+
+<p>The UTF encodings may invoke some confusion as the Unicode character set is implied implicitly though it is not, ultimately, the target character set of the document.</p>
+
+
+<h3>2.3  Language and Locale Targets</h3>
+<p>Text may be formatted under the writing practices of a given linguistic region and period.  The LiveGe'ez Remote Processing Protocol is designed to be language and locale aware for such services as date conversion and document
+formatting.  No requirement is made however on the locales and languages supported by a LiveGe'ez implementation.</p>
+
+
+<p>&nbsp;</p>
+
+<h2>3 CGI Parameters</h2>
+<p>The LiveGe'ez Remote Processing Protocol exploits the HTTP Common Gateway Interface standard as a means to receive processing requests over the Internet.  CGI services specified in this version of the protocol are those of document and string encoding and date conversions.</p>
+
+<p>The grammar for LiveGe'ez processing requests through CGI is given as follows:</p>
+
+<dir>
+<pre>
+parameter := attribute "=" value
+
+attribute := token 
+             ; Matching of attributes
+             ; is ALWAYS case-insensitive.
+
+value     :=  token
+           |  token "." token
+           ;  The second token is some
+           ;  modifier of the first.
+
+token     := 1*&lt;any alpha-numeric (US-ASCII) CHAR&gt;
+</pre>
+</dir>
+
+<a name="SS31"></a><h3>3.1 Universal Parameters</h3>
+
+<p>Essential parameters for an arbitrary stream translation are those that will inform the processing agent of:</p>
+<ol>
+  <li>The character set of the stream (if not indicated within the
+      stream itself).
+  <li>The translated character set to return.
+  <li>Locale request for a specific writing convention.
+  <li>Use/Not use HTML 7-bit character entity escapes.
+</ol>
+
+<p>Table 3.1 lists parameters that may be used throughout the LiveGe'ez Remote Processing Protocal in combination with other parameters associated with character code conversion.</p>
+
+<table border=2>
+    <caption><b><a name="T31"></a>Table 3.1 Universal Translation Parameters</b></caption>
+<tr><td>
+<table>
+<tr><th>Defined Attribute<br>Names</th>
+    <td rowspan=10 width=2 bgcolor="black">.</td>
+    <th>Defined Attribute<br>Values</th>
+    <td rowspan=10 width=2 bgcolor="black">.</td>
+    <th>Parameter Meaning</th></tr>
+<tr><td colspan=5><hr size=2 noshade></td></tr>
+<tr valign="top"><th><code>sys | sysOut</code></th>
+    <td align="center"><code>LIVEGEEZSYS</code></td>
+    <td>Output system request of processed document.</td>
+    </tr>
+<tr valign="top"><th><code>sysIn</code></th>
+    <td align="center"><code>LIVEGEEZSYS</code></td>
+    <td>Input system request of processed document.</td>
+    </tr>
+<tr valign="top"><th><code>xfer | xferOut</code></th>
+    <td align="center"><code>TRANSFERVARIANT</code></td>
+    <td>Output transfer encoding.</td>
+    </tr>
+<tr valign="top"><th><code>xferIn</code></th>
+    <td align="center"><code>TRANSFERVARIANT</code></td>
+    <td>Input transfer encoding.</td>
+    </tr>
+<tr valign="top"><th><code>lang</code></th>
+    <td align="center"><code>LANG</code></td>
+    <td>Language (<em>really locale</em>) setting for the document translation.</td>
+    </tr>
+<tr valign="top"><th rowspan=3><code>pragma</code></th>
+    <td align="center"><code>"7-bit"</code></td>
+    <td>Use HTML 7-bit escapes.</td>
+
+<tr><td align="center"><code>"gspace"</code></td>
+    <td>Substitue ASCII spaces for Ethiopic Wordspace (U+1361) overriding locale settings.</td>
+    </tr>
+
+<tr><td align="center"><code>"eqmark"</code></td>
+    <td>Set default question mark to Ethiopic Question Mark (U+1367) overriding locale settings.</td>
+    </tr>
+</table>
+</td></tr>
+</table>
+
+
+<p>Multiple <code>pragma</code> directives can be given by combining pragma requests in a comma deliminated list or by appending digits to the pragma attribute (e.g. <code>pragma<u>1</u>=value</code>, <code>pragma<u>2</u>=value</code>, <code>pragma<u>3</u>=value</code>).  This is intended to simplify sending multiple pragma directives through HTML forms vs the former approach.</p>
+
+<p>The macros given in Table 3.1 can be expanded following the grammar shown below.  Terms correspond to the definitions given in <a href="#Sec2">Section 2</a> and a comprehensive list of character set "<code>SYSTEM</code>" tokens is given in <a href="#AppA">Appendix A</a>.</p>
+
+<dir>
+<pre>
+LIVEGEEZSYS  :=  CHARACTERSET
+              |  CHARACTERSET "." TRANSFERVARIANT
+
+<a href="#AppA">CHARACTERSET</a> := COMPUTERFONT
+              | TRANSLITSYSTEM
+              | TRANSCRIPTSYSTEM
+
+TRANSFERVARIANT  := "UTF7" | "UTF8"
+
+COMPUTERFONT     := SYSTEM
+
+TRANSLITSYSTEM   := SYSTEM
+                  | SYSTEM "." LANG
+
+TRANSCRIPTSYSTEM := SYSTEM
+                  | SYSTEM "." LANG
+
+SYSTEM  :=  token
+            ;  Any implementation supported system.
+            ;  <a href="#AppA">Appendix A</a> lists defined system tokens.
+
+LANG    :=  <a href="http://www.wwp.brown.edu/training/ISO/iso639.html">ISO639_LANGUAGECODE</a>
+         |  ISO639_LANGUAGECODE "." <a href="ftp://ftp.ripe.net/iso3166-countrycodes">ISO3166_COUNTRYCODE</a>
+         |  LOCALE
+
+LOCALE  :=  &lt;Any Implementation Supported Locale&gt;
+</pre>
+</dir>
+
+
+<a name="SS32"></a><h3>3.2 File Translation</h3>
+<p>Essential parameters for a document translation are those that will inform the processing agent of:</p>
+<ol>
+  <li>How and where to access the document.
+  <li>The character set of the document (if not contained within the
+      document itself).
+  <li>The translated character set to return.
+  <li>Locale request for a specific writing convention.
+  <li>Other processing directives such as not to use a cached translation
+      of the document or to return the document in HTML 7-bit characters only.
+</ol>
+
+<p>The Universal Parameters combined with Table 3.2 provides attribute definitions for the LiveGe'ez Remote Processing Protocol that meet the above requirements:</p>
+
+
+<table border=2>
+    <caption><b><a name="T32"></a>Table 3.2 Document Translation Parameters</b></caption>
+<tr><td>
+<table>
+<tr><th>Defined Attribute<br>Names</th>
+    <td rowspan=7 width=2 bgcolor="black">.</td>
+    <th>Defined Attribute<br>Values</th>
+    <td rowspan=7 width=2 bgcolor="black">.</td>
+    <th>Parameter Meaning</th></tr>
+<tr><td colspan=5><hr size=2 noshade></td></tr>
+<tr valign="top"><th><code>file</code></th>
+    <td align="center"><code>/full/path/to/file<br>
+    | URL</code></td>
+    <td>Full file name from server root or a properly formed Uniform Resource Locator string.</td>
+    </tr>
+<tr valign="top"><th><code>pragma</code></th>
+    <td align="center"><code>"no-cache"</code></td>
+    <td>Explicit server requests.</td>
+    </tr>
+</table>
+</td></tr>
+</table>
+
+
+<h4>Examples:</h4>
+<dir>
+<pre>
+  <b>http://www.xyz.com/Xlate?<font color="red">file=/dir1/dir2/file.html</font>&<font color="green">sys=AGF-Zemen</font></b>
+
+  <b>http://www.xyz.com/Xlate?<font color="red">file=http://www.abc.edu/dir1/dir2/file.html</font>&<font color="blue">sysIn=Ethiop</font>&<font color="green">sysOut=Geez-3</font></b>
+
+  <b>http://www.xyz.com/Xlate?<font color="red">file=/dir1/dir2/file.html</font>&<font color="green">sys=Brana.UTF7</font>&<font color="orange">lang=gez.et</font>
+</pre>
+</dir>
+
+<p><strong>NOTE:</strong> In general a document will in some form specify its own encoding system(s) and the "<code>sysIn</code>" parameter will not be required.  When the <code>sysIn</code> parameter is given it should take precedence over
+the document specified encoding.</p>
+
+
+<h3>3.3 String Translation</h3>
+<p>String translation service is also specified in the LiveGe'ez Remote Processing Protocol and is analogous to the file translation service described in <a href="#SS32">Subsection 3.2</a>. The "<code>string</code>" attribute takes the place of the file attribute in <a href="#T32">Table 3.2</a> and may be any URL encoded string.</p>
+
+<h4>Example:</h4>
+<dir>
+<pre>
+  <b>http://www.xyz.com/Xlate?<font color="red">string=%60selam%20%60alem</font>&<font color="blue">sysIn=sera</font>&<font color="green">sysOut=TFanus</font></b>
+</pre>
+</dir>
+
+
+<a name="SS34"></a><h3>3.4 Date Translation</h3>
+<p>The essential parameters for a date translation are those that will
+inform the processing agent of:</p>
+<ol>
+  <li>The date to be converted.
+  <li>The calendar system of the date parameter.
+  <li>The conversion calendar system.
+  <li>The character set in which to return the converted date.
+  <li>Locale request for a specific writing and formatting convention.
+  <li>Other processing directives.
+</ol>
+
+<p>Table 3.4.1 provides attribute definitions in addition to the Universal Parameters of the LiveGe'ez Remote Processing Protocol that meet the above requirements:</p>
+
+
+<table border=2>
+    <caption><b><a name="T341"></a>Table 3.4.1 Date Translation Parameters</b></caption>
+<tr><td>
+<table>
+<tr><th>Defined Attribute<br>Names</th>
+    <td rowspan=10 width=2 bgcolor="black">.</td>
+    <th>Defined Attribute<br>Values</th>
+    <td rowspan=10 width=2 bgcolor="black">.</td>
+    <th>Parameter Meaning</th></tr>
+<tr><td colspan=5><hr size=2 noshade></td></tr>
+<tr><th valign="top"><code>day</code></th>
+    <td align="center"><code>0?[1-9] | ([0-2])?[1-9] | 3[0-1]</code></td>
+    <td>A valid numeric day of month for the given month.</td>
+    </tr>
+<tr><th valign="top"><code>month</code></th>
+    <td align="center"><code>0?[1-9] | 1[0-3]</code></td>
+    <td>A valid numeric month for the given calendar system.</td>
+    </tr>
+<tr><th valign="top"><code>year</code></th>
+    <td align="center"><code>-?[0-9]+</code></td>
+    <td>Any integer value.</td>
+    </tr>
+<tr><th valign="top"><code>cal | calIn</code></th>
+    <td align="center"><code>CALSYS</code></td>
+    <td>Calendar system of date parameters.</td>
+    </tr>
+<tr><th valign="top"><code>calOut</code></th>
+    <td align="center"><code>CALSYS</code></td>
+    <td>Conversion calendar system.</td>
+    </tr>
+<tr valign="top"><th><code>pragma</code></th>
+    <td align="center"><code>"date-only" | "phrase" | "is-holiday"</code></td>
+    <td>Explicit server requests.</td>
+    </tr>
+</table>
+</td></tr>
+</table>
+
+<p>The "<code>CALSYS</code>" macro expands according to:</p>
+
+<dir>
+<pre>
+CALSYS  :=  "ethio" | "euro" | "et" | "eu" 
+            ; Support for Ethiopic and European calendars are minimal requirements
+</pre>
+</dir>
+
+<h4>Examples:</h4>
+<dir>
+<pre>
+  <b>http://www.xyz.com/Xlate?<font color="red">day=29&month=4&year=1991&cal=ethio</font></b>
+
+  <b>http://www.xyz.com/Xlate?<font color="red">day=7&month=1&year=1999&cal=euro&calOut=ethio</font>&<font color="green">sys=VG-Main</font>&<font color="orange">lang=tir</font></b>
+
+  <b>http://www.xyz.com/Xlate?<font color="red">day=29&month=4&year=1991&cal=ethio</font>&<font color="purple">pragma=date-only</font></b>
+</pre>
+</dir>
+
+<p>The response in the first example would be a formatted date in the European calendar of the form "<tt>Thursday January 7, 1999</tt>" though no formatting or language locale is specified as a default.  The response in the second example would be the Tigrigna analog of the first example under "<code>VG-Main</code>" font encoding.  The final example applies a pragma directive.  Pragma values for date queries are presented in Table 3.4.2:</p>
+
+<center>
+<table border>
+<caption><b>Table 3.4.2 Pragma of Date Queries</b></caption>
+<tr><th>Pragma</th><th>Format</th><th>Notes</th></tr>
+<tr><th><code>date-only</code></th>
+    <td>day "," month "," year "\n"</td>
+    <td>A comma separate list of digits terminated by newline.</td>
+    </tr>
+<tr><th><code>phrase</code></th>
+    <td><code>"Tahsas 29, 1991 is Thursday January 7th 1999...\n"</td>
+    <td>A phrased response terminated by newline.</td>
+    </tr>
+<tr><th><code>is-holiday</code></th>
+    <td><code>"0" | "1" "\n"</code></td>
+    <td>Boolean "0" or "1" response terminated by newline.</td>
+    </tr>
+<tr><th><code>is-holiday,phrase</code></th>
+    <td><code>"Tahsas 29, 1991 is Ethiopian Christmas\n"</td>
+    <td>The two pragma directives passed together with a comma delimitor return a phrased response terminated by newline.</td>
+    </tr>
+</table>
+</center>
+
+<p><strong>NOTE:</strong> There is an implicit assumption that the Ethiopic and European (Gregorian) calendars will be the primary interest of the user community.  Accordingly, when the "<code>calOut</code>" attribute is omitted it is assumed that dates in the companion system are returned.</p>
+
+
+<h3>3.5 Numeral Translation</h3>
+<p>English to Ethiopic numeral translation service is specified in the LiveGe'ez Remote Processing Protocol.  The "<code>number</code>" parameter with a positive or negative numeric value may be combined with the "<code>sysOut</code>", "<code>xfer</code>" and "<code>phrase</code>" attributes to request queries.</p>
+
+<h4>Example:</h4>
+<dir>
+<pre>
+  <b>http://www.xyz.com/Xlate?<font color="red">number=1992</font>&<font color="darkblue">sysOut=AmharicBook</font>&<font color="green">xfer=UTF7</font></b>
+</pre>
+</dir>
+
+<p>The "<code>enumber</code>" paramter for Ethiopic to English numeral translation is not a required part of the specification at this time.  The paramter name will remain as a reserved term until its usefulness is further studied for a futre version of the specification.</p>
+
+<h3>3.6 Server Defaults</h3>
+<p>In both service areas (file translation and calendar conversion) it is left to the server administrator to set default language settings for when the "<code>lang</code>" attribute is omitted.  It is also left to implementers to decide how to handle error responses when a parameter is left out.</p>
+
+
+<h3>3.7 Use With Persistant Cookies</h3>
+<p>The use of persistant cookies is practical for storing preferences such as "<code>sys</code>" and "<code>lang</code>" but explicit requests in a CGI string will take precedence over cookie values.</p>
+
+
+<p>&nbsp;</p>
+
+<h2>4. HTML Entity Extensions</h2>
+
+<p>The LiveGe'ez Remote Processing Protocol also specifies how the body of an HTML document is to be interpreted and provides useful extensions to the markup language itself.</p>
+
+<p>When remote documents are being processed (those requested through the "<code>file</code>" parameter and containing the "protocol://" structure) the document root will be set using the "<code>base</code>" tag with the "<code>file</code>" cgi parameter value:</p>
+<dir>
+<code>&lt;base href="URL"&gt;</code>
+</dir>
+<p>The base tag will not be inserted into the "<code>head</code>" section of the document only if one has not been provided.</p>
+
+<p>After setting the base url in remote files, LiveGe'ez implementations will
+continue to process the content of the document "<code>body</code>" section.  LiveGe'ez implementations will be required to:</p>
+
+<ol>
+  <li>Detect an Ethiopic character set.
+  <li>Work only within the scope of the Ethiopic character set.
+  <li>Convert plain text and character entities (i.e. &amp;eacute;) from
+      the detected character set (unless over ridden by the "<code>sysIn</code>"
+      cgi parameter) into the requested "<code>sysOut</code>" character set.
+  <li>Execute other predefined inline processing directives (discussed in
+      <a href="#SS43">Subsection 4.3</a>).
+</ol>
+
+<p>The scope of an Ethiopic character set will of necessity fall between
+the "font" markup tags for TrueType font systems or the "span" tag for
+transliteration and transcription systems will be discussed shortly in
+<a href="#SS42">Subsection 4.2</a>.</p>
+
+<p><strong>NOTE:</strong> While the "<code>basefont</code>" markup support is
+available in many browsers however the "<code>face</code>" attribute of
+"<code>basefont</code>" is less universal. The <code>basefont</code> markup
+is not supported in this version of the LiveGe'ez Remote Processing Protocol
+for typeface setting.  The <code>basefont</code> markup does not effect
+font typefaces used within tables nor headings.  Further, using the <code>basefont</code> markup would invert the problem to one of using "<code>font</code>" tags for changes to Roman script (common for numerals and Roman punctuation mixed with Ethiopic script).  Since there is no certainty of a specific Roman typeface
+being available on all window systems this version of the LiveGe'ez specification leave Roman script as the default underlying script.
+
+
+<a name="SS42"></a><h3>4.2 Spanning Tags</h3>
+<p>The Hypertext Markup Language provides the generic "<code>span</code>" markup
+which has no function by itself.  Its functionality comes through the attributes
+used with the entity.</p>
+
+<p>LiveGe'ez document processors supporting transliteration and transcription
+systems should be enabled to detect the "<code>trans</code>", "<code>lang</code>" and "<code>options</code>" attributes in the span markup as per:</p>
+
+<dir>
+<pre>
+&lt;span trans="TRANSLITSYSTEM"&gt;`selam `alem&lt;/span&gt;
+&lt;span trans="TRANSLITSYSTEM" lang="LANG"&gt;`selam `alem&lt;/span&gt;
+&lt;span trans="TRANSLITSYSTEM" lang="LANG" options="OPTIONS"&gt;`selam `alem&lt;/span&gt;
+</pre>
+</dir>
+
+<p>The attribute order is not important.  The "sera" tag with no attributes should be recognized by LiveGe'ez implementations supporting the <code>SERA</code> transliteration system.  The "sera" markup dates from early 1995 and support for
+the markup is suggested for backwards compatibility with legacy systems.</p>
+
+<h4>Examples:</h4>
+<dir>
+<code>
+&lt;sera&gt;`selam `alem&lt;/sera&gt;<br>
+&lt;span trans="sera"&gt;`selam `alem&lt;/span&gt;<br>
+&lt;span trans="ethiop.amh"&gt;'salAm `Alam&lt;/span&gt;<br>
+&lt;span trans="mainz" lang="amh.et"&gt;MalAm OAlam&lt;/span&gt;<br>
+<nobr>&lt;span trans="dehai" lang="tir.er" options="key=value&key=value"&gt;selamat Alem&lt;/span&gt;</nobr>
+</code>
+</dir>
+
+<p>Note that after the initial "<code>lang</code>" and "<code>options</code>" attributes are set they need not be respecified in subsequent markups.</p>
+
+<dir>
+<code>
+&lt;span trans="ethiop.amh.et"&gt;'salAm `alam&lt;/span&gt;<br>
+Hello World<br>
+&lt;span trans="ethiop"&gt;^cAw `alam&lt;/span&gt;<br>
+</code>
+</dir>
+
+<p>The "<code>lang</code>" and "<code>options</code>" attributes would be employed again only to reset the attributes.</p>
+
+<p>To simplify implementation, HTML documents should be preconditioned such
+that the scope of the Ethiopic character set is nested within markups where
+HTML renderers will reset typefaces.</p>
+
+<h4>Examples:</h4>
+<b>Bad:</b><br>
+<pre>
+    &lt;sera&gt;
+    &lt;h1&gt;This is my Title&lt;/h1&gt;
+    This is
+         some body text...
+    &lt;ul&gt;
+      &lt;li&gt; Item 1
+      &lt;li&gt; Item 2
+      &lt;li&gt; Item 3
+    &lt;/ul&gt;
+    &lt;/sera&gt;
+</pre>
+<b>Good:</b><br>
+<pre>
+    &lt;h1&gt;&lt;sera&gt;This is my Title&lt;/sera&gt;&lt;/h1&gt;
+    &lt;sera&gt;
+    This is
+         some body text...
+    &lt;/sera&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;sera&gt;Item 1&lt;/sera&gt;
+      &lt;li&gt;&lt;sera&gt;Item 2&lt;/sera&gt;
+      &lt;li&gt;&lt;sera&gt;Item 3&lt;/sera&gt;
+    &lt;/ul&gt;
+</pre>
+
+<p>Where the "<code>sera</code>" tag above might also be "<code>font</code>" or "<code>span</code>".  In the case of the Unordered List the scope of the "<code>sera</code>" markup does not include the list item to insure that the "bullet" glyph is rendered with the underlying Roman script font -as the bullet may not be found in the conversion Ethiopic character set. </p>
+
+<h4>4.2.1 Nesting of HTML Tags for Ethiopic Character Sets</h4>
+<p>The nesting of the HTML "<code>span</code>" tags for transliteration
+and the "<code>"font</code>" tag should be avoided to make implementation
+easier at this time.</p>
+<h4>Examples:</h4>
+<b>Good:</b><br>
+<code>
+<nobr>&nbsp;&nbsp;<font color="red">&lt;span trans="mainz"&gt;</font>MalAm OAlam<font color="red">&lt;/span&gt;</font><font color="green">&lt;span trans="sera"&gt;</font>`selam `alem<font color="green">&lt;/span&gt;</font></nobr>
+</code>
+<p>
+<b>Bad:</b><br>
+<code>
+<nobr>&nbsp;&nbsp;<font color="red">&lt;span trans="mainz"&gt;</font>MalAm OAlam<font color="green">&lt;span trans="sera"&gt;</font>`selam `alem<font color="green">&lt;/span&gt;</font><font color="red">&lt;/span&gt;</font></nobr>
+</code>
+
+<a name="SS43"></a><h3>4.3 Non-Spanning Tags</h3>
+<p>Unlike the generic "<code>span</code>" tag the HTML language does not
+provide an equivalent markup for in-place tags.  Fortunately HTML interpreters will ignore unrecognized markups and we may introduce the "<code>LIVEGEEZ</code>"
+markup for LiveGe'ez processors to detect and interpret.</p>
+
+<p>The <code>LIVEGEEZ</code> markup depends on its attributes to perform any
+service.  The "<code>date</code>" and "<code>fortune</code>" attributes are the
+only specified at this time.</p>
+
+<h4>4.3.1 The Date Conversion Attribute</h4>
+<p>The <code>date</code> conversion attribute is analogous to the 
+<code>day</code>, <code>month</code> and <code>year</code> CGI parameters of
+<a href="#SS34">Subsection 3.4</a>.  The difference in using a single
+"<code>date</code>" attribute is that the <code>day</code>, <code>month</code> and <code>year</code> attribute values are grouped in a comma separated list
+to form the "<code>date</code>" attribute value.  The calendar system of the
+date numeric values may be included as the last item of the list:</p>
+
+<dir>
+<pre>
+<b>
+&lt;LIVEGEEZ <font color="red">date="DATE"</font>&gt;
+&lt;LIVEGEEZ <font color="red">date="DATE"</font> <font color="orange">lang="LANG"</font>&gt;
+&lt;LIVEGEEZ <font color="red">date="DATE"</font> <font color="orange">lang="LANG"</font> <font color="blue">cal="CALSYS"</font>&gt;
+&lt;LIVEGEEZ <font color="red">date="DATE"</font> <font color="orange">lang="LANG"</font> <font color="blue">cal="CALSYS"</font> <font color="green">xfer="LIVEGEEZSYS</font>"&gt;
+</b>
+
+DATE    :=  "Now"
+         |  day "," month "," year
+         |  day "," month "," year "," CALSYS
+         ;  day, month, and year tokens were defined in <a href="#T341">Table 3.3.1</a>
+         ;  CALSYS here corresponds to the calIn parameter.
+         ;  Ethiopic calendar is assumed when CALSYS is omitted.
+</pre>
+</dir>
+
+<p>The "<code>xfer</code>" field would only be required when the markup is embedded in a block of non-Ethiopic text.  Otherwise the current <code>LIVEGEEZSYS</code> is applied in the formatted date output.</p>
+
+<h4>Examples:</h4>
+<center>
+<table border=2>
+<tr><td>
+<table>
+<tr><th>Markup</th>
+    <td rowspan=7 width=2 bgcolor="black">.</td>
+    <th>Output</th></tr>
+<tr><td colspan=3><hr size=2 noshade></td></tr>
+<tr valign="top"><td><code>&lt;LIVEGEEZ date="Now"&gt;</code></td>
+    <td>The current date using the default or current language and xfer setting.</td></tr>
+<tr valign="top"><td><code>&lt;LIVEGEEZ date="29,4,1991,et" lang="tir"&gt;</code></td>
+    <td>Tahsas 29, 1991 in Tigrigna spelling in the current xfer setting.</td></tr>
+<tr valign="top"><td><code>&lt;LIVEGEEZ date="29,4,1991,et" cal="eu" lang="fr.ch"&gt;</code></td>
+    <td>January 7, 1999 in Swiss French spelling and formatting.</td></tr>
+<tr valign="top"><td><code>&lt;LIVEGEEZ date="7,1,1999,eu" cal="et" lang="amh"&gt;</code></td>
+    <td>Tahsas 29, 1991 in Amharic spelling in the current xfer setting.</td></tr>
+<tr valign="top"><td><code>&lt;LIVEGEEZ date="29,4,1991" lang="amh" xfer="GFZemen"&gt;</code></td>
+    <td>Tahsas 29, 1991 in Amharic spelling using the Ge'ezFree Zemen character set.</td></tr>
+</table>
+</td></tr>
+</table>
+</center>
+
+
+
+<!--
+<h4>4.3.2 The "<code>number</code>" Attribute</h4>
+<p>Same as 3.3</p>
+
+<dir>
+<pre>
+&lt;LIVEGEEZ number="1991"&gt;
+&lt;LIVEGEEZ number="1991" xfer="LIVEGEEZSYS"&gt;
+</pre>
+</dir>
+-->
+
+<h4>4.3.2 The "<code>Menu</code>" Attribute</h4>
+<p>The "<code>menu</code>" attribute is provided such that implementation 
+support Ethiopic character sets can be conveniently inserted into HTML forms
+as drop down selection menus.  This approach is intended to facilitate
+maintenance of Ethiopic documents.  The document composer need only apply the
+"<code>LIVEGEEZ</code>" markup a single time and be relieved of the burden of
+having to update documents following changes in supported systems on the server
+side, or when translating the document at different servers.</p>
+
+<p>No <code>menu</code> attribute value other than "<code>standard</code>" is specified at this time. The <code>menu</code> attribute may be accompanied by "<code>name</code>" and "<code>script</code>" attributes for passing the values of
+the selection field name in the form and option scripting codes.</p>
+
+<h4>Examples:</h4>
+
+<dir>
+<pre>
+&lt;LIVEGEEZ menu="standard" name="sysMenu" script="onChange="openLink(this.options[this.selectedIndex].value);"&gt;
+&lt;LIVEGEEZ menu="standard" name="sysMenu" script="js-standard selected="Addis98" "&gt;
+</pre>
+</dir>
+
+<p>The "<code>js-standard</code>" script attribute value is an alias for the JavaScript sample passed in the first example.  Both cases result in the same HTML form drop down <code>select</option> output given below:</p>
+
+<dir>
+<pre>
+&lt;select name="sysMenu" onChange="openLink(this.options[this.selectedIndex].value);"&gt;
+  &lt;option value=Addis&gt;Addis One&lt;/option&gt; 
+  &lt;option value=AddisWP&gt;Addis One&lt;/option&gt; 
+  &lt;option value=Addis98 selected&gt;Addis One&lt;/option&gt; 
+  &lt;option value=Agaw&gt;Agaw&lt;/option&gt; 
+  &lt;option value=AGF-Dawit&gt;AGF - Dawit&lt;/option&gt;
+  &lt;option value=AGF-Zemen&gt;AGF - Zemen&lt;/option&gt;
+  &lt;option value=AGF-Ejji-Tsihuf&gt;AGF - Ejji Tsihuf&lt;/option&gt;
+  &lt;option value=AGF-Rejim&gt;AGF - Rejim&lt;/option&gt;
+  &lt;option value=AGF-Yigezu-Bisrat&gt;AGF - Yigezu Bisrat&lt;/option&gt;
+  &lt;option value=ALXethiopian&gt;ALXethiopian&lt;/option&gt; 
+     :
+     :
+     :
+&lt;/select&gt;
+</pre>
+</dir>
+
+
+<h4>4.3.3 The "<code>Game</code>" Attribute</h4>
+
+<p>The "<code>game</code>" attribute is not a required part of the LIVEGEEZ
+markup specification.  The implementation is optional; an API specification
+is given here for those devlopers wishing to provide an interface to available
+BSD style "games" available for Ethiopic languages such a <code>fortune</code>
+and <code>banner</code>:
+
+<dir>
+<pre>
+<b>
+&lt;LIVEGEEZ <font color="red">game="fortune"</font>&gt;
+&lt;LIVEGEEZ <font color="red">game="fortune"</font> <font color="purple">src="URLToAuthorDB"</font> <font color="blue">args="17"</font> <font color="orange">lang="amh"</font>&gt;
+&lt;LIVEGEEZ <font color="red">game="banner"</font> <font color="blue">args="`selam `alem"</font> <font color="orange">lang="amh"</font> <font color="green">xfer="LIVEGEEZSYS"</font>&gt;
+</b>
+</pre>
+</dir>
+
+<p>For the <code>game</code> "<code>fortune</code>" the "<code>src</code>" is optional to specify a URL to a specific (vs random) fortune format data base file of Qine, Geter, Enqoqlesh, Qeldoch, etc.  A number passed in the "<code>args</code>" attribute requests a specific entry in the database.</p>
+
+<p>With the <code>game</code> "<code>banner</code>" the expected "<code>args</code>" value is the string to be bannerized.  For any <code>game</code> additional arguments may be passed through the <code>args</code> value a comma deliminated list. Additional arguments are not specified here but are left to implementers to provide.</p>
+
+
+<h3>4.4 Literal Terms</h3>
+
+<h4>4.4.1 The "<code>LIVEGEEZSYS</code>" Literal</h4>
+<p>The literal term "<code>LIVEGEEZSYS</code>" found anywhere within the bounds of a markup will be exchanged with the requested Ethiopic character set "<code>sys</code>" attribute value.  Experience has shown this to be a valuable device for presetting the character set JavaScript variables and in links to LiveGe'ez servers.</p>
+
+<h4>Examples:</h4>
+
+<dir>
+<pre>
+
+<b>The Local Link:</b>
+<b>
+  &lt;a href="/cgi-bin/LiveGeez?day=29&month=4&year=1991&sys=<font color="red">LIVEGEEZSYS</font>"&gt;
+</b>
+</pre>
+
+<b>Becomes:</b>
+<pre>
+<b>
+  &lt;a href="/cgi-bin/LiveGeez?day=29&month=4&year=1991&sys=<font color="red">Washra</font>"&gt;
+</b>
+</pre>
+ 
+<b>The Local Link:</b>
+<pre>
+<b>
+  &lt;a href="http://www.xyz.com/LiveGeez/<font color="red">LIVEGEEZSYS</font>/"&gt;
+</b>
+</pre>
+
+<b>Becomes:</b>
+<pre>
+<b>
+  &lt;a href="http://www.xyz.com/LiveGeez/<font color="red">Washra</font>/"&gt;
+</b>
+</pre>
+</dir>
+
+
+<h4>4.4.2 The "<code>LIVEGEEZLINK</code>" Literal</h4>
+
+<p>The "<code>LIVEGEEZLINK</code>" literal is provided to mark hypertext links
+that should reference the LiveGe'ez processor:</p>
+
+<h4>Example:</h4>
+
+<b>The Local Link:</b>
+<dir>
+<pre>
+<b>&lt;a <font color="blue">href="newFile.html"</font> <font color="red">LIVEGEEZLINK</font>&gt;</b>
+</pre>
+</dir>
+<b>Becomes:</b>
+<dir>
+<pre>
+<b> &lt;a <font color="blue">href="http://www.xyz.com/LiveGeez?&file=/dir1/dir2/newFile.html&sys=ET-Saba"</font>&gt;</b>
+</pre>
+</dir>
+
+<p>Where "<code>http://www.xyz.com</code>" and "<code>/dir1/dir2/</code>" comes from the "<code>href</code>" attribute value of the "<code>base</code>" markup; and the "<code>sys</code>" value is that of the file being processed.</p>
+
+<p>&nbsp;</p><hr size=2 width="85%"><p>&nbsp;</p>
+
+<a name="AppA"></a><h2>Appendix A</h2>
+
+<p>Colors indicate interdependent encoding schemes spread over multiple
+typefaces.  Generally
+<font color="red">red</font> indicates the base encoding and
+<font color="green">green</font> the complimentary encoding.</p>
+
+<h3>Table A.1: CGI Parameter Values for Ethiopic Encoding Systems</h3>
+<center>
+<table border>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>TrueType Font Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Value</th></tr>
+<tr><th><a href="http://www.acisconsulting.com/">ACIS</a></th>
+    <td>ACIS</td>
+    <td>Hahu Lite<br>
+        Hahu Lite Gothic<br>
+        Hahu Lite Serif<br>
+        Hahu Lite Times</td>
+    <td>HahuLite<br>
+        HahuGothic<br>
+        HahuSerif<br>
+        HahuTimes</td>
+    </tr>
+<tr><th>Acuwork</th>
+    <td>Acuwork</td>
+    <td>ALXethiopian</td>
+    <td>ALXethiopian</td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.ethiolist.com/">AddisWord</a></th>
+    <td><font color="red">Addis One</font><br>
+    <td><font color="red">AddisWord1</font></td>
+    <td rowspan=2>Addis</td>
+    </tr>
+<tr><td><font color="green">Addis Two</font></td>
+    <td><font color="green">AddisWord2</font></td>
+    </tr>
+<tr><th>Alpas</th>
+    <td>Alpas</td>
+    <td>ET-Saba<br>
+        ET-Saba Bold</td>
+    <td>ET-Saba</td>
+    </tr>
+<tr><th>Amharisch (?)</th>
+    <td>TFanus</td>
+    <td>Amharisch</td>
+    <td>Amharisch</td>
+    </tr>
+<tr><th rowspan=2><a href="http://truman.cs.missouri.edu/~brana/">Brana</a></th>
+    <td><font color="red">Brana I</font></td>
+    <td><font color="red">BranaI</font></td>
+    <td rowspan=2>Brana</td>
+    </tr>
+<tr><td><font color="green">Brana II</font></td>
+    <td><font color="green">BranaII</font></td>
+    </tr>
+<tr><th rowspan=2>C.B. Hale (?)</th>
+    <td><font color="red">C.B. Hale A</font></td>
+    <td><font color="red">Amharic-A</font></td>
+    <td rowspan=2>Amharic-A</td>
+    </tr>
+<tr><td><font color="green">C.B. Hale B</font></td>
+    <td><font color="green">Amharic-B</font></td>
+    </tr>
+<tr><th rowspan=3><a href="http://www.ethiopians.com/EthCITA.htm">EthCITA</a></th>
+    <td>Uni-Font</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+<tr><td><font color="red">Bi-Font Primary</font></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+<tr><td><font color="green">Bi-Font Secondary</font></td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+<tr><th rowspan=2><a href="http://home.navisoft.com/ethiopian/index.htm">Ethiopian Computers &amp; Software</a></th>
+    <td>Ge'ezEdit</td>
+    <td>Ge&#232;zEdit Amharic P</td>
+    <td>GeezEditAmharicP</td>
+    </tr>
+<tr><td>Ge'ezEdit98</td>
+    <td>EG Amharic<br>
+        Ge&#232;zEditAmharic98</td>
+    <td>EGAmharic<br>
+        GeezEditAmharic98</td>
+    </tr>
+<tr><th rowspan=2>Ethiopic (?)</th>
+    <td><font color="red">Ethiopic1</td>
+    <td><font color="red">ETHIOPIC PIC-1-regular</font></td>
+    <td rowspan=2>ETHIOPIC</td>
+    </tr>
+<tr><td><font color="green">Ethiopic2</td>
+    <td><font color="green">ETHIOPIC PIC-2-bold</font></td>
+    </tr>
+<tr><th><a href="http://members.aol.com/ethiosoft/ethsoft.htm">EthioSoft</a></th>
+    <td>TFanus</td>
+    <td>EthioSoft</td>
+    <td>EthioSoft</td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.neosoft.com/~ethiosys/ethiosys.html">EthiO Systems</a></th>
+    <td><font color="red">Ethiopian ASCII Primary</font></td>
+    <td><font color="red">Ethiopia Primary<br>
+        Ethiopia Primary Slanted<br>
+        EthiopiaAnsiP<br>
+        Washra&nbsp; Primary<br>
+        Washrasl&nbsp; Primary Slanted<br>
+        Wookianos Primary<br>
+        YebSe Primary</font>
+    </td>
+    <td rowspan=2>
+      Ethiopia<br>
+      EthiopiaSlanted<br>
+      EthiopiaAnsiP<br>
+      Washra<br>
+      Washrasl<br>
+      Wookianos<br>
+      Yebse</td>
+    </tr>
+<tr><td><font color="green">Ethiopian ASCII Secondary</font></td>
+    <td><font color="green">Ethiopia Secondary
+    Ethiopia Secondary Slanted<br>
+    EthiopiaAnsiS<br>
+    Washrax Secondary<br>
+    Washraxsl Secondary Slanted<br>
+    Wookianos Secondary<br>
+    YebSe Secondary</font></td>
+    </tr>
+<tr><th><a href="http://www.ethiowalia.com">EthioWalia</a></th>
+    <td>EthioWalia</font></td>
+    <td>AMH3</font>
+    <td>AMH3</td>
+    </tr>
+<tr><th rowspan=2>Fidel Software (?)</th>
+    <td><font color="red">Fidelxtr1</font></td>
+    <td><font color="red">FIDEL~`_SOFTWARE</font>
+    <td rowspan=2>Fidel</td>
+    </tr>
+<tr><td><font color="green">Fidelxtr2</font></td>
+    <td><font color="green">EXTRA~`_FIDEL</font></td>
+    </tr>
+<tr><th>GeezBausi (?)</th>
+    <td>TFanus</td>
+    <td>GeezBausi</td>
+    <td>GeezBausi</td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.geezfont.com/">Ge'ezFont</a></th>
+    <td>Ge'ezFont</td>
+    <td>GeezAddis<br>
+        geezBasic<br>
+        geezLong<br>
+        GeezThin</td>
+    <td>GeezAddis<br>
+        geezBasic<br>
+        geezLong<br>
+        GeezThin</td>
+    </tr>
+<tr><td>Ge'ezFontOld</td>
+    <td>geezBasic<br>geezDirib</td>
+    <td>geezBasicOld<br>geezDirib</td>
+    </tr>
+<tr><th rowspan=5>Ge'ez Frontiers Foundation</th>
+    <td><font color="red">Ethiopian ASCII Primary</font></td>
+    <td><font color="red">GF Zemen Primary<br>
+        GF Abebe Giorgis Primary<br>
+        GF Yigezu Bisrat Primary</font></td>
+    <td rowspan=2>GFZemen<br>
+        GFAbebeG<br>
+        GFYigezu</td>
+    </tr>
+<tr><td><font color="green">Ethiopian ASCII Extended-Secondary</font></td>
+    <td><font color="green">GF Zemen Secondary<br>
+        GF Abebe Giorgis Secondary<br>
+        GF Yigezu Bisrat Secondary</font></td>
+    </tr>
+<tr><td><font color="red">PFR he</font></td>
+    <td><font color="red">ENH Zena he<br>
+        GF Zemen2K Ahadu</font></td>
+    <td rowspan=3>ENHPFR<br>
+        GFZemen2K</td>
+    </tr>
+<tr><td><font color="green">PFR le</font></td>
+    <td><font color="green">ENH Zena le<br>
+        GF Zemen2K Kileitu</font></td>
+    </tr>
+<tr><td><font color="darkblue">PFR He</font></td>
+    <td><font color="darkblue">GF Zemen2K Selestu</font></td>
+    </tr>
+<tr><th rowspan=6><a href="http://www.aol.com/members/Feedel/Feedel.html">Feedel</a></th>
+    <td>Ge'ezigna</td>
+    <td>Geezigna</td>
+    <td>Geezigna</td>
+    </tr>
+<tr><td><font color="red">Ge'ez I</td>
+    <td><font color="red">Geez</font></td>
+    <td rowspan=2>Geez</td>
+    </tr>
+<tr><td><font color="green">Ge'ez II</font></td>
+    <td><font color="green">Geez II</font></td>
+    </tr>
+<tr><td><font color="red">Ge'ezNew A</font></td>
+    <td><font color="red">GeezA<br>
+        GeezNewA<br>
+        GeezSindeA<br>
+        Geez Demo<br>
+        GeezNet</font></td>
+    <td rowspan=3>GeezA<br>
+        GeezNewA<br>
+        GeezSindeA<br>
+        GeezDemo<br>
+        GeezNet</td>
+    </tr>
+<tr><td><font color="green">Ge'ezNew B</font></td>
+    <td><font color="green">GeezB<br>
+        GeezNewB<br>
+        GeezSindeB</font></td>
+    </tr>
+<tr><td><font color="darkblue">Ge'ezNew C</font></td>
+    <td><font color="darkblue">GeezC</font></td>
+    </tr>
+<tr><th><a href="ftp://hopi.dtcc.edu/pub/berlin/fonts/">MahNishtahnah Project</a></th>
+    <td>Ge'ezEdit</td>
+    <td>AmharQ</td>
+    <td>AmharQ</td>
+    </tr>
+<tr><th rowspan=5><a href="http://www.monotype.com/">Monotype</a></th>
+    <td><font color="red">Monotype 1</font></td>
+    <td><font color="red">Amharic 1<br>
+        Amharic Book 1</font></td>
+    <td rowspan=3>Amharic<br>
+        AmharicBook</td>
+    </tr>
+<tr><td><font color="green">Monotype 2</font></td>
+    <td><font color="green">Amharic 2<br>
+        Amharic Book 2</font></td>
+    </tr>
+<tr><td><font color="brown">Monotype 3</td>
+    <td><font color="brown">Amharic 3<br>
+        Amharic Book 3</font></td>
+    </tr>
+<tr><td><font color="red">Monotype Alt</font></td>
+    <td><font color="red">Amharic_Alt</font></td>
+    <td rowspan=2>Amharic_Alt</td>
+    </tr>
+<tr><td><font color="green">Monotype Number</font></td>
+    <td><font color="green">Amharic_Num</font></td>
+    </tr>
+<tr><th>NCI</th>
+    <td>NCI</td>
+    <td>ET-NCI Normal<br>
+        ET-NCI  Italic<br>
+
+        ET-NEBAR Normal<br>
+        ET-NEBAR  Bold<br>
+
+        ET-SAMI Normal<br>
+        ET-SAMI Normal Italic<br>
+        ET-SAMI Bold<br>
+        ET-SAMI Bold Italic
+    </td>
+    <td valign="top">ET-NCI<br>
+        &nbsp;<br>
+        ET-NEBAR<br>
+        &nbsp;<br>
+        ET-SAMI</td>
+    </tr>
+<tr><th rowspan=4>NCIC</th>
+    <td>Agafari</td>
+    <td>AGF - Zemen<br>
+        AGF - Dawit<br>
+        AGF - Rejim<br>
+        AGF - Yigezu Bisrat</td>
+    <td>AGF-Dawit<br>
+        AGF-Zemen<br>
+        AGF-Rejim<br>
+        AGF-Yigezu-Bisrat</td>
+    </tr>
+<tr><td>Agafari -Ejji Tsihuf</td>
+    <td>AGF - Ejji Tsihuf</td>
+    <td>AGF-Ejji-Tsihuf</td>
+    </tr>
+<tr><td><font color="red">Dejene1</font></td>
+    <td><font color="red">Agaw</font></td>
+    <td rowspan=2>Agaw</td>
+    </tr>
+<tr><td><font color="green">Dejene2</font></td>
+    <td><font color="green">AgawBd</font></td>
+    </tr>
+<tr><th><a href="http://OmniTech.EthiopiaOnline.Net/">OmniTech</a></th>
+    <td>NCI</td>
+    <td>Amharic&nbsp; Kechin Normal<br>
+        Amharic Yigezu Bisrat Normal<br>
+        Amharic Gazetta Ordinay
+    </td>
+    <td>AmharicKechin<br>
+        AmharicYigezuBisrat<br>
+        AmharicGazetta</td>
+    </tr>
+<tr><th><a href="http://www.geezsoft.com/">Phonetic Systems</a></th>
+    <td>Phonetic Systems</td>
+    <td>GeezType</td>
+    <td>GeezType</td>
+    </tr>
+<tr><th rowspan=2>Power Ge'ez</th>
+    <td><font color="red">Power Ge'ez</font></td>
+    <td><font color="red">Ge'ez-1<br>
+        Ge'ez-2<br>
+        Ge'ez-3</font></td>
+    <td rowspan=2>Geez-1<br>
+        Geez-2<br>
+        Geez-3</td>
+    </tr>
+<tr><td><font color="green">Power Ge'ez Number</font></td>
+    <td><font color="green">Ge'ez-1 Number, etc</td>
+    </tr>
+<tr><th rowspan=2>Samawerfa</th>
+    <td>AddisWP</td>
+    <td>AddisWP</td>
+    <td>AddisWP</td>
+    </tr>
+<tr><td>Addis98</td>
+    <td>Addis98</td>
+    <td>Addis98</td>
+    </tr>
+<tr><th rowspan=3><a href="http://www.sil.org/">SIL</a></th>
+    <td><font color="red">Et 1</font></td>
+    <td><font color="red">Et 1 SILAddisAbaba</font></td>
+    <td rowspan=3>SILAddisAbaba</td>
+    </tr>
+<tr><td><font color="green">Et 2</font></td>
+    <td><font color="green">Et 2 SILAddisAbaba</font></td>
+    </tr>
+<tr><td><font color="#aa0000">Et 3</font></td>
+    <td><font color="#aa0000">Et 3 SILAddisAbaba</font></td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.tfanus.com.er/">TFanus</a></th>
+    <td>TFanus</td>
+    <td>TfanusGeez01</td>
+    <td>TfanusGeez01</td>
+    </tr>
+<tr><td>TFanus New</td>
+    <td>GeezTimesNew</td>
+    <td>GeezTimesNew</td>
+    </tr>
+<tr><th>Visual Ge'ez</th>
+    <td>Visual Ge'ez</td>
+    <td>VG2-Agazian<br>
+        VG2-Main<br>
+        VG2-Title</td>
+    <td>VG2-Agazian<br>
+        VG2-Main<br>
+        VG2-Title</td>
+    </tr>
+<tr><th rowspan="2"><a href="http://members.aol.com/w4z5m4/wazema.html">Wazema</a></th>
+    <td><font color="red">Wazema1</font></td>
+    <td><font color="red">A1 Desta<br>
+        A1 Kidan<br>
+        A1 Qelem<br>
+        A1 Tesfa</font></td>
+    <td rowspan=2>A1-Desta<br>
+        A1-Kidan<br>
+        A1-Qelem<br>
+        A1-Tesfa</td>
+    </tr>
+<tr><td><font color="green">Wazema2</font></td>
+    <td><font color="green">A2 Desta<br>
+        A2 Kidan<br>
+        A2 Qelem<br>
+        A2 Tesfa</font></td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Typeface Independent Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th>Japanese Industrial Standard</th>
+    <td>JIS</td>
+    <td align="center">NA</td>
+    <td>JIS</td>
+    </tr>
+<tr><th>Japanese Unix Network</th>
+    <td>JUNET</td>
+    <td align="center">NA</td>
+    <td>JUNET</td>
+    </tr>
+<tr><th rowspan=3><a href="http://www.unicode.org/">Unicode</a></th>
+    <td>UTF-7</td>
+    <td align="center">NA</td>
+    <td>UTF7</td>
+    </tr>
+<tr><td>UTF-8</td>
+    <td align="center">NA</td>
+    <td>UTF8</td>
+    </tr>
+<tr><td>UTF-16</td>
+    <td align="center">NA</td>
+    <td>UTF16</td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Transliteration Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th><a href="http://www.primenet.com/~ephrem/">Dehai</a></th>
+    <td>Dehai</td>
+    <td align="center">NA</td>
+    <td>Dehai</td>
+    </tr>
+<tr><th><a href="http://www.informatik.uni-hamburg.de/TGI/mitarbeiter/wimis/kummer/ethiop_eng.html">Ethiop</a></th>
+    <td>Ethiop</td>
+    <td align="center">NA</td>
+    <td>Ethiop</td>
+    </tr>
+<tr><th><a href="http://www.iso.ch">ISO/TC46/SC2</a></th>
+    <td>ISO/TC46/SC2</td>
+    <td align="center">NA</td>
+    <td>ISOTC46SC2</td>
+    </tr>
+<tr><th><a href="http://www.uni-mainz.de/~kropp/welcome.html">Mainz</a></th>
+    <td>Mainz</td>
+    <td align="center">NA</td>
+    <td>Mainz</td>
+    </tr>
+<tr><th><a href="http://www.cs.indiana.edu/hyplan/dmulholl/fidel/sera-faq.html">SERA</a></th>
+    <td>SERA</td>
+    <td align="center">NA</td>
+    <td>SERA</td>
+    </tr>
+<tr><th><a href="http://www.sil.org/">SIL</a></th>
+    <td>Ed</td>
+    <td align="center">NA</td>
+    <td>Ed</td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Transcription Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th>IES</th>
+    <td>IES</td>
+    <td align="center">NA</td>
+    <td>IES</td>
+    </tr>
+<tr><th>Qubee</th>
+    <td>Qubee</td>
+    <td align="center">NA</td>
+    <td>Qubee</td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Miscellaneous Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th rowspan=2>C-Like</th>
+    <td>CLike (\xABCD)</td>
+    <td align="center">NA</td>
+    <td>CLike</td>
+    </tr>
+<tr><td>clike (\xabcd)</td>
+    <td align="center">NA</td>
+    <td>clike</td>
+    </tr>
+<tr><th><a href="http://www.etl.go.jp/~mule/">ETL</a></th>
+    <td>MULETeX</td>
+    <td align="center">NA</td>
+    <td>MULETeX</td>
+    </tr>
+<tr><th>Ge'ez Frontiers Foundation</th>
+    <td>Image</td>
+    <td align="center">NA</td>
+    <td>Image<br>image</td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.sun.com/">Sun MicroSystems</a></th>
+    <td>Java (\uABCD)</td>
+    <td align="center">NA</td>
+    <td>Java</td>
+    </tr>
+<tr><td>java (\uabcd)</td>
+    <td align="center">NA</td>
+    <td>java</td>
+    </tr>
+<tr><th>U+</th>
+    <td>U Plus (U+ABCD)</td>
+    <td align="center">NA</td>
+    <td>UPlus</td>
+    </tr>
+</table>
+</center>
+
+</body>
+</html>

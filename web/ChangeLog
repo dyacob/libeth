@@ -1,0 +1,488 @@
+add an option to drop or absorb extra diacritic marks.
+add memo-izer
+
+Wed Apr 23 14:18:55 PDT 2003
+
+* added braille files after nearly a year of waiting.
+
+* updates to ethiop and ed, misc.
+
+Sun Apr 28 08:59:47 PDT 2002
+
+* systems/phonetic.map, systems/phonetic.c: updates to read/write "d" and "D"
+  correctly, which use a diacritic mark for the sadis form.
+
+Sat Mar 30 12:25:48 PST 2002
+
+* systems/wazema.c, systems/wazema.map:  updates for wazema1 and wazema2
+  conversion as an input encoding.
+
+Sat Mar 23 12:59:12 PST 2002
+
+* systems/feedel.map: ZewdituA, ZewdituB typefaces added.
+
+* systems/wazema.map: A1-Kidan, A2-Kidan, A1-Qelem, A2-Qelem typefaces added.
+
+Sun Aug  5 16:41:14 PDT 2001
+
+* transfer variant escd and esch added for &#dddd; and &#xABCD; ML escapes.
+
+* systems/cbales.map,monotype.map,powergeez.map:  caught 0xfffd and 0xfffe
+  that should have been 0xfdfd and 0xfdfe.
+
+Tue May  1 21:50:58 EDT 2001
+
+* systems/base.c:  introduced for other systems to derive from.  This saves at
+  least 30K.
+
+* isGoodANSI routines return an unsigned char instead of a boolean to handle
+  more extensive ANSI remapping as found in Wazema fonts.
+
+* geztypenet, visualgez2k, wazema1, wazema1 and visualgez2k systems introduced
+  visualgez2k is fully functional at this point.
+
+Wed Dec 13 19:14:57 EST 2000
+
+* systems/syinfo.c:  xml transfer variant added.
+
+Mon Nov 13 23:20:08 EST 2000
+
+* systems/feedel.map:  Corrections for & and * which are maps onto " and '
+  respectively.
+
+* systems/feedel.c:  Made sure remapped chars are returned and do not enter
+  the block of code that looks for a diacritic mark.
+
+* systems/ethiosys.map:  Added Ethiopia Jiret Set I/II typefaces.
+
+Sat Nov 10 19:09:38 EST 2000
+
+* systems/seralex.l:  "<"[/]?[Hh][Tt][Mm][Ll]">" is now just 
+  "<"[/]?[Hh][Tt][Mm][Ll] to account for Office 2000 generated docs that insist
+  on adding attributes to the <html> entitie.
+
+Sun Feb 13 15:57:47 EST 2000
+
+* lib-src/sysinfo.c/fidel_sputc:  added loop to handle output for extensions
+  mapping.  "hasExtendedEthiopic" added.
+
+* include/fidel.h:  renamed UNIFIDEL, UNILAST, UNISIZE, UNITOTAL, etc to more
+  comprehensible:  BASIC_ETHIOPIC_BEGIN, BASIC_ETHIOPIC_END, etc.
+
+* include/fidel.map:  ExtendedEthiopicToBasicEthiopicMap added to map extensions
+  onto the basic range for fonts where extension support has not been added.
+  Could be good for Ethiopian language transliteration.
+
+Sat Feb 12 10:56:54 EST 2000
+
+* lib-src/etctype.c:  updates for N1846 Sebatbeit.  Lots of other places updated
+  as well.  Will continue later.
+
+Sat Feb  6 18:24:19 EST 2000
+
+* systems/visgeez.map:  mixed maps for '<<', '>>' and '?'.
+
+Wed Jan 26 19:36:03 EST 2000
+
+* systems/geezfont.map:  added AddisB1, AddisL1, AddisT1 typefaces of GeezFont.
+
+Sun Dec 12 21:25:30 EST 1999
+
+* lib-src/sysinfo.c/fidel_sputc: missing j++ added in tvOut loop.
+
+Sat Nov 27 11:21:02 EST 1999
+
+* EthioWalia support added.
+
+* fixes in systems/ for strlen undersizes in a few instances.
+
+Sun Oct 25 02:06:20 EDT 1999
+
+* system/seralex.l/my_yyinput: n = YY_BUF_SIZE - 1; is now correctly 
+  n = YY_BUF_SIZE;
+
+* lib-src/langxs.c/ConvertEthiopicFileToString:  deleted extra "top" incrementer.
+
+* lib-src/langxs.c/ConvertEthiopicString:  move flag free statement after lexer_reset.
+
+Sat Oct 16 11:18:38 EDT 1999
+
+* system/phonetic.map, system/phonetic.c:  Updates for GeezTypeNet.
+
+* numerous updates to make gcc-2.91.66 happy.
+
+Sun Aug 22 10:32:41 EET DST 1999
+
+* systems/enhpfr.c, systems/enhfpr.map:  Updates for GFZemen2K fonts.
+
+Thu Aug  5 13:18:48 EET DST 1999
+
+* doctypes/html.c/fidel_HTML_sputs:  sprintf's removed after insertString's.
+
+* doctypes/html.c/closeFont:  fixed requested size for grow_string.
+
+* systems/monotype.map:  maps fixed for de, to and `se series. 
+
+Sat Jul 31 20:55:53 EET DST 1999
+
+* doctypes/html.c/fidel_HTML_sputs:  fix for nesting of multi-font systems
+
+Sat Jul 24 22:20:01 EET DST 1999
+
+* systems/monotype.map:  maps for ya, yE, y, yo fixed. 
+
+Sun Jul 11 21:37:14 EET DST 1999
+
+* systems/seralex.l:  corrected \~? to be \~`? to comply with Emacs.
+
+Thu Jun  3 18:17:56 EET 1999
+
+* systems/seralex.l/my_yyinput:  reworked this to be faster in general and not
+  break for strings of length 1.  Another fix to the <LANG> section that wasn't
+  exitting nicely.
+
+Thu Jun  3 10:22:39 EET 1999
+
+* lib-src/sysinfo.c/get_setName:  added forgotten "break" statements for
+  tfanus systems.
+
+Sat May 29 07:20:34 EET 1999
+
+* systems/ethiosys.map:  corrected Ethiopic stylized ? and . addresses.
+
+Fri May 28 12:36:52 EET 1999
+
+* include/libeth.h,lib-src/sysinfo.c,systems/tfanus.[ch],systems/tfanus.map:
+  reworked so that "ethiosoft" and "gezbausi" are unique system types.
+
+Thu May 27 22:10:09 EET 1999
+
+* systems/seralex.l:  all cases of "return yytext[0]" are now 
+  "return ( 0x00ff & yytext[0] )" to prevent 8-bit values from taking forms like
+  0xffcf instead of 0x00cf -don't know why this was happenning.
+
+Thu May 27 06:31:41 EET 1999
+
+* systems/tfanus.map:  added diacritic identifiers to hash table.
+
+Wed May 26 12:40:24 EET 1999
+
+* systems/sera.c/SERAToUnicode:  fix so that LEX_LPUNCT is properly shut off
+  after non-punctuation such as newlines.
+
+Tue May 25 14:40:45 EET 1999
+
+* lib-src/sysinfo.c, systems/ncic.c:  fixes to make Ejji Tsihuf act as a
+  compliment font to other Agafari fonts for numeral output.
+
+* systems/nci.map,acuwork.map:  RTFNames changed to TTFNames.  RTFNamesPrefix
+  changed to RTFPrefix.
+
+* systems/nci.c/get_setName:  debugging code removed.
+
+Wed May 19 19:46:25 EET 1999
+
+* lib-src/sysinfo.c/fidel_sputc:  debuging code works more universally now.
+
+* systems/sera.c/SERAToUnicode:  fix for sera wordspaces to come out right
+
+* doctypes/html.c/fidel_HTML_sputs:  removed "strlen" in 2nd argument of
+  grow_string at line 77.
+
+Wed Apr 28 09:35:20 EET 1999
+
+* systems/seralex.l/my_yyinput:  added to code to handle end of buffer
+  wrapping.
+
+Wed Apr 21 22:33:29 EET 1999
+
+* calendar/Ethiopic.c/getEthiopicDayName:  [date] changed to [date - 1]
+  in array indexi.
+
+Sun Apr 18 19:56:42 EET 1999
+
+* sytems/geezfont.map:  changed map to use the second occurance of Ne
+  at 0xff as the preferred choice over 0xa0.
+
+Sat Apr 17 23:18:59 EET 1999
+
+* include/libeth.h:  aynIsZero becomes an option.  This didn't really
+  happen on Saturday but a new release is shipping today with, at last
+  Zobel seeing the light of day...
+
+Sat Apr 10 19:43:08 EET 1999
+
+* lib-src/langxs.c:  is added for interfacing with other languages such
+  as Perl or VB.  langxs.c code is moved out of the LibEth.xs source
+  module.  image_sputs is moved from LibEth.xs into systems/filters.c.
+
+Sat Apr 10 16:53:22 EET 1999
+
+* lib-src/sysinfo.c:  adjustments for transfer variant output with mixed
+  options.  New options are "debug", and "ethOnly".  "decimal" output is
+  added as a transfer variant.
+
+Fri Apr  9 22:14:24 EET 1999
+
+* include/libeth.h:  "options" flag added where extraneous options can be
+  ORed together.  etstdlib.c, seralex.l, sera.c, dehai.c and sysinfo.c are
+  updated accordingly.
+
+* lib-src/etstdio.c:  Arguement 1 of get_fchar is no longer used and so now
+  has been eliminated throughout.
+
+Fri Apr  9 10:03:14 EET 1999
+
+* systems/brana.map:  corrected mappings for zWa, Ilf, Ku->Ko.
+
+* systems/sera.c/SERAToUnicode:  lexer_push(x) added when `x is detected in
+  latin mode.  Only ` was being returned and x was lost.
+
+Fri Apr  2 15:46:28 EET 1999
+
+* systems/geezfont.c:  corrections to hash table and GeezFontToUnicode to
+  get input working correctly.
+
+Sat Mar 27 20:26:19 EET 1999
+
+* include/libeth.h, lib-src/etstdlib.c, systems/dehai.c, systems/sera.c:  
+  "gspace" and "qmark" and now "gSpace" and "qMark" to keep interCaps
+  use consistant.
+
+Thu Mar 25 13:44:38 EET 1999
+
+* systems/sera.c:  check for out of range characters added so we don't break
+  the hash tables.
+
+Wed Mar 24 21:33:13 EET 1999
+
+* systems/sera.c: fixes for ' handling after the legal but odd sequence 
+  "I'aa" broke the lexer.
+
+* systems/acis.c,ethcita.c,feedel.c,geezfont.c,samawerfa.c:
+  Systems using "READNEXT" to handle butterfly processing are bug fixed
+  so that formNumber is not doubly subtracted.
+
+* systems/geezfont.map:  more minor refinements to tables.
+
+* "debug" output is noted as broken, will fix this in 0.34 making debug a
+  transfer variant.
+
+
+Tue Mar 23 17:15:57 EET 1999
+
+* #define bzero(addr, cnt) memset(addr, 0, cnt)
+  added to lib-src/etmath.c, doctypes/rtf.c and calendar/ettime.c. bzero 
+  elliminated from doctypes/html.c.  This lets libeth compile with non-BSD
+  compatible compilers.
+
+* systems/geezfont.map:  minor refinements to hash table.
+
+* lib-src/redterms.c:  #include<detail.h> added for WIN32 compilation.
+
+* libeth compiles as a Windows DLL and we freeze 0.33 now to get back into
+  Gurage, Bench, Bilin, Agaw and other good languages.
+
+
+Wed Mar 17 19:12:57 EET 1999
+
+* systems/unicode.c:  added "UnicodeToName" to return Unicode character names
+  when get_fchar is passed the "uname" identifier.
+
+* EthCITA systems are added but not tested.
+
+Sun Mar 14 16:37:08 EET 1999
+
+* include/libeth.h:  stringTop added to LibEthFlags structure after crashes
+  from end of string detection problems -the "top" counter is reset to zero
+  the first time getToken is called.  If getToken is called again everything
+  starts over.  This seemed to be the best fix.
+
+* lib-src/sysinfo.c/get_fchar:  iostring elliminated, test for stringTop added.
+
+* systems/seralex.c:  iostring elliminated but not top, we keep the top 
+  counter for now as it seems otherwise awkward to remove and definitely
+  makes code harder to read.
+
+* systems/systemio.c:  getToken and ungetToken updated for stringTop.
+  "top" variable is now elliminated.
+
+Wed Mar 10 17:28:57 EET 1999
+
+* lib-src/sysinfo.c, systems/samawerfa.c:  sam98 and samwp systems added
+  for I/O.
+
+* lib-src/sysinfo.c, systems/tfanus.c:  tfanusnew added and labializations
+  fixed.  The only difference I can detect in the new system is another _W
+  at 0xbb which formerly was an underline of sorts.  This is not important
+  except for input, I still can't determine if there is a _Wi without
+  authorative information
+
+Fri Mar  5 22:10:24 EET 1999
+
+* lib-src/etmath.c:  Add routines to support mathematics with Ethiopic
+  numbers, should anyone be so inclined...
+
+  FCHAR* itof ( int iNumber );
+  FCHAR* AddEthiopicEthiopic ( FCHAR *A, FCHAR *B );
+  FCHAR* SubtractEthiopicEthiopic ( FCHAR *A, FCHAR *B );
+  FCHAR* MultiplyEthiopicEthiopic ( FCHAR *A, FCHAR *B );
+  FCHAR* DivideEthiopicEthiopic ( FCHAR *A, FCHAR *B );
+  FCHAR* AddEthiopicInteger ( FCHAR *A, int B );
+  FCHAR* SubtractEthiopicInteger ( FCHAR *A, int B );
+  FCHAR* MultiplyEthiopicInteger ( FCHAR *A, int B );
+  FCHAR* DivideEthiopicInteger ( FCHAR *A, int B );
+  FCHAR* DivideIntegerEthiopic ( int A, FCHAR *B );
+  FCHAR* PowerIntegerEthiopic ( int A, FCHAR *B );
+
+* Numerous minor tweaks to data types and castings to make VC5 happy.
+
+* #ifdef __STDC__ becomes #if __STDC__ || WIN32 in function declarations.
+
+
+Thu Mar  4 19:23:27 EET 1999
+
+* lib-src/etstring.c:  arrays with data defined at array variable declaration 
+  are rewritten for portability.
+
+* lib-src/io.[ch]:  becomes systemio.[ch] after discovering conflict with io.h
+  on Borland C++ when master include path takes precedence over local.
+
+* lib-src/dehai.h,ethiopi.h,iso.h,mainz.h,sera.h: 
+  #define IS_TRANSLIT_SYS 1 for generic detection of transliterated systems
+  to include "yy.h" in systems.h
+
+* systems/exports.h:  "||" used in place of "|" in preprocessor directives for
+  consistancy.
+
+* include/libeth.h,calendar/etime.h:  "#if !__BCC__" becomes "#ifndef __BCC__"
+
+
+Tue Mar  2 11:56:06 EET 1999
+
+* calendar/etime.data(.sera)/Ethiopic*MonthDayNames:
+  uraEl corrected to `uraEl.
+
+Mon Mar  1 11:56:06 EET 1999
+
+* systems/powergez.c/PowerGeezExtrasToUnicode:
+  (form == getToken()) correct to (form = getToken()).
+
+Sun Feb 28 10:22:23 EET 1999
+
+* lib-src/etstdio.c/sget_fstring:  "register char i" is now 
+  "register long int i" after an index wrap around lead to segmentaion faults.
+  All string indexi in lib-src/etstdio.c are now long ints to handle obscenely
+  long strings.
+
+* libeth-0.33b3 released.
+
+Sun Feb 21 13:56:16 EET 1999
+
+* lib-src/etctype.c:  added "ethiopicdefined" which returns "true" for defined
+  code points in the Ethiopic matrix.  This routine might be integrated into
+  one of the others later.
+
+Sun Feb  7 14:56:26 EET 1999
+
+* systems/sera.c/_UnicodeToSERA:  fixed problem with SERA output for unicode
+  numbers between 10 and 100.
+
+Thu Jan 28 19:20:43 EET 1999
+
+* systems/geezfont.c/GeezFontToUnicode:  this time really fixed the Ge'ezFont
+  output problem.
+
+Sun Jan 17 11:20:54 EET 1999
+
+* lib-src/etstdio.c/fidel_sputs: corrected address reference to ISO639_3Names
+  that bugged SERA escape formations in output.
+
+Tue Jan 12 22:20:01 EET 1999
+
+* systems/feedel.map SAFEANSI and DIACRITIC values inverted in hash table
+  a remnant from an older system -?
+
+Sat Jan  9 18:14:53 EET 1999
+
+* systems/fidelxtra.map made typeface names uppercase.
+
+* systems/absha.map changed "AmharicQ" to "AmaharQ".
+
+Fri Jan  8 10:43:27 EET 1999
+
+* systems/seralex.l \~# escape now detects negative numbers.
+
+Mon Jan  4 20:18:27 EET 1999
+
+* Changed <libeth/libeth.h> to "libeth.h" throughout.
+
+Sat Jan  2 08:04:30 EET 1999
+
+* Fixed problem with "GeezEdit" in HTML mode.
+
+* Fixed "fontFace" mapping problem with Monotype fonts.
+
+Tue Dec 22 20:13:27 EET 1998
+
+* Fixed "xa" and "xo" in Ge'ezFont map file.
+
+Sat Dec 19 21:29:29 EET 1998
+
+* PowerGe'ez support is complete.
+
+* systems/(dehai.c, ed.c, ethiop.c, ies.c, iso.c, mainz.c, qubee.c, sera.c):
+  Dehai, Mainze and Qubee systems are new, other are rewritten to use
+  common principle of consonant and vowel hash tables versus large 
+  memory consuming full fidel tables.  Except for SERA input is non-functional,
+  this will be added to conclude the 0.33 series.
+
+* lib-src/lethutil.c/grow_string:  malloc lines are recast as unsigned char.
+  lib-src/sysinfo.c/get_setName:  CharacterSet and FontFace are now passed
+    in place of LibEthFlag data type so we can make requests more arbitrarily.
+  lib-src/sysinfo.c/get_setRTFPrefix:  same as get_setName.
+  doctypes/html.c/fidel_HTML_sputs: ANSI section now checks if it will 
+    exceed the outString size before writing to it.  Minor rewrites for
+    above API changes.
+  doctypes/rtf.c/get_RTF_header:  minor rewrites for above API changes.
+
+Mon Dec 14 14:06:29 EET 1998
+
+* LGPL notices added to all source files.  C++ "//" comments converted to
+  ANSI-C safe /* ... */ .
+
+Mon Dec 14 15:21:04 EET 1998
+
+* calendars/Ethiopic.c/isEthiopianHoliday:  returnP and returnString are both
+  initialized as "NULL" so that garbage is not returned if no holiday is
+  found.  calendars/edate.c is also updated to set tm_wday so day-of-week
+  names are no longer hosed.
+
+Sun Dec 13 14:14:54 EET 1998
+
+* lib-src/etstdio.c/fidel_sputs:  placed sera test statement outside of main
+  for loop and gave the sera case its own for loop.  We should see a minor
+  performance boost.
+
+Sat Dec 12 21:43:53 EET 1998
+
+* systems/seralex.c/lexer_flush:  is now "lexer_reset" and actually works.
+  "lexer_reset" is actually needed to reset the lexer when you switch strings
+  between lexer calls -or bad things happen if the previous string ended with
+  a partial token (such as " ").  Works with flex, don't know about lex...
+
+Sat Dec 12 13:25:17 EET 1998
+
+* systems/jis.c, systems/junet.c:  JIS and JUNET output is made algorithmic
+  thus eliminating the tables and saving 14k.
+
+Sat Dec  5 20:57:17 EET 1998
+
+* lib-src/etstring.c:  Added "fidel_lcss" and "fidel_syllabic_lcss" to find
+  longest common substring between two Ethiopic strings.  Need to add this to
+  the RedTerms routines later.
+
+Fri Dec  4 19:24:19 EET 1998
+
+*  Deleted redundant "Java" CharacterSet type.
+

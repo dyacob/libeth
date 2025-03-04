@@ -1,0 +1,83 @@
+<html>
+<head>
+  <title>Zobel Development Schedule</title>
+</head>
+<body bgcolor="#fffffh">
+
+<h3><u>Zobel Development Schedule</u></h3>
+
+<p>What was to have been Zobel-0.15 has grown to the extent that the version
+will be changed to 0.20 to reflect the departure from the 0.1x series.  Zobel-0.20
+will use the also radically revised Convert::Ethiopic v0.20 package.  Version 0.20
+will be out following compliance of a test suite that is being developed for testing
+Zobel comprehensively and exhaustively.  Developing the test suite has proven to
+be a major project in itself.  However the time spent here will insure more reliable
+releases in the future and less time lost to bug hunting.</p>
+
+<p>Following v0.20 large scale changes are not anticipated and
+subsequent updates will be targetted at reaching full LGRPP compliance, more
+language support, synronization to updates in libeth and Convert::Ethiopic.</p>
+
+
+<ul>
+  <li> &nbsp;&nbsp; <strike>Check if sysIn == sysOut, just dump the source and exit.</strike>
+  <li> &nbsp;&nbsp; <strike>Check if file exist before creating cash dirs.</strike>
+  <li> &nbsp;&nbsp; <strike>Give a "mailto" option when a file is not found.</strike>
+  <li> &nbsp;&nbsp; <strike>Add "span" tag detection for Office 2000 generated HTML.</strike>
+  <li> &nbsp;&nbsp; <strike>Update LiveGeez::Cgi to for generic header and body i/o, replumb accordingly.</strike>
+  <li> &nbsp;&nbsp; <strike>Add "Language" attribute for cookies.</strike>
+  <li> &nbsp;&nbsp; <strike>Make sure Zobel is "Persistance Safe".  Get rid of "local" variables.</strike>
+  <li> &nbsp;&nbsp; <strike>Don't zobelize links that are not http:// (such as mailto:).</strike>
+  <li> &nbsp;&nbsp; <strike>Check for style font settings in &lt;td&gt; markers.</strike>
+  <li> <strike><b><i>Release Zobel v0.14.</i></b></strike>
+  <li> <hr width="40%" align="left">
+  <li> &nbsp;&nbsp; <strike>Rewrite of parser to use new functionality in HTML::Parser.</strike>
+  <li> &nbsp;&nbsp; <strike>Move bulk of HTML parsing out of LiveGeez::HTML and into LiveGeez::CacheAsSERA.</strike>
+  <li> &nbsp;&nbsp; <strike>Add method/option to change &lt;title&gt; data into SERA if 8 bit chars are found.</strike>
+  <li> &nbsp;&nbsp; <strike>Use URI.pm for path mangling.</strike>
+  <li> &nbsp;&nbsp; <strike>Update font typeface using $attr{style} attribuntes and not markups.</strike>
+  <li> &nbsp;&nbsp; <i>Note to self:- look for an HTML repair module.</i>
+  <li> &nbsp;&nbsp; <strike>All href mangling done via parser call back.</strike>
+       <br>&nbsp;&nbsp; <i>note the href updating was not possible via parser callback when ethiopic link titles
+       need be checked for</i>
+  <li> &nbsp;&nbsp; <strike>No img src mangling, rely on base tag.</strike>
+  <li> &nbsp;&nbsp; <strike>Use file handle for updating cached sera files.  This should avoid the 'parser buffer pushback
+       overflow' problem.</strike>
+  <li> &nbsp;&nbsp; <strike>Make hash of PFR or web downloadable font files that have the transfer variant of ".pfr", etc.</strike>
+  <li> &nbsp;&nbsp; <strike>Start LGRPP test scripts.</strike>
+  <li> &nbsp;&nbsp; <strike>add support for &lt;livegeez number="1234"&gt; and &lt;livegeez date="12,3,1993"&gt;</strike>
+  <li> &nbsp;&nbsp; <strike>Resequence with tr&eacute;-def <a href="Convert-Ethiopic-ToDo.html">Convert-Ethiopic-0.20</a>.</strike>
+  <li> &nbsp;&nbsp; <strike>Dummy style sheet handling.</strike>
+  <li> &nbsp;&nbsp; <strike>Don't add webfont header stuff if already present.</strike>
+  <li> &nbsp;&nbsp; <strike>Make sure zobel doesn't choke when the "file" is a cgi query (check for "?" in file name, don't cache).</strike>
+  <li> &nbsp;&nbsp; <strike>Don't set a new cookie if parameters haven't changed.</strike>
+  <li> &nbsp;&nbsp; <strike>Test under mod_perl.</strike>
+  <li> &nbsp;&nbsp; <strike>Write import method for Local.pm to reset variables globally.</strike>
+  <li> &nbsp;&nbsp; Make sure the index.&lt;lang&gt;.html files are cleaned from
+  cache when they should be.
+  <li> &nbsp;&nbsp; Make a cookie configuration handler.
+  <li> &nbsp;&nbsp; Clean up comments, update POG.
+  <li> <b><i>Release Zobel v0.20.</i></b>
+  <li> <hr width="40%" align="left">
+  <li> &nbsp;&nbsp; inevitable bug fixes.
+  <li> <b><i>Release Zobel v0.21.</i></b>
+  <li> <hr width="40%" align="left">
+  <li> &nbsp;&nbsp; Return to the next-gen libeth, resequence Zobel.
+  <li> &nbsp;&nbsp; Switch to CGI.pm as default.
+  <li> &nbsp;&nbsp; Real style sheet handling.
+  <li> &nbsp;&nbsp; Write a passworded cache flush routine.
+  <li> &nbsp;&nbsp; Make sure there is a no-cache option for people who can't
+       afford the disk space.
+       <i>Is it better to embed these values in the request object?</i>
+  <li> <b><i>Release Zobel v0.22.</i></b>
+  <li> <hr width="40%" align="left">
+  <li> &nbsp;&nbsp; SOAP support for Zobel (pending interest).
+  <li> <b><i>Release Zobel v0.23.</i></b>
+</ul>
+
+<hr>
+<div align="right"><i>Last Update: Tue Jul 24 07:05:52 PDT 2001</i></div>
+
+
+</body>
+</html>

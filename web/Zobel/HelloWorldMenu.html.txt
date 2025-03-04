@@ -1,0 +1,45 @@
+<html>
+<head>
+  <title>Helo World Menu Example</title>
+</head>
+<body bgcolor="#f0f0f0">
+
+<h1 align="center"><sera>`selam `alem</sera></h1>
+
+<div align="center">
+
+<LIVEGEEZMENU>
+
+<hr>
+
+<LIVEGEEZMENU value="Click Me!">
+
+</div>
+<hr>
+
+<dir>
+<form LIVEGEEZFORM>
+  <LIVEGEEZ FORMMACFRIENDLY>
+  <br>
+  <input type="radio" name="OnOff" checked> On
+  <br>
+  <input type="radio" name="OnOff"> Off
+</form>
+</dir>
+
+<hr>
+
+<div align="center">
+
+<form LIVEGEEZPOST>
+  <LIVEGEEZ FORMFILE>
+  <LIVEGEEZ FORMCOOKIE>
+  <font color="red"><LIVEGEEZ value="View With:" FORMSUBMIT>
+  <i><LIVEGEEZ FORMMENU></i></font>
+  <b><font size="-1"><LIVEGEEZ FORMMACFRIENDLY></font></b>
+</form>
+
+</div>
+
+</body>
+</html>

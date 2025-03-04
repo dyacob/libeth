@@ -1,0 +1,599 @@
+<html>
+<head>
+  <title>Web Publishing With Zobel</title>
+</head>
+<body bgcolor="#f0f0f0">
+
+<h1 align="center">Web Publishing With Zobel</h1>
+<h3 align="center"><em>(or How to Ride a Horse on the Web)</em></h3>
+
+
+<p align="justify">
+<a href="ZobelBet.html">Zobel is a horse,</a> a cyber horse.
+She likes to run around the Internet and bring web pages to people.
+Tell her where your web page is and she will go find and bring it to you
+in your favorite Ethiopic font.</p>
+
+<p align="justify">
+But where do you find Zobel and how can you tell her where your web
+page is?  <em>Well...</em> its all in the magic of "linking".  Lets review the
+different kinds of links we can make in web pages.</p>
+
+<p>&nbsp;</p>
+
+<h2>Different Kinds of Links</h2>
+
+<h4><u>A Relative Link</u></h4>
+<p align="justify">
+A link that assumes we are starting from the same directory as
+our starting web page:</p>
+
+<xmp>
+  <a href="Dir/file.html">Click Here!</a>
+</xmp>
+
+
+<h4><u>An Absolute Link</u></h4>
+<p>A link that starts back from the web server root:</p>
+<pre>
+  &lt;a href="<b><font color="red">/</font></b>Dir1/Dir2/file.html"&gt;Click Here!&lt;/a&gt;
+</pre>
+
+
+<h4><u>A Server Link</u></h4>
+<p align="justify">
+A link that also includes the name of the web server plus complete path to the file:</p>
+
+<pre>
+  &lt;a href="<b><font color="red">http://www.xyz.com/</font></b>Dir1/Dir2/file.html"&gt;Click Here!&lt;/a&gt;
+</pre>
+
+<p align="justify">
+We usually use the these kinds of links for connecting to web pages at other
+web sites.</p>
+
+
+<h4><u>A Zobel Link</u></h4>
+<p align="justify">
+A Zobel link is a lot like a server link.  We first need to link to Zobel, wake
+her up, and then tell her where to find our web pages.  So a Zobel link looks
+like two server links combined:</p>
+
+<pre>
+  &lt;a href="<b><font color="green">http://www.EthiopiaOnline.Net/Z.pl?file=</font><font color="red">http://www.xyz.com/Dir1/Dir2/file.html</font></b>"&gt;Click Here!&lt;/a&gt;
+</pre>
+
+<p align="justify">
+Of course you will want to replace <code>"http://www.xyz.com"</code> with
+the name of your web site and <code>/Dir1/Dir2/file.html</code> with the real
+name for your directories and web pages. Here is a <em>real</em> example
+that you can try now:</p>
+
+<pre>
+  &lt;a href="<b><font color="green">http://www.EthiopiaOnline.Net/Z.pl?file=</font><font color="red">http://libeth.sourceforge.net/Zobel/HelloWorld.html</font></b>"&gt;<a href="http://www.EthiopiaOnline.Net/Z.pl?file=http://libeth.sourceforge.net/Zobel/HelloWorld.html">Click Here!</a>&lt;/a&gt;
+</pre>
+
+<hr size=2 noshade>
+
+<h2>Zobel Likes Cookies</h2>
+
+<p align="justify">
+If the above example did not work for you it might be because your web browser
+did not give Zobel an WWW "Magic Cookie".  Most people who have been to Ethiopia
+Online before and have read Amharic will have cookie stored to give Zobel.</p>
+
+<p align="justify">
+The cookie will tell Zobel which font a person likes to use to read the web
+pages.  If someone does not have an Ethiopia Online cookie then Zobel will
+choose to show the page with the freely available
+<a href="ftp://ftp.cs.indiana.edu/pub/fidel/fonts/TrueType/InstallHelp.html">Ge'ezFree Zemen</a> font.
+Web browser can give and store cookies automatically, you won't need to
+worry about them.</p>
+
+<p align="justify">
+But for someone new who does not have an Ethiopia Online cookie yet, it is
+best to put a <b>Font Menu</b> on your starting page so they can select
+the font they want to use now and in the future.  Zobel can make your
+font menu's automatically giving you all the latest font choices:</p>
+
+
+<dir>
+<form action="Tutorial.html" method=GET>
+    <select>
+      <option value=FirstTime>Choose A Font!</option>
+      <option value=Addis>Addis One</option> 
+      <option value=Addis98>Addis98</option> 
+      <option value=AddisWp>AddisWP</option> 
+      <option value=Agaw>Agaw</option>
+      <option value=AGF-Dawit>AGF - Dawit</option>
+      <option value=AGF-Zemen>AGF - Zemen</option>
+      <option value=AGF-Ejji-Tsihuf>AGF - Ejji Tsihuf</option>
+      <option value=AGF-Rejim>AGF - Rejim</option>
+      <option value=AGF-Yigezu-Bisrat>AGF - Yigezu Bisrat</option>
+      <option value=ALXethiopian>ALXethiopian</option>
+      <option value=AmharicKechin>Amharic  Kechin</option>
+      <option value=AmharicYigezuBisrat>Amharic Yigezu Bisrat</option>
+      <option value=AmharicGazetta>Amharic Gazetta</option>
+      <option value=Amharic>Amharic 1</option>
+      <option value=AmharicBook>Amharic Book 1</option>
+      <option value=Amharic_Alt>Amharic_Alt</option>
+      <option value=Amharisch>Amharisch</option>
+      <option value=Brana>Brana I</option>
+      <option value=Amharic-A>Amharic-A</option>
+      <option value=AmharQ>AmharQ</option>
+      <option value=ET-NCI>ET-NCI </option>
+      <option value=ET-NEBAR>ET-NEBAR</option>
+      <option value=ET-Saba>ET-Saba</option>
+      <option value=ET-SAMI>ET-SAMI</option>
+      <option value=Ethiopia>Ethiopia Primary</option>
+      <option value=EthiopiaSlanted>Ethiopia Slanted Primary</option>
+      <option value=EthiopiaAnsiP>EthiopiaAnsiP</option>
+      <option value=EthioSoft>EthioSoft</option>
+      <option value=Ethiopic>ETHIOPIC</option>
+      <option value=Fidel>FIDEL~`SOFTWARE</option>
+      <option value=Geez>Geez</option>
+      <option value=GeezA>GeezA</option>
+      <option value=Geez-1>Ge'ez-1</option>
+      <option value=Geez-2>Ge'ez-2</option>
+      <option value=Geez-3>Ge'ez-3</option>
+      <option value=GeezAddis>GeezAddis</option>
+      <option value=geezBasic>geezBasic</option>
+      <option value=GeezBausi>GeezBausi</option>
+      <option value=Geezigna>Geezigna</option>
+      <option value=geezLong>geezLong</option>
+      <option value=GeezNewA>GeezNewA</option>
+      <option value=GeezDemo>Geez Demo</option>
+      <option value=GeezNet>GeezNet</option>
+      <option value=GeezSindeA>GeezSindeA</option>
+      <option value=GeezThin>GeezThin</option>
+      <option value=GeezTimesNew>GeezTimeNew</option>
+      <option value=GeezType>GeezType</option>
+      <option value=GeezEditAmharicP>Ge&#232;zEdit Amharic P</option>
+      <option value=GFZemen>GF Zemen Primary</option>
+      <option value=HahuLite>Hahu Lite</option>
+      <option value=HahuGothic>Hahu Lite Gothic</option>
+      <option value=HahuSerif>Hahu Lite Serif</option>
+      <option value=HahuTimes>Hahu Lite Times</option>
+      <option value=JIS>JIS</option>
+      <option value=JUNET>JUNET</option>
+      <option value=TfanusGeez01>TfanusGeez01</option>
+      <option value=UTF7>UTF7</option>
+      <option value=UTF8>UTF8</option>
+      <option value=java>\\uabcd</option>
+      <option value=Java.uppercase>\\uABCD</option>
+      <option value=clike>\\xabcd</option>
+      <option value=Clike.uppercase>\\xABCD</option>
+      <option value=VG2-Agazian>VG2 Agazian</option>
+      <option value=VG2-Main>VG2 Main</option>
+      <option value=VG2-Title>VG2 Title</option>
+      <option value=Washra>Washra  Primary</option>
+      <option value=Washrasl>Washrasl  Primary</option>
+      <option value=Wookianos>Wookianos Primary</option>
+      <option value=Yebse>Yebse Primary</option>
+    </select>
+  <input type=submit value="Reopen">
+</form>
+</dir>
+
+
+<p align="justify">
+For Zobel to make the above style menu just add to your web page the
+following HTML markup:</p>
+
+
+<dir>
+<xmp>
+<LIVEGEEZMENU>
+</xmp>
+</dir>
+
+
+<p align="justify">
+<em>Remember!</em>
+You only need to add the font menu to your <em>first</em> page
+<u>not to every</u> page at your web site.  Zobel will automatically
+update the links to Ethiopic web pages for you so that the right
+font is used again.</p>
+
+<p align="justify">
+By default the menu button that appears reads <code>"Reopen"</code> but
+you can change that by adding <code>value="New Word"</code> as shown: 
+</p>
+
+<dir>
+<table>
+<tr><td>
+<xmp>
+<LIVEGEEZMENU value="Click Me!">
+</xmp>
+</td><td>&nbsp;&nbsp;&nbsp;&nbsp;
+</td><td>
+<form action="Tutorial.html" method=GET>
+<nobr>
+    <select>
+      <option value=FirstTime>Choose A Font!</option>
+      <option value=Addis>Addis One</option> 
+      <option value=Addis98>Addis98</option> 
+      <option value=AddisWp>AddisWP</option> 
+      <option value=Agaw>Agaw</option>
+      <option value=AGF-Dawit>AGF - Dawit</option>
+      <option value=AGF-Zemen>AGF - Zemen</option>
+      <option value=AGF-Ejji-Tsihuf>AGF - Ejji Tsihuf</option>
+      <option value=AGF-Rejim>AGF - Rejim</option>
+      <option value=AGF-Yigezu-Bisrat>AGF - Yigezu Bisrat</option>
+      <option value=ALXethiopian>ALXethiopian</option>
+      <option value=AmharicKechin>Amharic  Kechin</option>
+      <option value=AmharicYigezuBisrat>Amharic Yigezu Bisrat</option>
+      <option value=AmharicGazetta>Amharic Gazetta</option>
+      <option value=Amharic>Amharic 1</option>
+      <option value=AmharicBook>Amharic Book 1</option>
+      <option value=Amharic_Alt>Amharic_Alt</option>
+      <option value=Amharisch>Amharisch</option>
+      <option value=Brana>Brana I</option>
+      <option value=Amharic-A>Amharic-A</option>
+      <option value=AmharQ>AmharQ</option>
+      <option value=ET-NCI>ET-NCI </option>
+      <option value=ET-NEBAR>ET-NEBAR</option>
+      <option value=ET-Saba>ET-Saba</option>
+      <option value=ET-SAMI>ET-SAMI</option>
+      <option value=Ethiopia>Ethiopia Primary</option>
+      <option value=EthiopiaSlanted>Ethiopia Slanted Primary</option>
+      <option value=EthiopiaAnsiP>EthiopiaAnsiP</option>
+      <option value=EthioSoft>EthioSoft</option>
+      <option value=Ethiopic>ETHIOPIC</option>
+      <option value=Fidel>FIDEL~`SOFTWARE</option>
+      <option value=Geez>Geez</option>
+      <option value=GeezA>GeezA</option>
+      <option value=Geez-1>Ge'ez-1</option>
+      <option value=Geez-2>Ge'ez-2</option>
+      <option value=Geez-3>Ge'ez-3</option>
+      <option value=GeezAddis>GeezAddis</option>
+      <option value=geezBasic>geezBasic</option>
+      <option value=GeezBausi>GeezBausi</option>
+      <option value=Geezigna>Geezigna</option>
+      <option value=geezLong>geezLong</option>
+      <option value=GeezNewA>GeezNewA</option>
+      <option value=GeezDemo>Geez Demo</option>
+      <option value=GeezNet>GeezNet</option>
+      <option value=GeezSindeA>GeezSindeA</option>
+      <option value=GeezThin>GeezThin</option>
+      <option value=GeezTimesNew>GeezTimeNew</option>
+      <option value=GeezType>GeezType</option>
+      <option value=GeezEditAmharicP>Ge&#232;zEdit Amharic P</option>
+      <option value=GFZemen>GF Zemen Primary</option>
+      <option value=HahuLite>Hahu Lite</option>
+      <option value=HahuGothic>Hahu Lite Gothic</option>
+      <option value=HahuSerif>Hahu Lite Serif</option>
+      <option value=HahuTimes>Hahu Lite Times</option>
+      <option value=JIS>JIS</option>
+      <option value=JUNET>JUNET</option>
+      <option value=TfanusGeez01>TfanusGeez01</option>
+      <option value=UTF7>UTF7</option>
+      <option value=UTF8>UTF8</option>
+      <option value=java>\\uabcd</option>
+      <option value=Java.uppercase>\\uABCD</option>
+      <option value=clike>\\xabcd</option>
+      <option value=Clike.uppercase>\\xABCD</option>
+      <option value=VG2-Agazian>VG2 Agazian</option>
+      <option value=VG2-Main>VG2 Main</option>
+      <option value=VG2-Title>VG2 Title</option>
+      <option value=Washra>Washra  Primary</option>
+      <option value=Washrasl>Washrasl  Primary</option>
+      <option value=Wookianos>Wookianos Primary</option>
+      <option value=Yebse>Yebse Primary</option>
+    </select>
+  <input type=submit value="Click Me!"></nobr>
+</form>
+</td></tr>
+</table>
+</dir>
+
+<h4><u>More Advanced Menus</u></h4>
+
+<p align="justify">
+In general you will not need more than the last two examples to let users
+view your pages with different fonts.  However, if you would like to make
+more complex or attactive forms, Zobel can still help simplify your work:
+</p>
+
+
+<dir>
+<xmp>
+<form LIVEGEEZFORM>
+  <LIVEGEEZ FORMMACFRIENDLY>
+  <br>
+  <input type="radio" name="OnOff" checked> On
+  <br>
+  <input type="radio" name="OnOff"> Off
+</form>
+</xmp>
+
+
+<form action="Tutorial.html" method=GET>
+    <select>
+      <option value=FirstTime>Choose A Font!</option>
+      <option value=Addis>Addis One</option> 
+      <option value=Addis98>Addis98</option> 
+      <option value=AddisWp>AddisWP</option> 
+      <option value=Agaw>Agaw</option>
+      <option value=AGF-Dawit>AGF - Dawit</option>
+      <option value=AGF-Zemen>AGF - Zemen</option>
+      <option value=AGF-Ejji-Tsihuf>AGF - Ejji Tsihuf</option>
+      <option value=AGF-Rejim>AGF - Rejim</option>
+      <option value=AGF-Yigezu-Bisrat>AGF - Yigezu Bisrat</option>
+      <option value=ALXethiopian>ALXethiopian</option>
+      <option value=AmharicKechin>Amharic  Kechin</option>
+      <option value=AmharicYigezuBisrat>Amharic Yigezu Bisrat</option>
+      <option value=AmharicGazetta>Amharic Gazetta</option>
+      <option value=Amharic>Amharic 1</option>
+      <option value=AmharicBook>Amharic Book 1</option>
+      <option value=Amharic_Alt>Amharic_Alt</option>
+      <option value=Amharisch>Amharisch</option>
+      <option value=Brana>Brana I</option>
+      <option value=Amharic-A>Amharic-A</option>
+      <option value=AmharQ>AmharQ</option>
+      <option value=ET-NCI>ET-NCI </option>
+      <option value=ET-NEBAR>ET-NEBAR</option>
+      <option value=ET-Saba>ET-Saba</option>
+      <option value=ET-SAMI>ET-SAMI</option>
+      <option value=Ethiopia>Ethiopia Primary</option>
+      <option value=EthiopiaSlanted>Ethiopia Slanted Primary</option>
+      <option value=EthiopiaAnsiP>EthiopiaAnsiP</option>
+      <option value=EthioSoft>EthioSoft</option>
+      <option value=Ethiopic>ETHIOPIC</option>
+      <option value=Fidel>FIDEL~`SOFTWARE</option>
+      <option value=Geez>Geez</option>
+      <option value=GeezA>GeezA</option>
+      <option value=Geez-1>Ge'ez-1</option>
+      <option value=Geez-2>Ge'ez-2</option>
+      <option value=Geez-3>Ge'ez-3</option>
+      <option value=GeezAddis>GeezAddis</option>
+      <option value=geezBasic>geezBasic</option>
+      <option value=GeezBausi>GeezBausi</option>
+      <option value=Geezigna>Geezigna</option>
+      <option value=geezLong>geezLong</option>
+      <option value=GeezNewA>GeezNewA</option>
+      <option value=GeezDemo>Geez Demo</option>
+      <option value=GeezNet>GeezNet</option>
+      <option value=GeezSindeA>GeezSindeA</option>
+      <option value=GeezThin>GeezThin</option>
+      <option value=GeezTimesNew>GeezTimeNew</option>
+      <option value=GeezType>GeezType</option>
+      <option value=GeezEditAmharicP>Ge&#232;zEdit Amharic P</option>
+      <option value=GFZemen>GF Zemen Primary</option>
+      <option value=HahuLite>Hahu Lite</option>
+      <option value=HahuGothic>Hahu Lite Gothic</option>
+      <option value=HahuSerif>Hahu Lite Serif</option>
+      <option value=HahuTimes>Hahu Lite Times</option>
+      <option value=JIS>JIS</option>
+      <option value=JUNET>JUNET</option>
+      <option value=TfanusGeez01>TfanusGeez01</option>
+      <option value=UTF7>UTF7</option>
+      <option value=UTF8>UTF8</option>
+      <option value=java>\\uabcd</option>
+      <option value=Java.uppercase>\\uABCD</option>
+      <option value=clike>\\xabcd</option>
+      <option value=Clike.uppercase>\\xABCD</option>
+      <option value=VG2-Agazian>VG2 Agazian</option>
+      <option value=VG2-Main>VG2 Main</option>
+      <option value=VG2-Title>VG2 Title</option>
+      <option value=Washra>Washra  Primary</option>
+      <option value=Washrasl>Washrasl  Primary</option>
+      <option value=Wookianos>Wookianos Primary</option>
+      <option value=Yebse>Yebse Primary</option>
+    </select>
+  <input type=submit value="Reopen">
+  <nobr><input type="checkbox" name="pragma" value="7-bit"> Mac Friendly</nobr>
+  <br>
+  <input type="radio" name="OnOff" checked> On
+  <br>
+  <input type="radio" name="OnOff"> Off
+</form>
+</dir>
+
+
+<p align="justify">
+Finally you make work with individual form components and change their appearance:
+</p>
+
+
+<dir>
+<xmp>
+<form LIVEGEEZPOST>
+  <LIVEGEEZ FORMFILE>
+  <LIVEGEEZ FORMCOOKIE>
+  <font color="red"><LIVEGEEZ value="View With:" FORMSUBMIT>
+  <i><LIVEGEEZ FORMMENU></i></font>
+  <b><font size="-1"><LIVEGEEZ FORMMACFRIENDLY></font></b>
+</form>
+</xmp>
+</dir>
+
+Becomes:
+
+<dir>
+<form action="Tutorial.html" method=GET>
+  <font color="red"><input type=submit value="View With:">
+    <i>
+    <select>
+      <option value=FirstTime>Choose A Font!</option>
+      <option value=Addis>Addis One</option> 
+      <option value=Addis98>Addis98</option> 
+      <option value=AddisWp>AddisWP</option> 
+      <option value=Agaw>Agaw</option>
+      <option value=AGF-Dawit>AGF - Dawit</option>
+      <option value=AGF-Zemen>AGF - Zemen</option>
+      <option value=AGF-Ejji-Tsihuf>AGF - Ejji Tsihuf</option>
+      <option value=AGF-Rejim>AGF - Rejim</option>
+      <option value=AGF-Yigezu-Bisrat>AGF - Yigezu Bisrat</option>
+      <option value=ALXethiopian>ALXethiopian</option>
+      <option value=AmharicKechin>Amharic  Kechin</option>
+      <option value=AmharicYigezuBisrat>Amharic Yigezu Bisrat</option>
+      <option value=AmharicGazetta>Amharic Gazetta</option>
+      <option value=Amharic>Amharic 1</option>
+      <option value=AmharicBook>Amharic Book 1</option>
+      <option value=Amharic_Alt>Amharic_Alt</option>
+      <option value=Amharisch>Amharisch</option>
+      <option value=Brana>Brana I</option>
+      <option value=Amharic-A>Amharic-A</option>
+      <option value=AmharQ>AmharQ</option>
+      <option value=ET-NCI>ET-NCI </option>
+      <option value=ET-NEBAR>ET-NEBAR</option>
+      <option value=ET-Saba>ET-Saba</option>
+      <option value=ET-SAMI>ET-SAMI</option>
+      <option value=Ethiopia>Ethiopia Primary</option>
+      <option value=EthiopiaSlanted>Ethiopia Slanted Primary</option>
+      <option value=EthiopiaAnsiP>EthiopiaAnsiP</option>
+      <option value=EthioSoft>EthioSoft</option>
+      <option value=Ethiopic>ETHIOPIC</option>
+      <option value=Fidel>FIDEL~`SOFTWARE</option>
+      <option value=Geez>Geez</option>
+      <option value=GeezA>GeezA</option>
+      <option value=Geez-1>Ge'ez-1</option>
+      <option value=Geez-2>Ge'ez-2</option>
+      <option value=Geez-3>Ge'ez-3</option>
+      <option value=GeezAddis>GeezAddis</option>
+      <option value=geezBasic>geezBasic</option>
+      <option value=GeezBausi>GeezBausi</option>
+      <option value=Geezigna>Geezigna</option>
+      <option value=geezLong>geezLong</option>
+      <option value=GeezNewA>GeezNewA</option>
+      <option value=GeezDemo>Geez Demo</option>
+      <option value=GeezNet>GeezNet</option>
+      <option value=GeezSindeA>GeezSindeA</option>
+      <option value=GeezThin>GeezThin</option>
+      <option value=GeezTimesNew>GeezTimeNew</option>
+      <option value=GeezType>GeezType</option>
+      <option value=GeezEditAmharicP>Ge&#232;zEdit Amharic P</option>
+      <option value=GFZemen>GF Zemen Primary</option>
+      <option value=HahuLite>Hahu Lite</option>
+      <option value=HahuGothic>Hahu Lite Gothic</option>
+      <option value=HahuSerif>Hahu Lite Serif</option>
+      <option value=HahuTimes>Hahu Lite Times</option>
+      <option value=JIS>JIS</option>
+      <option value=JUNET>JUNET</option>
+      <option value=TfanusGeez01>TfanusGeez01</option>
+      <option value=UTF7>UTF7</option>
+      <option value=UTF8>UTF8</option>
+      <option value=java>\\uabcd</option>
+      <option value=Java.uppercase>\\uABCD</option>
+      <option value=clike>\\xabcd</option>
+      <option value=Clike.uppercase>\\xABCD</option>
+      <option value=VG2-Agazian>VG2 Agazian</option>
+      <option value=VG2-Main>VG2 Main</option>
+      <option value=VG2-Title>VG2 Title</option>
+      <option value=Washra>Washra  Primary</option>
+      <option value=Washrasl>Washrasl  Primary</option>
+      <option value=Wookianos>Wookianos Primary</option>
+      <option value=Yebse>Yebse Primary</option>
+    </select>
+    </i>
+  </font>
+  <b><font size="-1">
+  <nobr><input type="checkbox" name="pragma" value="7-bit"> Mac Friendly</nobr>
+  </font></b>
+</form>
+</dir>
+
+<p align="justify">
+Here is our example page again, this time 
+<a href="http://www.EthiopiaOnline.Net/Z.pl?file=http://libeth.sourceforge.net/Zobel/HelloWorldMenu.html">with a menu.</a>
+</p>
+
+<hr size=2 noshade>
+
+<h2>How Zobel Looks for Links to Ethiopic Web Pages</h2>
+
+<p align="justify">
+A web page can have links to other web pages, as you know by now, and
+those new web pages can be in any language.  Zobel needs just a
+<em>little hint</em> to know which links are for Ethiopic web pages.  The
+easiest way is to let your link phrase be in Ethiopic as shown below:</p>
+
+<pre>
+  &lt;a href="News.html"&gt;English News&lt;/a&gt;
+  &lt;a href="Zena.html"&gt;<img src="AmharicZena.gif">&lt;/a&gt;
+</pre>
+
+<p align="justify">
+and correct it to become:</p>
+
+<pre>
+  &lt;a href="News.html"&gt;English News&lt;/a&gt;
+  &lt;a href="http://www.EthiopiaOnline.Net/Z.pl?file=http://www.xyz.com/Zena.html&sysOut=GFZemen"&gt;<img src="AmharicZena.gif">&lt;/a&gt;
+</pre>
+
+<p align="justify">
+Of course the above is just an example unless you really work at
+"<code>xyz.com</code>".  Zobel will change the link as shown above so that the
+link to the Amharic web page also uses Zobel, the English news page is left
+alone.</p>
+
+<p align="justify">
+If you want to keep your link phrase in English then the way to give Zobel the
+hint she needs is to update the link by adding <code>"LIVEGEEZLINK"</code> as
+shown:</p>
+
+<pre>
+  &lt;a href="News.html"&gt;English News&lt;/a&gt;
+  &lt;a href="Zena.html" <b><font color="red">LIVEGEEZLINK</font></b>&gt;Amharic News&lt;/a&gt;
+</pre>
+
+<p align="justify">
+Finally, if your web pages are in 
+<code><a href="http://www.abyssiniacybergateway.net/fidel/sera-faq.html">SERA</a></code>
+(the traditional system at Ethiopia Online) you can use ".sera." in the file
+name and Zobel will find it:
+
+<pre>
+  &lt;a href="News.html"&gt;English News&lt;/a&gt;
+  &lt;a href="Zena<b><font color="red">.sera.</font></b>html"&gt;&lt;sera&gt;amarNa zEna&lt;/sera&gt;&lt;/a&gt;
+</pre>
+
+
+<p align="justify">
+Here is our example page now with some 
+<a href="http://www.EthiopiaOnline.Net/Z.pl?file=http://libeth.sourceforge.net/Zobel/HelloWorldLinks.html">links thrown in.</a>
+</p>
+
+
+<hr size=2 noshade>
+
+
+<h2>What to do When Zobel Doesn't Work</h2>
+
+
+<p align="justify">
+Yes, publishing with Zobel is just that easy!  It is only a matter of making
+the first link and Zobel will do the rest.  Unfortunately there is a limitation
+at this time ... Zobel is still better at writing output (in 70 systems) than
+for reading input.  Zobel can read and understand some Ethiopic fonts better
+than others.</p>
+
+<p>If you find that Zobel is not translating your files correctly, we want
+to train her to get it right!  Please email the
+<a href="mailto:GFF@EthiopiaOnline.Net">Ge'ez Frontiers Foundation</a>
+and describe the problem to us, be sure to also send us the link the page
+that is not translating properly.  Please check out these problems first before
+reporting problems:</p>
+
+<b>Zobel Might Fail If:</b>
+<ol>
+  <li>The HTML itself has errors, such as a missing &lt;/font&gt; somewhere.
+  <li>The HTML is using non-standard entities (<code>&amp;abc;</code> codes).
+  <li>Links have to work <em>without</em> Zobel before they can work
+      <em>with</em> Zobel, <em>be sure to test all links first!</em>
+</ol>
+
+
+
+<b>View the Source of Our Publishing Examples:</b>
+<ul>
+  <li> <a href="HelloWorld.html.txt">Example 1</a>
+  <li> <a href="HelloWorldMenu.html.txt">Example 2</a>
+  <li> <a href="HelloWorldLinks.html.txt">Example 3</a>
+</ul>
+
+
+</body>
+</html>

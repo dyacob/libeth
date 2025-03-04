@@ -1,0 +1,49 @@
+<BASE HREF="http://libeth.netpedia.net/Zobel/HelloWorldMenu.html.txt"><table border=1 width=100%><tr><td><table border=1 bgcolor=#ffffff cellpadding=10 cellspacing=0 width=100% color=#ffffff><tr><td><font face=arial,sans-serif color=black size=-1>This is <b><font color=#0039b6>G</font><font color=#c41200>o</font><font color=#f3c518>o</font><font color=#0039b6>g</font><font color=#30a72f>l</font><font color=#c41200>e</font></b>'s <a href="http://www.google.com/intl/en_extra/help/features.html#cached">cache</a> of <A HREF="http://libeth.netpedia.net/Zobel/HelloWorldMenu.html.txt"><font color=blue>http://libeth.netpedia.net/Zobel/HelloWorldMenu.html.txt</font></a>.<br>
+<b><font color=#0039b6>G</font><font color=#c41200>o</font><font color=#f3c518>o</font><font color=#0039b6>g</font><font color=#30a72f>l</font><font color=#c41200>e</font></b>'s cache is the snapshot that we took of the page as we crawled the web.<br>
+The page may have changed since that time.  Click here for the <A HREF="http://libeth.netpedia.net/Zobel/HelloWorldMenu.html.txt"><font color=blue>current page</font></a> without highlighting.</font><br><br><center><font size=-2 color=black><i>Google is not affiliated with the authors of this page nor responsible for its content.</i></font></center></td></tr></table></td></tr></table><hr>
+<html><body><pre>&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Helo World Menu Example&lt;/title&gt;
+&lt;/head&gt;
+&lt;body bgcolor=&quot;#f0f0f0&quot;&gt;
+
+&lt;h1 align=&quot;center&quot;&gt;&lt;sera&gt;`selam `alem&lt;/sera&gt;&lt;/h1&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;LIVEGEEZMENU&gt;
+
+&lt;hr&gt;
+
+&lt;LIVEGEEZMENU value=&quot;Click Me!&quot;&gt;
+
+&lt;/div&gt;
+&lt;hr&gt;
+
+&lt;dir&gt;
+&lt;form LIVEGEEZFORM&gt;
+  &lt;LIVEGEEZ FORMMACFRIENDLY&gt;
+  &lt;br&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;OnOff&quot; checked&gt; On
+  &lt;br&gt;
+  &lt;input type=&quot;radio&quot; name=&quot;OnOff&quot;&gt; Off
+&lt;/form&gt;
+&lt;/dir&gt;
+
+&lt;hr&gt;
+
+&lt;div align=&quot;center&quot;&gt;
+
+&lt;form LIVEGEEZPOST&gt;
+  &lt;LIVEGEEZ FORMFILE&gt;
+  &lt;LIVEGEEZ FORMCOOKIE&gt;
+  &lt;font color=&quot;red&quot;&gt;&lt;LIVEGEEZ value=&quot;View With:&quot; FORMSUBMIT&gt;
+  &lt;i&gt;&lt;LIVEGEEZ FORMMENU&gt;&lt;/i&gt;&lt;/font&gt;
+  &lt;b&gt;&lt;font size=&quot;-1&quot;&gt;&lt;LIVEGEEZ FORMMACFRIENDLY&gt;&lt;/font&gt;&lt;/b&gt;
+&lt;/form&gt;
+
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+</pre></body></html>

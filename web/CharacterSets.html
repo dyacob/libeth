@@ -1,0 +1,604 @@
+<html>
+<head>
+  <title>LibEth and LiveGe'ez Parameter Values for Ethiopic Encoding Systems</title>
+</head>
+<body bgcolor="#f0f0f0">
+
+<h2 align="center">LibEth and <a href="LiveGeez.html">LiveGe'ez</a> Parameter Values for Ethiopic Encoding Systems</h2>
+
+
+<h3><u>Legend</u></h3>
+
+<table border>
+<tr align="center">
+  <th bgcolor="pink" align="center" width="33%"><br>Input &amp; Output Support<br>&nbsp;</th><th bgcolor="lightblue" width="33%"><br>Output Only<br>&nbsp;</th><th bgcolor="#bfbfbf"><br>Unsupported<br>&nbsp;</th></tr>
+<tr valign="top"><td>File IO available, may need testing.</td>
+    <td>Input added when time allows.</td>
+    <td>Usually from lack of information, time, or the system is believed to be no longer in use.</td></tr>
+</table>
+
+<p>Text colors indicate interdependent encoding schemes spread over multiple
+typefaces.  Generally
+<font color="red">red</font> indicates the base encoding and
+<font color="green">green</font> the complimentary encoding.</p>
+
+<h2><u>Status as of 3/31/2002</u></h2>
+
+<center>
+<table border>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>TrueType Font Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name<br>(enum name : value)</th><th>Type Faces</th><th>CGI Value</th></tr>
+<tr><th><a href="http://www.acisconsulting.com/">ACIS</a></th>
+    <td bgcolor="pink" align="center">ACIS<br>(acis : 1)</td>
+    <td>Hahu Lite<br>
+        Hahu Lite Gothic<br>
+        Hahu Lite Serif<br>
+        Hahu Lite Times</td>
+    <td>HahuLite<br>
+        HahuGothic<br>
+        HahuSerif<br>
+        HahuTimes</td>
+    </tr>
+<tr><th><a href="http://www.acuwork.com/">Acuwork</a></th>
+    <td bgcolor="pink" align="center">Acuwork<br>(acuwork : 2)</td>
+    <td>ALXethiopian</td>
+    <td>ALXethiopian</td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.ethiolist.com/">AddisWord</a></th>
+    <td bgcolor="pink" align="center"><font color="red">Addis One</font>
+    <br>(addisword1 : 3)</td>
+    <td><font color="red">AddisWord1</font></td>
+    <td rowspan=2>Addis</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Addis Two</font>
+    <br>(addisword2 : 4)</td>
+    <td><font color="green">AddisWord2</font></td>
+    </tr>
+<tr><th>Alpas</th>
+    <td bgcolor="pink" align="center">Alpas<br>(alpas : 5)</td>
+    <td>ET-Saba<br>
+        ET-Saba Bold</td>
+    <td>ET-Saba</td>
+    </tr>
+<tr><th>Amharisch (?)</th>
+    <td bgcolor="pink" align="center">TFanus
+        <br>(tfanus : 58)</td>
+    <td>Amharisch</td>
+    <td>Amharisch</td>
+    </tr>
+<tr><th rowspan=2><a href="http://truman.cs.missouri.edu/~brana/">Brana</a></th>
+    <td bgcolor="pink" align="center"><font color="red">Brana I</font>
+        <br>(branai : 6)</td>
+    <td><font color="red">BranaI</font></td>
+    <td rowspan=2>Brana</td>
+    </tr>
+    <tr><td bgcolor="pink" align="center"><font color="green">Brana II</font>
+        <br>(branaii : 7)</td>
+    <td><font color="green">BranaII</font></td>
+    </tr>
+<tr><th rowspan=2>C.B. Hale (?)</th>
+    <td bgcolor="pink" align="center"><font color="red">C.B.Hale A</font>
+        <br>(cbhalea : 8)</td>
+    <td><font color="red">Amharic-A</font></td>
+    <td rowspan=2>Amharic-A</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">C.B.Hale B</font>
+    <br>(cbhaleb : 9)</td>
+    <td><font color="green">Amharic-B</font></td>
+    </tr>
+<tr><th><a href="http://www.gy.com/www/ww1/ac_f.htm">Comstar</a></th>
+    <td bgcolor="#bfbfbf" align="center">Laser Amharic
+        <br>(laser : 42)</td>
+    <td>???</td>
+    <td>(Unsupported)</td>
+    </tr>
+<tr><th>Ecological Linguistics</th>
+    <td bgcolor="#bfbfbf" align="center">Ecological Linguistics
+        <br>(ecoling : 14)</td>
+    <td>???</td>
+    <td>(Unsupported)</td>
+    </tr>
+<tr><th rowspan=3><a href="http://www.ethiopians.com/EthCITA.htm">EthCITA</a></th>
+    <td bgcolor="pink" align="center">Uni-Font<br>(ethcitau : 63)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+    <tr><td bgcolor="pink" align="center"><font color="red">Bi-Font Primary</font><br>(ethcitap : 64)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+    <tr><td bgcolor="pink" align="center"><font color="green">Bi-Font Secondary</font><br>(ethcitas : 65)</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    </tr>
+<tr><th rowspan=2><a href="http://home.navisoft.com/ethiopian/index.htm">Ethiopian Computers &amp; Software</a></th>
+    <td bgcolor="pink" align="center">Ge'ezEdit<br>(gezedit : 26)</td>
+    <td>Ge&#232;zEdit Amharic P</td>
+    <td>GeezEditAmharicP</td>
+    </tr>
+    <tr><td bgcolor="#bfbfbf" align="center">Ge'ezEdit98<br>(gezedit98 : na)</td>
+    <td>EG Amharic<br>
+        Ge&#232;zEditAmharic98</td>
+    <td>EGAmharic<br>
+        GeezEditAmharic98</td>
+    </tr>
+<tr><th rowspan=2>Ethiopic (?)</th>
+    <td bgcolor="pink" align="center"><font color="red">Ethiopic1</font>
+        <br>(ethiopic1 : 20)</td>
+    <td><font color="red">ETHIOPIC PIC-1-regular</font></td>
+    <td rowspan=2>ETHIOPIC</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Ethiopic2</font>
+        <br>(ethiopic2 : 21)</td>
+    <td><font color="green">ETHIOPIC PIC-2-bold</font></td>
+    </tr>
+<tr><th><a href="http://members.aol.com/ethiosoft/ethsoft.htm">EthioSoft</a></th>
+    <td bgcolor="pink" align="center">TFanus
+        <br>(tfanus : 58)</td>
+    <td>EthioSoft</td>
+    <td>EthioSoft</td>
+    </tr>
+<tr><th rowspan=4><a href="http://www.neosoft.com/~ethiosys/ethiosys.html">EthiO Systems</a></th>
+    <td bgcolor="pink" align="center"><font color="red">Ethiopian ASCII Primary </font>
+        <br>(ethiosys : 22)</td>
+    <td><font color="red">Ethiopia Primary<br>
+        Ethiopia Primary Slanted<br>
+        EthiopiaAnsiP<br>
+        Washra&nbsp; Primary<br>
+        Washrasl&nbsp; Primary Slanted<br>
+        Wookianos Primary<br>
+        YebSe Primary</font>
+    </td>
+    <td rowspan=2>
+      Ethiopia<br>
+      EthiopiaSlanted<br>
+      EthiopiaAnsiP<br>
+      Washra<br>
+      Washrasl<br>
+      Wookianos<br>
+      Yebse</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Ethiopian ASCII Secondary</font>
+        <br>(ethiosysx : 23)</td>
+    <td><font color="green">Ethiopia Secondary
+    Ethiopia Secondary Slanted<br>
+    EthiopiaAnsiS<br>
+    Washrax Secondary<br>
+    Washraxsl Secondary Slanted<br>
+    Wookianos Secondary<br>
+    YebSe Secondary</font></td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Ethio MicroEmacs Primary</font>
+        <br>(ethiome : 17)</td>
+        <td align="center">NA</td>
+        <td>(Unsupported)</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Ethio MicroEmacs Secondary</font>
+        <br>(ethiomex : 18)</td>
+        <td align="center">NA</td>
+        <td>(Unsupported)</td>
+    </tr>
+<tr><th><a href="http://www.ethiowalia.com">EthioWalia</a></th>
+    <td bgcolor="pink" align="center">EthioWalia</font></td>
+    <td>AMH3</font>
+    <td>AMH3</td>
+    </tr>
+<tr><th rowspan=2>Fidel Software (?)</th>
+    <td bgcolor="pink" align="center"><font color="red">Fidelxtr1</font>
+        <br>(fidelxtr1 : 24)</td>
+    <td><font color="red">FIDEL~`_SOFTWARE</font>
+    <td rowspan=2>Fidel</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Fidelxtr2</font>
+        <br>(fidelxtr2 : 25)</td>
+    <td><font color="green">EXTRA~`_FIDEL</font></td>
+    </tr>
+<tr><th>GeezBausi (?)</th>
+    <td bgcolor="pink" align="center">TFanus
+        <br>(tfanus : 58)</td>
+    <td>GeezBausi</td>
+    <td>GeezBausi</td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.geezfont.com/">Ge'ezFont</a></th>
+    <td bgcolor="pink" align="center">Ge'ezFont
+        <br>(gezfont : 27)</td>
+    <td>GeezAddis<br>
+        geezBasic<br>
+        geezLong<br>
+        GeezThin</td>
+    <td>GeezAddis<br>
+        geezBasic<br>
+        geezLong<br>
+        GeezThin</td>
+    </tr>
+<tr><td bgcolor="#bfbfbf" align="center">Ge'ezFontOld</td>
+    <td>geezBasic<br>geezDirib</td>
+    <td>geezBasicOld<br>geezDirib</td>
+    </tr>
+<tr><th rowspan=4>Ge'ez Frontiers Foundation</th>
+    <td bgcolor="pink" align="center"><font color="red">Ethiopian ASCII Primary</font>
+        <br>(gezfree : 28)</td>
+    <td><font color="red">GF Zemen Primary<br>
+        GF Abebe Giorgis Primary<br>
+        GF Yigezu Bisrat Primary</font></td>
+    <td rowspan=2>GFZemen<br>
+        GFAbebeG<br>
+        GFYigezu</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Ethiopian ASCII Extended-Secondary</font>
+        <br>(gezfree2 : 29)</td>
+    <td><font color="green">GF Zemen Secondary<br>
+        GF Abebe Giorgis Secondary<br>
+        GF Yigezu Bisrat Secondary</font></td>
+    </tr>
+<tr><td bgcolor="lightblue" align="center"><font color="red">PFR he</font>
+        <br>(enhpfr : 16)</td>
+    <td><font color="red">ENH Zena he</font></td>
+    <td rowspan=2>ENHPFR</td>
+    </tr>
+<tr><td bgcolor="lightblue" align="center"><font color="green" bgcolor="lightblue">PFR le</font>
+        <br>(enhpfr : 16)</td>
+    <td><font color="green">ENH Zena le</font></td>
+    </tr>
+<tr><th rowspan=7><a href="http://members.aol.com/Feedel/Feedel.html">Feedel</a></th></tr>
+<tr><td bgcolor="pink" align="center">Ge'ezigna
+        <br>(gezigna : 30)</td>
+    <td>Geezigna</td>
+    <td>Geezigna</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">Ge'ez I
+        <br>(gezi : 31)</td>
+    <td>Geez</td>
+    <td rowspan=2>Geez</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">Ge'ez II
+        <br>(gezii : 32)</td>
+    <td>Geez II</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">Ge'ezNew A
+        <br>(geznewa : 33)</td>
+    <td><font color="red">GeezA<br>
+        GeezNewA<br>
+        GeezSindeA<br>
+        Geez Demo<br>
+        GeezNet<br>
+	ZewdituA</font></td>
+    <td rowspan=3>GeezA<br>
+        GeezNewA<br>
+        GeezSindeA<br>
+        GeezDemo<br>
+        GeezNet<br>
+	ZewdituA</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">Ge'ezNew B
+        <br>(geznewb : 34)</td>
+    <td><font color="green">GeezB<br>
+        GeezNewB<br>
+        GeezSindeB<br>ZewdituB</font></td>
+    </tr>
+<tr><td bgcolor="#bfbfbf" align="center">Ge'ezNew C</td>
+    <td><font color="darkblue">GeezC</font></td>
+    </tr>
+<tr><th><a href="ftp://hopi.dtcc.edu/pub/berlin/fonts/">MahNishtahnah Project</a></th>
+    <td bgcolor="pink" align="center">Ge'ezEdit<br>(gezedit : 26)</td>
+    <td>AmharQ</td>
+    <td>AmharQ</td>
+    </tr>
+<tr><th rowspan=5><a href="http://www.monotype.com/">Monotype</a></th>
+    <td bgcolor="pink" align="center"><font color="red">Monotype 1</font>
+        <br>(monotype1 : 44)</td>
+    <td><font color="red">Amharic 1<br>
+        Amharic Book 1</font></td>
+    <td rowspan=5>Amharic<br>
+        AmharicBook<br>
+        Amharic_Alt</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="brown">Monotype 2</font>
+        <br>(monotype2 : 45)</td>
+    <td><font color="brown">Amharic 2<br>
+        Amharic Book 2</font></td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="#aa0000">Monotype 3</font>
+        <br>(monotype3 : 46)</td>
+    <td><font color="#aa0000">Amharic 3<br>
+        Amharic Book 3</font></td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="red">Monotype Alt</font>
+        <br>(monoalt : 47)</td>
+    <td><font color="red">Amharic_Alt</font></td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Monotype Number</font>
+        <br>(mononum : 48)</td>
+    <td><font color="green">Amharic_Num</font></td>
+    </tr>
+<tr><th>NCI</th>
+    <td bgcolor="pink" align="center">NCI
+        <br>(nci : 50)</td>
+    <td>ET-NCI Normal<br>
+        ET-NCI  Italic<br>
+
+        ET-NEBAR Normal<br>
+        ET-NEBAR  Bold<br>
+
+        ET-SAMI Normal<br>
+        ET-SAMI Normal Italic<br>
+        ET-SAMI Bold<br>
+        ET-SAMI Bold Italic
+    </td>
+    <td valign="top">ET-NCI<br>
+        &nbsp;<br>
+        ET-NEBAR<br>
+        &nbsp;<br>
+        ET-SAMI</td>
+    </tr>
+<tr><th rowspan=4>NCIC</th>
+    <td bgcolor="pink" align="center">Agafari
+        <br>(ncic : 51)</td>
+    <td>AGF - Zemen<br>
+        AGF - Dawit<br>
+        AGF - Rejim<br>
+        AGF - Yigezu Bisrat</td>
+    <td>AGF-Dawit<br>
+        AGF-Zemen<br>
+        AGF-Rejim<br>
+        AGF-Yigezu-Bisrat</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">Agafari -Ejji Tsihuf
+        <br>(ncic_et : 52)</td>
+    <td>AGF - Ejji Tsihuf</td>
+    <td>AGF-Ejji-Tsihuf</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="red">Dejene1</font>
+        <br>(dejene1 : 12)</td>
+    <td><font color="red">Agaw</font></td>
+    <td rowspan=2>Agaw</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Dejene2</font>
+        <br>(dejene2 : 13)</td>
+    <td><font color="green">AgawBd</font></td>
+    </tr>
+<tr><th><a href="http://OmniTech.EthiopiaOnline.Net/">OmniTech</a></th>
+    <td bgcolor="pink" align="center">NCI
+        <br>(omnitech : 53)</td>
+    <td>Amharic&nbsp; Kechin Normal<br>
+        Amharic Yigezu Bisrat Normal<br>
+        Amharic Gazetta Ordinay
+    </td>
+    <td>AmharicKechin<br>
+        AmharicYigezuBisrat<br>
+        AmharicGazetta</td>
+    </tr>
+<tr><th><a href="http://www.geezsoft.com/">Phonetic Systems</a></th>
+    <td bgcolor="pink" align="center">Phonetic Systems
+        <br>(geztype : 35)</td>
+    <td>GeezType</td>
+    <td>GeezType</td>
+    </tr>
+<tr><th rowspan=2>Power Ge'ez</th>
+    <td bgcolor="pink" align="center"><font color="red">Power Ge'ez</font>
+        <br>(powergez : 54)</td>
+    <td><font color="red">Ge'ez-1<br>
+        Ge'ez-2<br>
+        Ge'ez-3</font></td>
+    <td rowspan=2>Geez-1<br>
+        Geez-2<br>
+        Geez-3</td>
+    </tr>
+<tr><td bgcolor="pink" align="center"><font color="green">Power Ge'ez Number</font>
+        <br>(powergeznum : 55)</td>
+    <td><font color="green">Ge'ez-1 Number, etc</td>
+    </tr>
+<tr><th rowspan=2>Samawerfa</th>
+    <td bgcolor="pink" align="center">AddisWP
+    <br>(samwp : 66)</td>
+    <td>AddisWP</td>
+    <td>AddisWP</td>
+    </tr>
+    <tr><td bgcolor="pink" align="center">Addis98
+    <br>(sam98 : 67)</td>
+    <td>Addis98</td>
+    <td>Addis98</td>
+    </tr>
+<tr><th rowspan=3><a href="http://www.sil.org/">SIL</a></th>
+    <td bgcolor="#bfbfbf" align="center"><font color="red">Et 1</font>
+    <br>(silet1 : na)</td>
+    <td><font color="red">Et 1 SILAddisAbaba</font></td>
+    <td rowspan=3>SILAddisAbaba</td>
+    </tr>
+    <tr><td bgcolor="#bfbfbf" align="center"><font color="green">Et 2</font>
+    <br>(silet2 : na)</td>
+    <td><font color="green">Et 2 SILAddisAbaba</font></td>
+    </tr>
+    <tr><td bgcolor="#bfbfbf" align="center"><font color="#aa0000">Et 3</font>
+    <br>(silet3 : na)</td>
+    <td><font color="#aa0000">Et 3 SILAddisAbaba</font></td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.tfanus.com.er/">TFanus</a></th>
+    <td bgcolor="pink" align="center">TFanus
+        <br>(tfanus : 58)</td>
+    <td>TfanusGeez01</td>
+    <td>TfanusGeez01</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">TFanus New
+        <br>(tfanusnew : 68)</td>
+    <td>GeezTimesNew</td>
+    <td>GeezTimesNew</td>
+    </tr>
+<tr><th>Visual Ge'ez</th>
+    <td bgcolor="pink" align="center">Visual Ge'ez
+        <br>(visualgez : 61)</td>
+    <td>VG2-Agazian<br>
+        VG2-Main<br>
+        VG2-Title</td>
+    <td>VG2-Agazian<br>
+        VG2-Main<br>
+        VG2-Title</td>
+    </tr>
+<tr><th rowspan="2"><a href="http://members.aol.com/w4z5m4/wazema.html">Wazema</a></th>
+<td bgcolor="pink" align="center">Wazema1
+        <br>(wazema1 : 75)</td>
+    <td><font color="red">A1 Desta<br>
+        A1 Kidan<br>
+        A1 Qelem<br>
+        A1 Tesfa</td>
+    <td rowspan=2>A1-Desta<br>
+        A1-Kidan<br>
+        A1-Qelem<br>
+        A1-Tesfa</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">Wazema2
+        <br>(wazema2 : 76)</td>
+    <td><font color="green">A2 Desta<br>
+        A2 Kidan<br>
+        A2 Qelem<br>
+        A2 Tesfa</td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Typeface Independent Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th>Japanese Industrial Standard</th>
+    <td bgcolor="lightblue" align="center">JIS
+        <br>(jis : 40)</td>
+    <td align="center">NA</td>
+    <td>JIS</td>
+    </tr>
+<tr><th>Japanese Unix Network</th>
+    <td bgcolor="lightblue" align="center">JUNET
+        <br>(junet : 41)</td>
+    <td align="center">NA</td>
+    <td>JUNET</td>
+    </tr>
+<tr><th rowspan=3><a href="http://www.unicode.org/">Unicode</a></th>
+    <td bgcolor="pink" align="center">UTF-7
+        <br>(unicode : 59<br>variant : utf7)</td>
+    <td align="center">NA</td>
+    <td>UTF7</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">UTF-8
+        <br>(unicode : 59<br>variant : utf8)</td>
+    <td align="center">NA</td>
+    <td>UTF8</td>
+    </tr>
+<tr><td bgcolor="pink" align="center">UTF-16
+        <br>(unicode : 59<br>variant : utf16)</td>
+    <td align="center">NA</td>
+    <td>UTF16</td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Transliteration Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th><a href="http://www.primenet.com/~ephrem/">Dehai</a></th>
+    <td bgcolor="lightblue" align="center">Dehai
+        <br>(dehai : 11)</td>
+    <td align="center">NA</td>
+    <td>Dehai</td>
+    </tr>
+<tr><th><a href="http://www.informatik.uni-hamburg.de/TGI/mitarbeiter/wimis/kummer/ethiop_eng.html">Ethiop</a></th>
+    <td bgcolor="lightblue" align="center">Ethiop
+        <br>(ethiop : 19)</td>
+    <td align="center">NA</td>
+    <td>Ethiop</td>
+    </tr>
+<tr><th><a href="http://www.iso.ch">ISO/TC46/SC2</a></th>
+    <td bgcolor="lightblue" align="center">ISO/TC46/SC2
+        <br>(iso : 38)</td>
+    <td align="center">NA</td>
+    <td>ISOTC46SC2</td>
+    </tr>
+<tr><th><a href="http://www.uni-mainz.de/~kropp/welcome.html">Mainz</a></th>
+    <td bgcolor="lightblue" align="center">Mainz
+        <br>(mainz : 43)</td>
+    <td align="center">NA</td>
+    <td>Mainz</td>
+    </tr>
+<tr><th><a href="http://www.cs.indiana.edu/hyplan/dmulholl/fidel/sera-faq.html">SERA</a></th>
+    <td bgcolor="pink" align="center">SERA
+        <br>(sera : 57)</td>
+    <td align="center">NA</td>
+    <td>SERA</td>
+    </tr>
+<tr><th><a href="http://www.sil.org/">SIL</a></th>
+    <td bgcolor="lightblue" align="center">Ed
+        <br>(ed : 15)</td>
+    <td align="center">NA</td>
+    <td>Ed</td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Transcription Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th>IES</th>
+    <td bgcolor="lightblue" align="center">IES
+        <br>(ies : 36)</td>
+    <td align="center">NA</td>
+    <td>IES</td>
+    </tr>
+<tr><th>Qubee</th>
+    <td bgcolor="lightblue" align="center">Qubee
+        <br>(qubee : 58)</td>
+    <td align="center">NA</td>
+    <td>Qubee</td>
+    </tr>
+<tr><th align="left" colspan=4>&nbsp;<br><h3>Miscellaneous Systems</h3></th></tr>
+<tr><th>Vendor</th><th>Encoding Name</th><th>Type Faces</th><th>CGI Name</th></tr>
+<tr><th rowspan=2>C-Like</th>
+    <td bgcolor="lightblue" align="center">CLike (\xABCD)
+        <br>(clike : 10<br>variant : uppercase)</td>
+    <td align="center">NA</td>
+    <td>CLike</td>
+    </tr>
+<tr><td bgcolor="lightblue" align="center">clike (\xabcd)
+        <br>(clike : 10<br>variant : lowercase)</td>
+    <td align="center">NA</td>
+    <td>clike</td>
+    </tr>
+<tr><th><a href="http://www.etl.go.jp/~mule/">ETL</a></th>
+    <td bgcolor="lightblue" align="center">MULETeX
+        <br>(muletex : 49)</td>
+    <td align="center">NA</td>
+    <td>MULETeX</td>
+    </tr>
+<tr><th>Ge'ez Frontiers Foundation</th>
+    <td bgcolor="lightblue" align="center">Image
+        <br>(image : 37)</td>
+    <td align="center">NA</td>
+    <td>Image<br>image</td>
+    </tr>
+<tr><th rowspan=2><a href="http://www.sun.com/">Sun MicroSystems</a></th>
+    <td bgcolor="lightblue" align="center">Java (\uABCD)
+        <br>(java : 39<br>variant : uppercase)</td>
+    <td align="center">NA</td>
+    <td>Java</td>
+    </tr>
+<tr><td bgcolor="lightblue" align="center">java (\uabcd)
+        <br>(java : 39<br>variant : lowercase)</td>
+    <td align="center">NA</td>
+    <td>java</td>
+    </tr>
+<tr><th rowspan=2>Unicode</th>
+    <td bgcolor="lightblue" align="center">Unicode Character Names
+        <br>(uname : 73)</td>
+    <td align="center">NA</td>
+    <td>UName</td>
+    </tr>
+<tr><td bgcolor="lightblue" align="center">U Plus (U+ABCD)
+        <br>(uplus : 60)</td>
+    <td align="center">NA</td>
+    <td>UPlus</td>
+    </tr>
+</table>
+</center>
+
+<h3>Anything Missing?</h3>
+<p>We would like to additional fonts to the Ethiopic Library.
+If you have information about fonts from: <em>Abugida, Ecological Linguistics,
+Ethio 2000, Laser Amharic, Jarinda World Trade,</em> or know of other
+fonts not listed here, please 
+<a href="mailto:LibEth@EthiopiaOnline.Net">contact us</a>
+to help us support these products.</p>
+
+
+<h3>In the Works...</h3>
+<p>The next wave of work will be aimed at input for the "Dehai", "Ed",
+"Ethiop", "ISO/TC46/SC2", "Mainz", and "Qubee" systems.  Since the
+discovering of "Extended Ed" Ed input support will mean addressing v0.34
+issues of Extended Ethiopic and hence may take longer.</p>
+
+</body>
+</html>
